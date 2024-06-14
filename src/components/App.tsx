@@ -1,10 +1,11 @@
 import React from 'react';
 import { Header } from './Header/Header';
 import { createGlobalStyle, styled } from 'styled-components';
-import { COLOR_WHITE } from '../constants/styles/mainColors';
+import { COLORS } from '../constants/styles/mainColors';
 import { Outlet } from 'react-router-dom';
-export 
-const Global = createGlobalStyle`
+import { MainPage } from '../pages/MainPage/MainPage';
+import { Footer } from './Footer/Footer';
+export const Global = createGlobalStyle`
     *{
         margin: 0px;
         padding: 0px;
@@ -15,20 +16,21 @@ const Global = createGlobalStyle`
         text-decoration: none;
     }
     body {
-        background-color: ${COLOR_WHITE}
+        background-color: ${COLORS.COLOR_WHITE}
     }
-`
+`;
 
 const AppWrapper = styled.div`
-    margin: 100px;
-`
+  margin: 100px;
+`;
 
 export const App = () => {
-    return (
-            <AppWrapper>
-                <Global />
-                <Header />
-                <Outlet />
-            </AppWrapper>
-    );
+  return (
+    <AppWrapper>
+      <Global />
+      <Header />
+      <Outlet />
+      <Footer />
+    </AppWrapper>
+  );
 };

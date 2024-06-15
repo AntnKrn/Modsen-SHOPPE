@@ -65,3 +65,5 @@ export const InputForSubscribeEmail = styled.input`
     outline: none;
   }
 `;
+
+export const StyledText = styled.p``;

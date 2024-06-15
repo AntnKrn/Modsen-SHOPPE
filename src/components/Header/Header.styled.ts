@@ -17,15 +17,24 @@ export const Navigation = styled.nav`
   width: 100%;
 `;
 
-export const ModsenSHOPPE = styled.h1`
-  color: ${COLORS.COLOR_ACCENT};
+export const MODSENSHOPPE = styled.div`
+  position: absolute;
+  left: 0;
+
+  &:nth-child(2) {
+    color: 'var(--text-color) !important';
+  }
+`;
+
+export const ModsenSHOPPE = styled.h1<{ $HOPPE?: string }>`
+  color: ${(props) =>
+    props.$HOPPE ? `var(--text-color)` : COLORS.COLOR_ACCENT};
   font-family: ${ALLERTA_STENCIL};
   font-style: normal;
   font-weight: 400;
   font-size: 35px;
   line-height: 40px;
-  position: absolute;
-  left: 0;
+  display: inline;
 `;
 
 export const NavigationList = styled.ul`

@@ -6,6 +6,7 @@ import {
   FooterNavItem,
   FooterWrapper,
   InputForSubscribeEmail,
+  StyledText,
   SubscribeEmailForm,
   ThermsAndSocialMedia,
 } from './Footer.styled';
@@ -34,7 +35,11 @@ export const Footer = () => {
       </FooterNavAndSubscribeEmail>
 
       <ThermsAndSocialMedia>
-        © 2023 Shelly. Terms of use and privacy policy.
+        <StyledText>
+          <span style={{ color: 'var(--text-color)' }}>© 2023 Shelly.</span>{' '}
+          Terms of use <span style={{ color: 'var(--text-color)' }}>and</span>{' '}
+          privacy policy.
+        </StyledText>
         <Twitter />
       </ThermsAndSocialMedia>
     </FooterWrapper>

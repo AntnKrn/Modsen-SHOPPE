@@ -9,6 +9,7 @@ import {
   Switch,
   ListItem,
   LeftNavItems,
+  MODSENSHOPPE,
 } from './Header.styled';
 import { Busket } from '../../assets/icons/busket';
 import { Search } from '../../assets/icons/search';
@@ -28,7 +29,12 @@ export const Header = () => {
   return (
     <StyledHeader>
       <Navigation>
-        <ModsenSHOPPE>Modsen SHOPPE</ModsenSHOPPE>
+        <MODSENSHOPPE>
+          <Link to="/">
+            <ModsenSHOPPE>Modsen S</ModsenSHOPPE>
+            <ModsenSHOPPE $HOPPE="black">HOPPE</ModsenSHOPPE>
+          </Link>
+        </MODSENSHOPPE>
 
         <NavigationList>
           <LeftNavItems>

@@ -13,12 +13,17 @@ import {
 import { Busket } from '../../assets/icons/busket';
 import { Search } from '../../assets/icons/search';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { change } from '../../store/theme/ThemeSlice';
 
 export const Header = () => {
   const [checked, setChecked] = useState(false); // store value
+  const dispatch = useDispatch();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
+    dispatch(change());
+  };
 
   return (
     <StyledHeader>

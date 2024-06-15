@@ -22,7 +22,6 @@ export const ShopTheLastItemImg = styled.img`
 `;
 
 export const ProductName = styled.h3`
-  color: ${COLORS.COLOR_BLACK};
   font-size: ${DESKTOP_HEADING3.Size};
   font-weight: ${DESKTOP_HEADING3.Weight};
   line-height: ${DESKTOP_HEADING3.LineHeight};

@@ -53,12 +53,14 @@ export const ArrowWrapper = styled.div`
 export const InputForSubscribeEmail = styled.input`
   width: 396px;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
   flex-grow: 2;
   font-size: ${DESKTOP_HEADING5.Size};
   font-weight: ${DESKTOP_HEADING5.Weight};
   line-height: ${DESKTOP_HEADING5.LineHeight};
   padding-bottom: 5px;
+  background-color: inherit;
   &:focus {
     outline: none;
   }

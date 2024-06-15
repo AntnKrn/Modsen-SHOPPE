@@ -19,7 +19,6 @@ export const ShopTheLastText = styled.h2`
   font-weight: ${DESKTOP_HEADING1.Weight};
   font-size: ${DESKTOP_HEADING1.Size};
   line-height: ${DESKTOP_HEADING1.LineHeight};
-  color: ${COLORS.COLOR_BLACK};
 `;
 
 export const ViewAllText = styled.h4`

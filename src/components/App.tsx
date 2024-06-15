@@ -1,32 +1,17 @@
 import React from 'react';
 import { Header } from './Header/Header';
-import { createGlobalStyle, styled } from 'styled-components';
-import { COLORS } from '../constants/styles/mainColors';
+import { AppWrapper, Global } from './App.styled';
 import { Outlet } from 'react-router-dom';
 import { Footer } from './Footer/Footer';
-export const Global = createGlobalStyle`
-    *{
-        margin: 0px;
-        padding: 0px;
-        box-sizing: border-box;
-        font-family: DM Sans;
-    }
-    a:link{
-        text-decoration: none;
-    }
-    body {
-        background-color: ${COLORS.COLOR_WHITE}
-    }
-`;
-
-const AppWrapper = styled.div`
-  margin: 100px;
-`;
+import { RootState } from '../store/store';
+import { useSelector } from 'react-redux';
 
 export const App = () => {
+  const theme = useSelector((state: RootState) => state.theme.isDark);
+  console.log('dsadas', theme);
   return (
     <AppWrapper>
-      <Global />
+      <Global $theme={theme} />
       <Header />
       <Outlet />
       <Footer />

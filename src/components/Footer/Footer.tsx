@@ -15,6 +15,7 @@ import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 import { SendArrow } from '../../assets/icons/sendArrow';
 
 export const Footer = () => {
+  console.log('rererere');
   return (
     <FooterWrapper>
       <LineForFooterHeader />

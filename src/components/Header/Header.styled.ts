@@ -45,6 +45,7 @@ export const NavigationList = styled.ul`
 
 export const ListItem = styled.li<{ $marginRight?: number }>`
   margin-right: ${(props) => props.$marginRight}px;
+  color: var(--text-color);
 `;
 export const LeftNavItems = styled.div`
   display: flex;
@@ -74,10 +75,9 @@ export const Switch = styled.div`
     width: 20px;
     height: 18px;
     border-radius: 99px;
-
+    background: ${COLORS.COLOR_WHITE};
     top: 0.5px;
     left: 1px;
-    background: white;
     transform: translate(0, 0.5px);
   }
 `;
@@ -89,6 +89,7 @@ export const Input = styled.input`
     background: #78788029;
 
     &:before {
+      background: ${COLORS.COLOR_BLACK};
       transform: translate(20px, 0.5px);
     }
   }

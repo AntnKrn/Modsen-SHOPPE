@@ -37,7 +37,7 @@ export const Carousel = () => {
 
   return (
     <ImgWrapper>
-      <ImgSlider src={imagesUrls[imageIndex]} alt={''} />
+      <ImgSlider src={imagesUrls[imageIndex]} alt="" />
       <ImgSliderButton onClick={showPrevImage} style={{ left: 0 }}>
         &lt;
       </ImgSliderButton>

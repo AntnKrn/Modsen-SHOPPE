@@ -1,7 +1,5 @@
-import React from "react";
+import React from 'react';
 
 export const ContactPage = () => {
-    return (
-        <div>ContactPage</div>
-    )
-}
+  return <div>ContactPage</div>;
+};

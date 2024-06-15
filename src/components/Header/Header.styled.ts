@@ -3,8 +3,6 @@ import { COLORS } from '../../constants/styles/mainColors';
 import { ALLERTA_STENCIL } from '../../constants/styles/modelFont';
 import { DESKTOP_HEADING5 } from '../../constants/styles/fonts';
 
-interface IHeaderProps {}
-
 export const StyledHeader = styled.header`
   height: 42px;
   margin-bottom: 16px;

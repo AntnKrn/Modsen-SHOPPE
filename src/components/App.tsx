@@ -3,7 +3,6 @@ import { Header } from './Header/Header';
 import { createGlobalStyle, styled } from 'styled-components';
 import { COLORS } from '../constants/styles/mainColors';
 import { Outlet } from 'react-router-dom';
-import { MainPage } from '../pages/MainPage/MainPage';
 import { Footer } from './Footer/Footer';
 export const Global = createGlobalStyle`
     *{

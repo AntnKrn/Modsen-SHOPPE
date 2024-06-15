@@ -1,9 +1,5 @@
 import styled from 'styled-components';
-import {
-  DESKTOP_HEADING4,
-  DESKTOP_HEADING5,
-  fdsafasd,
-} from '../../constants/styles/fonts';
+import { DESKTOP_HEADING5 } from '../../constants/styles/fonts';
 
 export const FooterWrapper = styled.footer`
   height: 159px;

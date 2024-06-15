@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const ProductPage = () => {
-    return <div>ProductPage</div>;
+  return <div>ProductPage</div>;
 };

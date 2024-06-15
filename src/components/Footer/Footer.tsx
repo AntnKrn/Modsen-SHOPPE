@@ -11,9 +11,6 @@ import {
 } from './Footer.styled';
 import { LineForFooterHeader } from '../LineForFooterHeader/LineForFooterHeader';
 
-import { LinkedIn } from '../../assets/icons/socialMedia/LinkedIn';
-import { Facebook } from '../../assets/icons/socialMedia/Facebook';
-import { Instagram } from '../../assets/icons/socialMedia/Instagram';
 import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 import { SendArrow } from '../../assets/icons/sendArrow';
 

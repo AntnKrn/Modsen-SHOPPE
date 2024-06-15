@@ -1,9 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Router,
-  Link,
-} from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import { MainPage } from './MainPage/MainPage';
 import { ErrorPage } from './ErrorPage/ErrorPage';
 import { BusketPage } from './BusketPage/BusketPage';

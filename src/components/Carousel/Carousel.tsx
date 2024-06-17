@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 import img1 from './img1.jpg';
 import img2 from './img2.jpg';
@@ -14,26 +14,47 @@ import {
 
 export const Carousel = () => {
   const imagesUrls: string[] = [img1, img2, img3, img4, img5];
-
   const [imageIndex, setImageIndex] = useState(0);
+  const ref: MutableRefObject<Element> = useRef<Element | null>(null);
+
+  const onClickButton = (
+    imgIndex?: number,
+    type?: string,
+    btn?: Element | MutableRefObject<Element>,
+  ) => {
+    if (type) {
+      switch (type) {
+        case 'remove': {
+          (btn as Element).classList.remove('active');
+          break;
+        }
+
+        case 'add': {
+          (btn as Element).classList.add('active');
+          break;
+        }
+      }
+    } else {
+      (btn as Element).classList.remove('active');
+      setImageIndex(imgIndex);
+    }
+  };
 
   useEffect(() => {
-    const imgSliderButton = document.getElementsByClassName(
-      `img${imageIndex + 1}`,
-    )[0];
+    ref.current = document.getElementsByClassName(`img${imageIndex + 1}`)[0];
 
     const toggle = setInterval(() => {
       setImageIndex((index) => {
-        if (imgSliderButton) {
-          imgSliderButton.classList.remove('active');
+        if (ref.current) {
+          onClickButton(null, 'remove', ref.current);
         }
         if (index === imagesUrls.length - 1) return 0;
         return index + 1;
       });
     }, 4000);
 
-    if (imgSliderButton) {
-      imgSliderButton.classList.add('active');
+    if (ref.current) {
+      onClickButton(null, 'add', ref.current);
     }
     return () => clearInterval(toggle);
   });
@@ -44,7 +65,7 @@ export const Carousel = () => {
       <ButtonWrapper>
         {imagesUrls.map((img, index) => (
           <ImgSliderButton
-            onClick={() => setImageIndex(index)}
+            onClick={() => onClickButton(index, null, ref.current)}
             key={img}
             $number={index}
             className={`img${index + 1} ${index === 0 ? 'active' : 0}`}

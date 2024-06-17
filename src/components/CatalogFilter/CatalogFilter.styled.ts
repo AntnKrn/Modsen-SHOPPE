@@ -1,37 +1,8 @@
 import styled from 'styled-components';
-import { DESKTOP_HEADING5 } from '../../constants/styles/fonts';
-import { COLORS } from '../../constants/styles/mainColors';
 
 export const CatalogFilterWrapper = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const InputForSearch = styled.input`
-  width: 261px;
-  border: none;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: ${COLORS.COLOR_GRAY};
-  font-size: ${DESKTOP_HEADING5.Size};
-  font-weight: ${DESKTOP_HEADING5.Weight};
-  line-height: ${DESKTOP_HEADING5.LineHeight};
-  padding-bottom: 5px;
-  background-color: inherit;
-  &:focus {
-    outline: none;
-  }
-`;
-
-export const SearchInputWrapper = styled.form`
-  display: flex;
-  flex-direction: row;
-  position: relative;
-`;
-
-export const SearchWrapper = styled.div`
-  position: absolute;
-  right: 0;
 `;
 
 export const PriceWrapper = styled.div``;

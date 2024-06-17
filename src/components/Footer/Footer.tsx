@@ -1,22 +1,18 @@
 import React from 'react';
 import {
-  ArrowWrapper,
   FooterNav,
   FooterNavAndSubscribeEmail,
   FooterNavItem,
   FooterWrapper,
-  InputForSubscribeEmail,
   StyledText,
-  SubscribeEmailForm,
   ThermsAndSocialMedia,
 } from './Footer.styled';
 import { LineForFooterHeader } from '../LineForFooterHeader/LineForFooterHeader';
 
 import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 import { SendArrow } from '../../assets/icons/sendArrow';
-
+import { Input } from '../Input/Input';
 export const Footer = () => {
-  console.log('rererere');
   return (
     <FooterWrapper>
       <LineForFooterHeader />
@@ -26,12 +22,13 @@ export const Footer = () => {
           <FooterNavItem>TERMS OF SERVICES</FooterNavItem>
           <FooterNavItem>SHIPPING AND RETURNS</FooterNavItem>
         </FooterNav>
-        <SubscribeEmailForm>
-          <InputForSubscribeEmail placeholder="Give an email, get the newsletter." />
-          <ArrowWrapper>
-            <SendArrow />
-          </ArrowWrapper>
-        </SubscribeEmailForm>
+        <Input
+          color="black"
+          widthInput={396}
+          placeholder="Give an email, get the newsletter."
+        >
+          <SendArrow />
+        </Input>
       </FooterNavAndSubscribeEmail>
 
       <ThermsAndSocialMedia>

@@ -1,13 +1,9 @@
 import React from 'react';
-import {
-  CatalogFilterWrapper,
-  InputForSearch,
-  SearchInputWrapper,
-  SearchWrapper,
-} from './CatalogFilter.styled';
+import { CatalogFilterWrapper } from './CatalogFilter.styled';
 import { Search } from '../../assets/icons/search';
 import { ShopSelect } from '../ShopSelect/ShopSelect';
 import { PriceInputFilter } from '../PriceInput/PriceInputFilter';
+import { Input } from '../Input/Input';
 
 /* Sort by предполагает реализацию сортировки по убыванию и возрастаю, также сортировка
 может быть не указана, тогда поиск осуществляется без учета сортировки. 
@@ -20,12 +16,9 @@ Shop by предполагает выбор только определенно�
 export const CatalogFilter = () => {
   return (
     <CatalogFilterWrapper>
-      <SearchInputWrapper>
-        <InputForSearch placeholder="Search..." />
-        <SearchWrapper>
-          <Search />
-        </SearchWrapper>
-      </SearchInputWrapper>
+      <Input widthInput={261} color="gray" placeholder="Search... ">
+        <Search />
+      </Input>
       <ShopSelect nameSelect="Shop by" options={['lalala', 'fdasfdas']} />
       <ShopSelect nameSelect="Sort by" options={['By high', 'By Low']} />
       <PriceInputFilter />

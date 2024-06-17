@@ -10,7 +10,7 @@ import {
   ProductTextInfo,
 } from './ProductInfo.styled';
 import { Busket } from '../../assets/icons/busket';
-import { Star } from '../../assets/icons/star';
+import { Star } from '../../assets/icons/Star';
 
 export const ProductInfo = () => {
   return (

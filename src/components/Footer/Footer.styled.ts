@@ -3,7 +3,7 @@ import { DESKTOP_HEADING5 } from '../../constants/styles/fonts';
 
 export const FooterWrapper = styled.footer`
   height: 159px;
-  margin-top: 252px;
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

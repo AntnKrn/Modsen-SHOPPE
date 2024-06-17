@@ -2,21 +2,22 @@ import React from 'react';
 import { Carousel } from '../../components/Carousel/Carousel';
 import {
   BodyWrapper,
-  ShopTheLastText,
-  ShopTheLastWrapper,
+  ShopTheLastTextWrapper,
   ViewAllText,
 } from './MainPage.styled';
-import { ShowTheLastList } from '../../components/ShopTheLastList/ShopTheLastList';
+import { ShopTheLastList } from '../../components/ShopTheLastList/ShopTheLastList';
+import { ShopTheLatestText } from '../../components/ShopTheLatestText/ShopTheLatestText';
 
 export const MainPage = () => {
   return (
     <BodyWrapper>
       <Carousel />
-      <ShopTheLastWrapper>
-        <ShopTheLastText>Shop The Latest</ShopTheLastText>
+      <ShopTheLastTextWrapper>
+        <ShopTheLatestText />
         <ViewAllText>View All</ViewAllText>
-      </ShopTheLastWrapper>
-      <ShowTheLastList />
+      </ShopTheLastTextWrapper>
+      <div style={{ marginBottom: '39px' }} />
+      <ShopTheLastList />
     </BodyWrapper>
   );
 };

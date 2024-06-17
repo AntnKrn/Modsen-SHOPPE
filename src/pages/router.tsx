@@ -9,7 +9,7 @@ import { App } from '../components/App';
 
 export const router = createBrowserRouter([
   {
-    path: '',
+    path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
@@ -17,7 +17,8 @@ export const router = createBrowserRouter([
       { path: 'busket', element: <BusketPage /> },
       { path: 'contact', element: <ContactPage /> },
       { path: 'shop', element: <ShopPage /> },
-      { path: 'product/:productId', element: <ProductPage /> },
+      { path: 'product', element: <ProductPage /> },
+      { path: 'error', element: <ErrorPage /> },
     ],
   },
   /* {path: "busket", element: <BusketPage />} */

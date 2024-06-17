@@ -1,24 +1,16 @@
 import styled from 'styled-components';
 
-import {
-  DESKTOP_HEADING1,
-  DESKTOP_HEADING4,
-} from '../../constants/styles/fonts';
+import { DESKTOP_HEADING4 } from '../../constants/styles/fonts';
 import { COLORS } from '../../constants/styles/mainColors';
 
-export const BodyWrapper = styled.div``;
+export const BodyWrapper = styled.main``;
 
-export const ShopTheLastWrapper = styled.div`
+export const ShopTheLastTextWrapper = styled.div`
   margin-top: 64px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-`;
-
-export const ShopTheLastText = styled.h2`
-  font-weight: ${DESKTOP_HEADING1.Weight};
-  font-size: ${DESKTOP_HEADING1.Size};
-  line-height: ${DESKTOP_HEADING1.LineHeight};
+  align-items: center;
 `;
 
 export const ViewAllText = styled.h4`

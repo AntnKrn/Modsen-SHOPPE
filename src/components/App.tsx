@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 
 export const App = () => {
   const theme = useSelector((state: RootState) => state.theme.isDark);
-  console.log('dsadas', theme);
   return (
     <AppWrapper>
       <Global $theme={theme} />

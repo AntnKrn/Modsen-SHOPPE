@@ -32,5 +32,8 @@ export const Global = createGlobalStyle<{ $theme: boolean }>`
 `;
 
 export const AppWrapper = styled.div`
+  min-height: calc(100vh - 200px);
   margin: 100px;
+  display: flex;
+  flex-direction: column;
 `;

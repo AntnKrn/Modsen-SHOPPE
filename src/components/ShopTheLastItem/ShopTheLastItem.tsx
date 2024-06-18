@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ProductCost,
   ProductName,
   ShopTheLastItemImg,
   ShopTheLastItemWrapper,
 } from './ShopTheLastItem.styled';
-import img1 from '../Carousel/img1.jpg';
 import { Link } from 'react-router-dom';
+import { IProduct } from '../../interfaces/IProducts';
 
-export const ShopTheLastItem = () => {
+export const ShopTheLastItem = (product: IProduct) => {
   return (
     <ShopTheLastItemWrapper>
-      <Link to="/product/1">
-        <ShopTheLastItemImg src={img1} />
-        <ProductName>Lira Earrings</ProductName>
-        <ProductCost>$ 30,00</ProductCost>
+      <Link to={`/product/${product.id}`}>
+        <ShopTheLastItemImg src={product.image} />
+        <ProductName>{product.title}</ProductName>
+        <ProductCost>${product.price}</ProductCost>
       </Link>
     </ShopTheLastItemWrapper>
   );

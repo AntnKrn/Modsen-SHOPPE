@@ -1,4 +1,8 @@
-import { createBrowserRouter } from 'react-router-dom';
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom';
 import { MainPage } from './MainPage/MainPage';
 import { ErrorPage } from './ErrorPage/ErrorPage';
 import { BusketPage } from './BusketPage/BusketPage';
@@ -11,15 +15,30 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
     children: [
       { path: '/', element: <MainPage /> },
       { path: 'busket', element: <BusketPage /> },
       { path: 'contact', element: <ContactPage /> },
       { path: 'shop', element: <ShopPage /> },
-      { path: 'product', element: <ProductPage /> },
+      { path: 'product/:id', element: <ProductPage /> },
+      { path: '*', element: <ErrorPage /> },
+    ],
+  },
+]);
+
+/* 
+[
+  {
+    path: '/',
+    element: <MainPage />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: 'busket', element: <BusketPage /> },
+      { path: 'contact', element: <ContactPage /> },
+      { path: '/shop', element: <ShopPage /> },
+      { path: 'product/:id', element: <ProductPage /> },
       { path: 'error', element: <ErrorPage /> },
     ],
   },
-  /* {path: "busket", element: <BusketPage />} */
-]);
+  /* {path: "busket", element: <BusketPage />}
+] */

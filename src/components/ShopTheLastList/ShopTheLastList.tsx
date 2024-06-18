@@ -1,16 +1,23 @@
 import React from 'react';
 import { ShopTheLastListWrapper } from './ShopTheLastList.styled';
 import { ShopTheLastItem } from '../ShopTheLastItem/ShopTheLastItem';
+import { useGetProductsQuery } from '../../store/Product/Product';
+import { IProduct } from '../../interfaces/IProducts';
 
-export const ShopTheLastList = () => {
+interface IShopTheLastList {
+  quantityProducts?: number;
+}
+
+export const ShopTheLastList = ({ quantityProducts }: IShopTheLastList) => {
+  const { data, error, isLoading } = useGetProductsQuery(quantityProducts);
+
   return (
     <ShopTheLastListWrapper>
-      <ShopTheLastItem />
-      <ShopTheLastItem />
-      <ShopTheLastItem />
-      <ShopTheLastItem />
-      <ShopTheLastItem />
-      <ShopTheLastItem />
+      {isLoading
+        ? null
+        : data.map((item: IProduct) => (
+            <ShopTheLastItem key={item.title} {...item} />
+          ))}
     </ShopTheLastListWrapper>
   );
 };

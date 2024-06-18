@@ -17,7 +17,7 @@ export const MainPage = () => {
         <ViewAllText>View All</ViewAllText>
       </ShopTheLastTextWrapper>
       <div style={{ marginBottom: '39px' }} />
-      <ShopTheLastList />
+      <ShopTheLastList quantityProducts={6} />
     </BodyWrapper>
   );
 };

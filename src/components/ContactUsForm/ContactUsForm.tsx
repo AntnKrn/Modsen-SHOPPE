@@ -18,12 +18,11 @@ export const ContactUsForm = () => {
 
   const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(firstNameRef.current.value);
-    console.log(lastNameNameRef.current.value);
-    console.log(emailRef.current.value);
-    console.log(subjectRef.current.value);
-    console.log(messageRef.current.value);
     firstNameRef.current.value = '';
+    lastNameNameRef.current.value = '';
+    emailRef.current.value = '';
+    subjectRef.current.value = '';
+    messageRef.current.value = '';
   };
 
   return (

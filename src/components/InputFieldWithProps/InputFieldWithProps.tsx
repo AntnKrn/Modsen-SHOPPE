@@ -1,21 +1,10 @@
 import { styled } from 'styled-components';
-import { DESKTOP_HEADING5 } from '../../constants/styles/fonts';
 import { COLORS } from '../../constants/styles/mainColors';
+import { DESKTOP_HEADING5 } from '../../constants/styles/fonts';
+import { Field } from 'formik';
 
-export const InputContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  position: relative;
-`;
-
-export const IconWrapper = styled.div`
-  position: absolute;
-  right: 0;
-`;
-
-export const StyledInput = styled.input<{
-  $Color: string;
-}>`
+export const StyledField = styled(Field)<{ $Color: string }>`
+  font-weight: bold;
   width: auto;
   border: none;
   border-bottom-width: 1px;

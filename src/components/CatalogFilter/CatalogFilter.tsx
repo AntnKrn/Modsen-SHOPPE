@@ -16,7 +16,7 @@ Shop by предполагает выбор только определенно�
 export const CatalogFilter = () => {
   return (
     <CatalogFilterWrapper>
-      <Input widthInput={261} color="gray" placeholder="Search... ">
+      <Input color="gray" placeholder="Search... ">
         <Search />
       </Input>
       <ShopSelect nameSelect="Shop by" options={['lalala', 'fdasfdas']} />

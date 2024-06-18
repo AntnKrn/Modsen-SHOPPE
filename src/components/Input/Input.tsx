@@ -1,26 +1,39 @@
 import React from 'react';
-import {
-  ArrowWrapper,
-  InputForSubscribeEmail,
-  SubscribeEmailForm,
-} from './Input.styled';
+import { IconWrapper, StyledInput, InputContainer } from './Input.styled';
+import { useInput } from '../../hooks/useInput';
 
 interface IProps {
-  children: React.ReactNode;
-  widthInput: number;
+  children?: React.ReactNode;
   placeholder: string;
   color: string;
+  inputRef?: React.RefObject<HTMLInputElement>;
+  id?: string;
+  name?: string;
+  type?: string;
 }
 
-export const Input = ({ children, placeholder, widthInput, color }: IProps) => {
+export const Input = ({
+  children,
+  placeholder,
+  color,
+  inputRef,
+  id,
+  name,
+  type,
+}: IProps) => {
+  const value = useInput();
   return (
-    <SubscribeEmailForm>
-      <InputForSubscribeEmail
-        $Width={`${widthInput}`}
+    <InputContainer>
+      <StyledInput
+        type={type}
+        name={name}
+        id={id}
+        ref={inputRef}
+        {...value}
         $Color={color}
         placeholder={placeholder}
       />
-      <ArrowWrapper>{children}</ArrowWrapper>
-    </SubscribeEmailForm>
+      <IconWrapper>{children}</IconWrapper>
+    </InputContainer>
   );
 };

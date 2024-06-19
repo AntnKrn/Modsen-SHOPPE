@@ -9,12 +9,11 @@ import {
   ProductRating,
   ProductTextInfo,
 } from './ProductInfo.styled';
-import { Busket } from '../../assets/icons/busket';
 import { Star } from '../../assets/icons/Star';
-import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 import { Email } from '../../assets/icons/socialMedia/Email';
 import { Facebook } from '../../assets/icons/socialMedia/Facebook';
 import { Instagram } from '../../assets/icons/socialMedia/Instagram';
+import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 
 interface IProductInfoProps {
   id: number;

@@ -10,13 +10,13 @@ import {
 } from './Footer.styled';
 import { LineForFooterHeader } from '../LineForFooterHeader/LineForFooterHeader';
 
-import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 import { SendArrow } from '../../assets/icons/sendArrow';
 import { Input } from '../Input/Input';
 import { Link } from 'react-router-dom';
 import { Instagram } from '../../assets/icons/socialMedia/Instagram';
 import { LinkedIn } from '../../assets/icons/socialMedia/LinkedIn';
 import { Facebook } from '../../assets/icons/socialMedia/Facebook';
+import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 
 export const Footer = () => {
   return (
@@ -30,11 +30,11 @@ export const Footer = () => {
           <FooterNavItem>TERMS OF SERVICES</FooterNavItem>
           <FooterNavItem>SHIPPING AND RETURNS</FooterNavItem>
         </FooterNav>
-        <div style={{ width: '396px' }}>
+        {/* <div style={{ width: '396px' }}>
           <Input color="black" placeholder="Give an email, get the newsletter.">
             <SendArrow />
           </Input>
-        </div>
+        </div> */}
       </FooterNavAndSubscribeEmail>
 
       <ThermsAndSocialMedia>

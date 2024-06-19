@@ -27,8 +27,10 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@eslint/compat": "^1.1.0",
     "@eslint/js": "^9.5.0",
+    "@hookform/resolvers": "^3.6.0",
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -48,6 +50,7 @@
     "globals": "^15.4.0",
     "html-webpack-plugin": "^5.6.0",
     "prettier": "^3.3.2",
+    "react-hook-form": "^7.52.0",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",

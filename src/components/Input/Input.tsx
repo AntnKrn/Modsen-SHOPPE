@@ -1,39 +1,43 @@
 import React from 'react';
-import { IconWrapper, StyledInput, InputContainer } from './Input.styled';
-import { useInput } from '../../hooks/useInput';
+import {
+  IconWrapper,
+  StyledInput,
+  InputContainer,
+  ErrorMessage,
+} from './Input.styled';
+import { Delete } from '../../assets/icons/delete';
 
-interface IProps {
+interface IPropsInput {
   children?: React.ReactNode;
   placeholder: string;
-  color: string;
-  inputRef?: React.RefObject<HTMLInputElement>;
-  id?: string;
-  name?: string;
-  type?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  error: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  register: any;
+  name: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  reset: any;
 }
 
 export const Input = ({
-  children,
-  placeholder,
-  color,
-  inputRef,
-  id,
+  error,
+  register,
   name,
-  type,
-}: IProps) => {
-  const value = useInput();
+  placeholder,
+  reset,
+}: IPropsInput) => {
   return (
     <InputContainer>
       <StyledInput
-        type={type}
-        name={name}
-        id={id}
-        ref={inputRef}
-        {...value}
-        $Color={color}
+        {...register}
         placeholder={placeholder}
+        $Color="gray"
+        autoComplete="off"
       />
-      <IconWrapper>{children}</IconWrapper>
+      {error[name] && <ErrorMessage>{error[name].message}</ErrorMessage>}
+      <IconWrapper onClick={() => reset(name, '')}>
+        <Delete />
+      </IconWrapper>
     </InputContainer>
   );
 };

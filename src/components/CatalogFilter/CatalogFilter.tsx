@@ -16,9 +16,9 @@ Shop by предполагает выбор только определенно�
 export const CatalogFilter = () => {
   return (
     <CatalogFilterWrapper>
-      <Input color="gray" placeholder="Search... ">
+      {/* <Input color="gray" placeholder="Search... ">
         <Search />
-      </Input>
+      </Input> */}
       <ShopSelect nameSelect="Shop by" options={['lalala', 'fdasfdas']} />
       <ShopSelect nameSelect="Sort by" options={['By high', 'By Low']} />
       <PriceInputFilter />

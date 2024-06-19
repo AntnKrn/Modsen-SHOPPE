@@ -38,22 +38,38 @@ export const InputsField = styled.div`
   column-gap: 116px;
   row-gap: 94px;
 
+  input:hover {
+    & + div {
+      display: block;
+    }
+  }
+
   div:nth-of-type(5) {
     grid-column-start: 1;
     grid-column-end: 3;
     margin-top: 126px;
+    input {
+      padding-bottom: 44px;
+    }
   }
 `;
 
-export const SendButton = styled.button`
+export const SendButton = styled.input`
   width: 500px;
-  height: 53px;
+  height: 51px;
   background-color: var(--text-color);
   color: var(--bg-color);
   font-size: ${DESKTOP_BODY_LARGE.Size};
   font-weight: ${DESKTOP_BODY_LARGE.Weight};
   line-height: ${DESKTOP_BODY_LARGE.LineHeight};
-  border: none;
+  border: 1px solid var(--text-color);
   border-radius: 4px;
   cursor: pointer;
+  transition: 1s;
+
+  &:active,
+  &:hover {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
 `;

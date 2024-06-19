@@ -11,7 +11,7 @@ export const Global = createGlobalStyle<{ $theme: boolean }>`
         padding: 0px;
         box-sizing: border-box;
         font-family: DM Sans;
-
+        transition: 0s;
     }
     a, a:link, a:visited, a:hover  {
         text-decoration: none;
@@ -26,6 +26,7 @@ export const Global = createGlobalStyle<{ $theme: boolean }>`
     body {
         background-color: var(--bg-color);
         color: var(--text-color);
+        transition: 1s;
     }
 `;
 

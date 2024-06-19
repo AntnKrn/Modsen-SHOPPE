@@ -1,8 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IProduct } from '../../interfaces/IProducts';
 
-//type queryType = number | string;
-
 export const productApi = createApi({
   reducerPath: 'productApi',
   baseQuery: fetchBaseQuery({
@@ -13,10 +11,10 @@ export const productApi = createApi({
       query: (limit: number) =>
         `/products` + `${limit ? `?limit=${limit}` : ''}`,
     }),
-    getProduct: builder.mutation<IProduct, number>({
-      query: (id: number) => `/products/${id}`,
+    getProduct: builder.query<IProduct, string>({
+      query: (id: string) => `/products/${id}`,
     }),
   }),
 });
 
-export const { useGetProductsQuery, useGetProductMutation } = productApi;
+export const { useGetProductsQuery, useGetProductQuery } = productApi;

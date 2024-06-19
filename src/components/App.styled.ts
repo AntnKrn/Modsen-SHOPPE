@@ -27,8 +27,6 @@ export const Global = createGlobalStyle<{ $theme: boolean }>`
         background-color: var(--bg-color);
         color: var(--text-color);
     }
-
-    
 `;
 
 export const AppWrapper = styled.div`

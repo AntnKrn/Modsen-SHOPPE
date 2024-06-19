@@ -5,7 +5,7 @@ import {
   ShopTheLastTextWrapper,
   ViewAllText,
 } from './MainPage.styled';
-import { ShopTheLastList } from '../../components/ShopTheLastList/ShopTheLastList';
+import { ShopList } from '../../components/ShopList/ShopList';
 import { ShopTheLatestText } from '../../components/ShopTheLatestText/ShopTheLatestText';
 
 export const MainPage = () => {
@@ -17,7 +17,7 @@ export const MainPage = () => {
         <ViewAllText>View All</ViewAllText>
       </ShopTheLastTextWrapper>
       <div style={{ marginBottom: '39px' }} />
-      <ShopTheLastList quantityProducts={6} />
+      <ShopList quantityProducts={6} />
     </BodyWrapper>
   );
 };

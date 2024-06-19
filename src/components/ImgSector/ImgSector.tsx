@@ -1,15 +1,16 @@
 import React from 'react';
-import noimage from '../../assets/noimg.jpg';
 import { ImgSectorContainer, ImgSectorItem } from './ImgSector.styled';
-
-export const ImgSector = () => {
+interface IImgSectorProps {
+  imgUrl: string;
+}
+export const ImgSector = ({ imgUrl }: IImgSectorProps) => {
   return (
     <ImgSectorContainer>
-      <ImgSectorItem src={noimage} />
-      <ImgSectorItem src={noimage} />
-      <ImgSectorItem src={noimage} />
-      <ImgSectorItem src={noimage} />
-      <ImgSectorItem src={noimage} />
+      <ImgSectorItem src={imgUrl} />
+      <ImgSectorItem src={imgUrl} />
+      <ImgSectorItem src={imgUrl} />
+      <ImgSectorItem src={imgUrl} />
+      <ImgSectorItem src={imgUrl} />
     </ImgSectorContainer>
   );
 };

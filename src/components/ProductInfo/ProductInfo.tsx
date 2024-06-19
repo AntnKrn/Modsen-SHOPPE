@@ -12,13 +12,27 @@ import {
 import { Busket } from '../../assets/icons/busket';
 import { Star } from '../../assets/icons/Star';
 
-export const ProductInfo = () => {
+interface IProductInfoProps {
+  id: number;
+  title: string;
+  image: string;
+  price: string;
+  description: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+  category: string;
+}
+
+export const ProductInfo = ({ ...product }: IProductInfoProps) => {
+  console.log(product);
   return (
     <ProductInfoContainer>
-      <ImgSector />
+      <ImgSector imgUrl={product.image} />
       <ProductInfoText>
-        <ProductName>Lira Earrings</ProductName>
-        <ProductPrice>$ 20,00</ProductPrice>
+        <ProductName>{product.title}</ProductName>
+        <ProductPrice>$ {product.price}</ProductPrice>
         <ProductRating style={{ marginTop: '64px' }}>
           <Star />
           <Star />
@@ -26,14 +40,11 @@ export const ProductInfo = () => {
           <Star />
           <Star />
           <ProductTextInfo style={{ marginLeft: '14px' }}>
-            1 customer review
+            {product.rating.count} customer review
           </ProductTextInfo>
         </ProductRating>
         <ProductTextInfo style={{ marginTop: '19px' }}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus
-          minus dolorum cumque aperiam nobis et, vel quae vero dolores
-          exercitationem beatae blanditiis, ipsa sint natus ipsam consectetur
-          nemo consequatur dolorem.
+          {product.description}
         </ProductTextInfo>
         <ProductInfoIcons style={{ marginTop: '189px' }}>
           <Busket />
@@ -42,7 +53,7 @@ export const ProductInfo = () => {
           <Busket />
         </ProductInfoIcons>
         <ProductTextInfo style={{ position: 'absolute', bottom: '0px' }}>
-          Categories: Categories names
+          Categories: {product.category}
         </ProductTextInfo>
       </ProductInfoText>
     </ProductInfoContainer>

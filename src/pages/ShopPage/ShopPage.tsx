@@ -3,7 +3,7 @@ import { ShopTheLatestText } from '../../components/ShopTheLatestText/ShopTheLat
 import { LineForFooterHeader } from '../../components/LineForFooterHeader/LineForFooterHeader';
 import { CatalogContent } from './ShopPage.styled';
 import { CatalogFilter } from '../../components/CatalogFilter/CatalogFilter';
-import { ShopTheLastList } from '../../components/ShopTheLastList/ShopTheLastList';
+import { ShopList } from '../../components/ShopList/ShopList';
 
 export const ShopPage = () => {
   return (
@@ -14,7 +14,7 @@ export const ShopPage = () => {
         <div style={{ marginBottom: '39px' }} />
         <CatalogContent>
           <CatalogFilter />
-          <ShopTheLastList />
+          <ShopList />
         </CatalogContent>
       </main>
     </>

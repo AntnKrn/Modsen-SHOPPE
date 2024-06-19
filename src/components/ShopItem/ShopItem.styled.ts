@@ -5,20 +5,20 @@ import {
 } from '../../constants/styles/fonts';
 import { COLORS } from '../../constants/styles/mainColors';
 
-export const ShopTheLastItemWrapper = styled.div`
+export const ShopItemWrapper = styled.div`
   width: 377px;
   height: 472px;
   margin: 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 `;
 
-export const ShopTheLastItemImg = styled.img`
+export const ShopItemImg = styled.img`
   border-radius: 8px;
   width: 100%;
   height: 380px;
-  object-fit: cover;
 `;
 
 export const ProductName = styled.h3`

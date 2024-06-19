@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ShopTheLastListWrapper = styled.div`
+export const ShopListWrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, auto);

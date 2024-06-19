@@ -13,15 +13,16 @@ import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 import { SendArrow } from '../../assets/icons/sendArrow';
 import { Input } from '../Input/Input';
 import { Link } from 'react-router-dom';
+
 export const Footer = () => {
   return (
     <FooterWrapper>
       <LineForFooterHeader />
       <FooterNavAndSubscribeEmail>
         <FooterNav>
-          <FooterNavItem>
-            <Link to="/contact">CONTACT</Link>
-          </FooterNavItem>
+          <Link to="/contact">
+            <FooterNavItem>CONTACT</FooterNavItem>
+          </Link>
           <FooterNavItem>TERMS OF SERVICES</FooterNavItem>
           <FooterNavItem>SHIPPING AND RETURNS</FooterNavItem>
         </FooterNav>

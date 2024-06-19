@@ -11,6 +11,10 @@ import {
 } from './ProductInfo.styled';
 import { Busket } from '../../assets/icons/busket';
 import { Star } from '../../assets/icons/Star';
+import { Twitter } from '../../assets/icons/socialMedia/Twitter';
+import { Email } from '../../assets/icons/socialMedia/Email';
+import { Facebook } from '../../assets/icons/socialMedia/Facebook';
+import { Instagram } from '../../assets/icons/socialMedia/Instagram';
 
 interface IProductInfoProps {
   id: number;
@@ -47,10 +51,10 @@ export const ProductInfo = ({ ...product }: IProductInfoProps) => {
           {product.description}
         </ProductTextInfo>
         <ProductInfoIcons style={{ marginTop: '189px' }}>
-          <Busket />
-          <Busket />
-          <Busket />
-          <Busket />
+          <Email />
+          <Facebook />
+          <Instagram />
+          <Twitter />
         </ProductInfoIcons>
         <ProductTextInfo style={{ position: 'absolute', bottom: '0px' }}>
           Categories: {product.category}

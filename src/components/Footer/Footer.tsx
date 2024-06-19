@@ -4,6 +4,7 @@ import {
   FooterNavAndSubscribeEmail,
   FooterNavItem,
   FooterWrapper,
+  SocialMediaWrapper,
   StyledText,
   ThermsAndSocialMedia,
 } from './Footer.styled';
@@ -13,6 +14,9 @@ import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 import { SendArrow } from '../../assets/icons/sendArrow';
 import { Input } from '../Input/Input';
 import { Link } from 'react-router-dom';
+import { Instagram } from '../../assets/icons/socialMedia/Instagram';
+import { LinkedIn } from '../../assets/icons/socialMedia/LinkedIn';
+import { Facebook } from '../../assets/icons/socialMedia/Facebook';
 
 export const Footer = () => {
   return (
@@ -39,7 +43,12 @@ export const Footer = () => {
           Terms of use <span style={{ color: 'var(--text-color)' }}>and</span>{' '}
           privacy policy.
         </StyledText>
-        <Twitter />
+        <SocialMediaWrapper>
+          <LinkedIn />
+          <Facebook />
+          <Instagram />
+          <Twitter />
+        </SocialMediaWrapper>
       </ThermsAndSocialMedia>
     </FooterWrapper>
   );

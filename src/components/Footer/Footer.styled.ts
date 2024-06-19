@@ -67,3 +67,9 @@ export const InputForSubscribeEmail = styled.input`
 `;
 
 export const StyledText = styled.p``;
+
+export const SocialMediaWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+`;

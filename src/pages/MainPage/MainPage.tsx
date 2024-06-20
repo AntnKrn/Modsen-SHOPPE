@@ -7,6 +7,7 @@ import {
 } from './MainPage.styled';
 import { ShopList } from '../../components/ShopList/ShopList';
 import { ShopTheLatestText } from '../../components/ShopTheLatestText/ShopTheLatestText';
+import { Link } from 'react-router-dom';
 
 export const MainPage = () => {
   return (
@@ -14,10 +15,12 @@ export const MainPage = () => {
       <Carousel />
       <ShopTheLastTextWrapper>
         <ShopTheLatestText />
-        <ViewAllText>View All</ViewAllText>
+        <Link to="/shop">
+          <ViewAllText>View All</ViewAllText>
+        </Link>
       </ShopTheLastTextWrapper>
       <div style={{ marginBottom: '39px' }} />
-      <ShopList quantityProducts={6} />
+      <ShopList quantityProducts="products?limit=6" />
     </BodyWrapper>
   );
 };

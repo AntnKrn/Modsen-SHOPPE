@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   FooterNav,
   FooterNavAndSubscribeEmail,
@@ -17,8 +17,46 @@ import { Instagram } from '../../assets/icons/socialMedia/Instagram';
 import { LinkedIn } from '../../assets/icons/socialMedia/LinkedIn';
 import { Facebook } from '../../assets/icons/socialMedia/Facebook';
 import { Twitter } from '../../assets/icons/socialMedia/Twitter';
+import { object, string } from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import emailjs from '@emailjs/browser';
 
 export const Footer = () => {
+  const schema = object({
+    email: string().email('Invalid email.').required('Required field.'),
+  }).required();
+
+  const form = useRef();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    resetField,
+    formState,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset({ email: '' });
+    }
+  }, [formState, reset]);
+
+  const onSubmit = () => {
+    emailjs
+      .sendForm('service_2cx4qgg', 'template_ghibljp', form.current, {
+        publicKey: 'BYAM0TqW9lBcPV3bw',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
   return (
     <FooterWrapper>
       <LineForFooterHeader />
@@ -30,15 +68,27 @@ export const Footer = () => {
           <FooterNavItem>TERMS OF SERVICES</FooterNavItem>
           <FooterNavItem>SHIPPING AND RETURNS</FooterNavItem>
         </FooterNav>
-        {/* <div style={{ width: '396px' }}>
-          <Input color="black" placeholder="Give an email, get the newsletter.">
-            <SendArrow />
+        <form
+          style={{ width: '396px', position: 'relative' }}
+          onSubmit={handleSubmit(onSubmit)}
+          ref={form}
+        >
+          <Input
+            placeholder="Give an email, get the newsletter."
+            name="email"
+            register={{ ...register('email') }}
+            error={errors}
+            reset={resetField}
+          >
+            <button type="submit" style={{ border: 'none' }}>
+              <SendArrow />
+            </button>
           </Input>
-        </div> */}
+        </form>
       </FooterNavAndSubscribeEmail>
 
       <ThermsAndSocialMedia>
-        <StyledText>
+        <StyledText onSubmit={handleSubmit(onSubmit)}>
           <span style={{ color: 'var(--text-color)' }}>© 2023 Shelly.</span>{' '}
           Terms of use <span style={{ color: 'var(--text-color)' }}>and</span>{' '}
           privacy policy.

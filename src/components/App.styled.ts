@@ -11,7 +11,6 @@ export const Global = createGlobalStyle<{ $theme: boolean }>`
         padding: 0px;
         box-sizing: border-box;
         font-family: DM Sans;
-        transition: 0s;
     }
     a, a:link, a:visited, a:hover  {
         text-decoration: none;

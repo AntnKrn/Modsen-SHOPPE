@@ -19,8 +19,8 @@ export const ShopItemImg = styled.img`
   border-radius: 8px;
   width: 100%;
   height: 380px;
-  transition: all 0.5s linear;
-  -webkit-transition: all 0.5s linear;
+  transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
   opacity: 1;
 
   &:hover {

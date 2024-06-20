@@ -15,7 +15,7 @@ import { Busket } from '../../assets/icons/busket';
 import { Search } from '../../assets/icons/search';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { change } from '../../store/theme/ThemeSlice';
+import { change } from '../../store/features/theme/themeSlice';
 
 export const Header = () => {
   const [checked, setChecked] = useState(false); // store value

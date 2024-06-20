@@ -3,6 +3,7 @@ import React from 'react';
 export const SendArrow = () => {
   return (
     <svg
+      style={{ cursor: 'pointer' }}
       width="25"
       height="9"
       viewBox="0 0 25 9"

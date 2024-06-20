@@ -4,7 +4,7 @@ import { ProductDescription } from '../../components/ProductDescription/ProductD
 import { SimilarItems } from './ProductPage.styled';
 import { ShopList } from '../../components/ShopList/ShopList';
 import { useParams } from 'react-router-dom';
-import { useGetProductQuery } from '../../store/Product/Product';
+import { useGetProductQuery } from '../../store/api/products/product';
 
 export const ProductPage = () => {
   const { id } = useParams();
@@ -19,7 +19,7 @@ export const ProductPage = () => {
         </>
       )}
       <SimilarItems>Similar Items</SimilarItems>
-      <ShopList quantityProducts={3} />
+      <ShopList quantityProducts="products?limit=3" />
       <div style={{ marginBottom: '250px' }} />
     </main>
   );

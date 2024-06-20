@@ -10,7 +10,12 @@ import {
   ImgSlider,
   ImgSliderButton,
   ImgWrapper,
+  OnCarouselProductInfo,
+  ProductCostOnCarousel,
+  ProductLinkOnCarousel,
+  ProductNameOnCarousel,
 } from './Carousel.styled';
+import { Link } from 'react-router-dom';
 
 export const Carousel = () => {
   const imagesUrls: string[] = [img1, img2, img3, img4, img5];
@@ -61,17 +66,26 @@ export const Carousel = () => {
 
   return (
     <ImgWrapper>
-      <ImgSlider src={imagesUrls[imageIndex]} alt="" />
-      <ButtonWrapper>
-        {imagesUrls.map((img, index) => (
-          <ImgSliderButton
-            onClick={() => onClickButton(index, null, ref.current)}
-            key={img}
-            $number={index}
-            className={`img${index + 1} ${index === 0 ? 'active' : 0}`}
-          />
-        ))}
-      </ButtonWrapper>
+      <div>
+        <OnCarouselProductInfo>
+          <ProductNameOnCarousel>Name</ProductNameOnCarousel>
+          <ProductCostOnCarousel>$ 20,00</ProductCostOnCarousel>
+          <Link to={`/product/${imageIndex + 1}`}>
+            <ProductLinkOnCarousel>View Product</ProductLinkOnCarousel>
+          </Link>
+        </OnCarouselProductInfo>
+        <ImgSlider src={imagesUrls[imageIndex]} alt="" />
+        <ButtonWrapper>
+          {imagesUrls.map((img, index) => (
+            <ImgSliderButton
+              onClick={() => onClickButton(index, null, ref.current)}
+              key={img}
+              $number={index}
+              className={`img${index + 1} ${index === 0 ? 'active' : 0}`}
+            />
+          ))}
+        </ButtonWrapper>
+      </div>
     </ImgWrapper>
   );
 };

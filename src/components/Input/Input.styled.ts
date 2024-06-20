@@ -12,7 +12,9 @@ export const InputContainer = styled.div`
 `;
 
 export const IconWrapper = styled.div`
-  display: none;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
   cursor: pointer;
   position: absolute;
   right: 0px;

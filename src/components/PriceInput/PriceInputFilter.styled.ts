@@ -5,15 +5,16 @@ import { DESKTOP_BODY_MEDIUM } from '../../constants/styles/fonts';
 export const PriceInputWrapper = styled.div`
   width: 100%;
   position: relative;
+`;
 
-  #price-progress {
-    height: 5px;
-    left: 0;
-    right: 0;
-    position: absolute;
-    border-radius: 5px;
-    background-color: black;
-  }
+export const PriceProgress = styled.div`
+  height: 2px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  border-radius: 5px;
+  background-color: var(--text-color);
+  transition: 0.5;
 `;
 export const PriceWrapper = styled.div`
   margin-top: 39px;
@@ -33,13 +34,19 @@ export const PriceInput = styled.input`
   pointer-events: none;
 
   &::-webkit-slider-thumb {
+    border: none;
+    width: 2px;
+    height: 10px;
     pointer-events: auto;
-    background-color: blue;
+    background-color: var(--text-color);
   }
 
   &::-moz-range-thumb {
+    border: none;
+    width: 2px;
+    height: 10px;
     pointer-events: auto;
-    background-color: blue;
+    background-color: var(--text-color);
   }
 `;
 
@@ -52,4 +59,11 @@ export const TextInsidePriceInput = styled.span`
   &:last-child {
     color: ${COLORS.COLOR_ACCENT};
   }
+`;
+
+export const BackGroundProgressInput = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: ${COLORS.COLOR_GRAY};
 `;

@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
+  BackGroundProgressInput,
   PriceInput,
   PriceInputWrapper,
+  PriceProgress,
   PriceWrapper,
   TextInsidePriceInput,
   UnderFilterText,
@@ -17,9 +19,9 @@ export const PriceInputFilter = () => {
   console.log(maxPrice, 'max');
   useEffect(() => {
     if (minPrice >= 0 && maxPrice <= 180) {
-      if (maxPrice - minPrice <= 50) {
-        setMinPrice(maxPrice - 51);
-        setMaxPrice(minPrice + 51);
+      if (maxPrice - minPrice <= 2) {
+        setMinPrice(maxPrice - 2);
+        setMaxPrice(minPrice + 2);
       }
     }
   }, [maxPrice, minPrice]);
@@ -28,9 +30,9 @@ export const PriceInputFilter = () => {
     const value = Number(e.target.value);
     console.log(e.target.value);
 
-    if (maxPrice - minPrice > 50) {
-      ref.current.style.left = (minPrice / 180) * 100 + '%';
-      ref.current.style.right = 100 - (maxPrice / 180) * 100 + '%';
+    if (maxPrice - minPrice > 2) {
+      ref.current.style.left = (minPrice / 180) * 100 + 1 + '%';
+      ref.current.style.right = 100 - (maxPrice / 180) * 100 + 1 + '%';
     }
     if (e.target.classList[2] == 'min') {
       setMinPrice(Number(value));
@@ -38,18 +40,13 @@ export const PriceInputFilter = () => {
     if (e.target.classList[2] == 'max') {
       setMaxPrice(Number(value));
     }
-    /* if (value < maxPrice && value > minPrice && maxPrice - minPrice == 50) {
-      setMinPrice(maxPrice - 50);
-      setMaxPrice(minPrice + 50);
-      return;
-    } */
   };
 
   return (
     <PriceWrapper>
       <PriceInputWrapper>
-        <div ref={ref} id="price-progress" />
-
+        <BackGroundProgressInput />
+        <PriceProgress ref={ref} />
         <PriceInput
           type="range"
           id="volume"
@@ -76,7 +73,9 @@ export const PriceInputFilter = () => {
         />
       </PriceInputWrapper>
       <UnderFilterText>
-        <TextInsidePriceInput>Price: $40 - $180</TextInsidePriceInput>
+        <TextInsidePriceInput>
+          Price: ${minPrice} - ${maxPrice}
+        </TextInsidePriceInput>
         <TextInsidePriceInput>Filter</TextInsidePriceInput>
       </UnderFilterText>
     </PriceWrapper>

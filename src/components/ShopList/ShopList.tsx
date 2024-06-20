@@ -1,15 +1,21 @@
 import React from 'react';
 import { ShopListWrapper } from './ShopList.styled';
-import { useGetProductsQuery } from '../../store/Product/Product';
 import { IProduct } from '../../interfaces/IProducts';
 import { ShopItem } from '../ShopItem/ShopItem';
+import { useGetProductsQuery } from '../../store/api/products/product';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 interface IShopTheLastList {
-  quantityProducts?: number;
+  quantityProducts?: string;
 }
 
 export const ShopList = ({ quantityProducts }: IShopTheLastList) => {
-  const { data, isLoading } = useGetProductsQuery(quantityProducts);
+  const filter = useSelector((state: RootState) => state.filter.filter);
+
+  const { data, isLoading } = useGetProductsQuery(
+    quantityProducts ? quantityProducts : `products/${filter}`,
+  );
 
   return (
     <ShopListWrapper>

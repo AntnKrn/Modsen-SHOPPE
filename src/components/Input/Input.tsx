@@ -5,7 +5,7 @@ import {
   InputContainer,
   ErrorMessage,
 } from './Input.styled';
-import { Delete } from '../../assets/icons/delete';
+import { Delete } from '../../assets/icons/Delete';
 
 interface IPropsInput {
   children?: React.ReactNode;
@@ -20,6 +20,7 @@ interface IPropsInput {
 }
 
 export const Input = ({
+  children,
   error,
   register,
   name,
@@ -35,8 +36,12 @@ export const Input = ({
         autoComplete="off"
       />
       {error[name] && <ErrorMessage>{error[name].message}</ErrorMessage>}
-      <IconWrapper onClick={() => reset(name, '')}>
-        <Delete />
+      <IconWrapper>
+        <div onClick={() => reset(name, '')}>
+          <Delete />
+        </div>
+        {/* eslint-disable-next-line no-constant-condition */}
+        <div>{{ children } ? children : null}</div>
       </IconWrapper>
     </InputContainer>
   );

@@ -8,20 +8,26 @@ import {
   TextInsidePriceInput,
   UnderFilterText,
 } from './PriceInputFilter.styled';
+import { useDispatch } from 'react-redux';
+import { searchByPrice } from '../../store/features/search/searchSlice';
 
-export const PriceInputFilter = () => {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(180);
+export const PriceInputFilter = ({ state }: { state: number[] }) => {
+  const [minPrice, setMinPrice] = useState(state[0]);
+  const [maxPrice, setMaxPrice] = useState(state[1]);
   const minRef = useRef<HTMLInputElement>();
   const maxRef = useRef<HTMLInputElement>();
   const ref = useRef<HTMLDivElement>();
+  const dispatch = useDispatch();
+
   console.log(minPrice, 'min');
   console.log(maxPrice, 'max');
   useEffect(() => {
+    ref.current.style.left = (minPrice / 180) * 100 + 1 + '%';
+    ref.current.style.right = 100 - (maxPrice / 180) * 100 + 1 + '%';
     if (minPrice >= 0 && maxPrice <= 180) {
       if (maxPrice - minPrice <= 2) {
-        setMinPrice(maxPrice - 2);
-        setMaxPrice(minPrice + 2);
+        setMinPrice(maxPrice);
+        setMaxPrice(minPrice);
       }
     }
   }, [maxPrice, minPrice]);
@@ -36,9 +42,11 @@ export const PriceInputFilter = () => {
     }
     if (e.target.classList[2] == 'min') {
       setMinPrice(Number(value));
+      dispatch(searchByPrice([Number(value), maxPrice]));
     }
     if (e.target.classList[2] == 'max') {
       setMaxPrice(Number(value));
+      dispatch(searchByPrice([minPrice, Number(value)]));
     }
   };
 

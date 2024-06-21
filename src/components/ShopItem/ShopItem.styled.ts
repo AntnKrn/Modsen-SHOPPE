@@ -16,8 +16,10 @@ export const ShopItemWrapper = styled.div`
 `;
 
 export const ShopItemImg = styled.img`
+  display: block;
   border-radius: 8px;
   width: 100%;
+  object-fit: contain;
   height: 380px;
   transition: opacity 0.5s ease-in-out;
   -webkit-transition: opacity 0.5s ease-in-out;

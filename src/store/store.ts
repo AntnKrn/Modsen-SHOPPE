@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from './features/theme/themeSlice';
 import filterReducer from './features/filter/filterSlice';
+import searchReducer from './features/search/searchSlice';
 import { productApi } from './api/products/product';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
@@ -9,6 +10,7 @@ export const store = configureStore({
     theme: themeReducer,
     [productApi.reducerPath]: productApi.reducer,
     filter: filterReducer,
+    search: searchReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(productApi.middleware),

@@ -10,6 +10,7 @@ export const ImgSectorContainer = styled.div`
 export const ImgSectorItem = styled.img`
   display: block;
   width: 100%;
+  object-fit: contain;
   height: 100%;
   border-radius: 8px;
   &:first-child {

@@ -2,7 +2,7 @@ export interface IProduct {
   id: number;
   title: string;
   image: string;
-  price: string;
+  price: number;
   description: string;
   rating: {
     rate: number;

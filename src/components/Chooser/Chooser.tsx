@@ -6,26 +6,25 @@ import {
   TextAndSVGWrapper,
 } from './Chooser.styled';
 import { ChooserOpenner } from '../../assets/icons/ChooserOpenner';
-import { useDispatch } from 'react-redux';
-import {
-  clearFilter,
-  setFilter,
-} from '../../store/features/filter/filterSlice';
 
 interface IChooserProps {
   chooserText: string;
   options: string[];
+  onClick(option: string): void;
+  state: string;
 }
 
-export const Chooser = ({ chooserText, options }: IChooserProps) => {
-  const [chosenText, setChosenText] = useState<string>();
-  const dispatch = useDispatch();
+export const Chooser = ({
+  chooserText,
+  options,
+  onClick,
+  state,
+}: IChooserProps) => {
+  const [chosenText, setChosenText] = useState<string>(state);
 
-  const onClickOption = (option: string) => {
+  const handleOptionClick = (option: string) => {
+    onClick(option);
     setChosenText(option);
-    option
-      ? dispatch(setFilter(`/category/${option}`))
-      : dispatch(clearFilter());
   };
   return (
     <ChooserWrapper>
@@ -36,11 +35,14 @@ export const Chooser = ({ chooserText, options }: IChooserProps) => {
         <ChooserOpenner />
       </TextAndSVGWrapper>
       <OptionWrapper>
-        <TextAndSVGWrapper onClick={() => onClickOption('')}>
+        <TextAndSVGWrapper onClick={() => handleOptionClick('')}>
           By default
         </TextAndSVGWrapper>
         {options.map((option: string) => (
-          <TextAndSVGWrapper key={option} onClick={() => onClickOption(option)}>
+          <TextAndSVGWrapper
+            key={option}
+            onClick={() => handleOptionClick(option)}
+          >
             {option}
           </TextAndSVGWrapper>
         ))}

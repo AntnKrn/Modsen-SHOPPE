@@ -3,10 +3,9 @@ import {
   DESKTOP_BODY_MEDIUM,
   DESKTOP_HEADING4,
 } from '../../constants/styles/fonts';
-import { COLORS } from '../../constants/styles/mainColors';
 
 export const ImgSlider = styled.img`
-  object-fit: fill;
+  object-fit: contain;
   width: 100%;
   height: 646px;
   display: block;
@@ -49,12 +48,6 @@ export const ImgSliderButton = styled.button<{ $number?: number }>`
   }
 `;
 
-export const ImgWrapper = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-`;
-
 export const OnCarouselProductInfo = styled.div`
   display: flex;
   position: absolute;
@@ -66,24 +59,25 @@ export const OnCarouselProductInfo = styled.div`
 
 export const ProductNameOnCarousel = styled.p`
   font-size: ${DESKTOP_HEADING4.Size};
-  color: ${COLORS.COLOR_WHITE};
   font-weight: ${DESKTOP_HEADING4.Weight};
   line-height: ${DESKTOP_HEADING4.LineHeight};
+  color: var(--text-color);
 `;
 
 export const ProductCostOnCarousel = styled.p`
   font-size: ${DESKTOP_BODY_MEDIUM.Size};
-  color: ${COLORS.COLOR_WHITE};
   font-weight: ${DESKTOP_BODY_MEDIUM.Weight};
   line-height: ${DESKTOP_BODY_MEDIUM.LineHeight};
+  color: var(--text-color);
 `;
 
 export const ProductLinkOnCarousel = styled.p`
   font-size: ${DESKTOP_BODY_MEDIUM.Size};
-  color: ${COLORS.COLOR_WHITE};
   font-weight: ${DESKTOP_BODY_MEDIUM.Weight};
   line-height: ${DESKTOP_BODY_MEDIUM.LineHeight};
-  border: 1px solid ${COLORS.COLOR_WHITE};
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
   border-radius: 4px;
   padding: 7px;
+  width: 103px;
 `;

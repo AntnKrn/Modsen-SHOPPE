@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { COLORS } from '../../constants/styles/mainColors';
 import { ALLERTA_STENCIL } from '../../constants/styles/modelFont';
-import { DESKTOP_HEADING5 } from '../../constants/styles/fonts';
+import {
+  DESKTOP_BODY_MEDIUM,
+  DESKTOP_HEADING5,
+} from '../../constants/styles/fonts';
 
 export const StyledHeader = styled.header`
   height: 42px;
@@ -55,6 +58,11 @@ export const NavigationList = styled.ul`
 export const ListItem = styled.li<{ $marginRight?: number }>`
   margin-right: ${(props) => props.$marginRight}px;
   color: var(--text-color);
+  &:nth-child(5):hover {
+    p {
+      display: block;
+    }
+  }
 `;
 export const LeftNavItems = styled.div`
   display: flex;
@@ -101,5 +109,23 @@ export const Input = styled.input`
       background: ${COLORS.COLOR_BLACK};
       transform: translate(20px, 0.5px);
     }
+  }
+`;
+
+export const ProfileHover = styled.div`
+  position: relative;
+  p {
+    border: .5px solid var(--text-color);\
+    font-size: ${DESKTOP_BODY_MEDIUM.Size};
+    cursor: pointer;
+    width: 61px;
+    right: -22px;
+    text-align: left;
+    display: none;
+    position: absolute;
+    transition: 1s;
+    z-index: 1;
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
 `;

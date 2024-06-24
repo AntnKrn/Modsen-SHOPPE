@@ -24,15 +24,38 @@ export const ShopItemImg = styled.img`
   transition: opacity 0.5s ease-in-out;
   -webkit-transition: opacity 0.5s ease-in-out;
   opacity: 1;
-
+`;
+export const ShopItemContainer = styled.div`
+  position: relative;
   &:hover {
-    opacity: 0.6;
-    & ~ div {
-      display: block;
+    img {
+      opacity: 0.6;
+    }
+    div {
+      display: flex;
     }
   }
 `;
 
+export const ShopItemIconsContainer = styled.div`
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  a {
+    width: 21px;
+    height: 21px;
+  }
+  svg {
+    width: 21px;
+    height: 21px;
+  }
+`;
 export const ProductName = styled.h3`
   font-size: ${DESKTOP_HEADING3.Size};
   font-weight: ${DESKTOP_HEADING3.Weight};
@@ -44,12 +67,4 @@ export const ProductCost = styled.span`
   font-size: ${DESKTOP_HEADING4.Size};
   font-weight: ${DESKTOP_HEADING4.Weight};
   line-height: ${DESKTOP_HEADING4.LineHeight};
-`;
-
-export const HoverItem = styled.div`
-  display: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 50%;
 `;

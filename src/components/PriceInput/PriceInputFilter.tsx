@@ -19,8 +19,6 @@ export const PriceInputFilter = ({ state }: { state: number[] }) => {
   const ref = useRef<HTMLDivElement>();
   const dispatch = useDispatch();
 
-  console.log(minPrice, 'min');
-  console.log(maxPrice, 'max');
   useEffect(() => {
     ref.current.style.left = (minPrice / 180) * 100 + 1 + '%';
     ref.current.style.right = 100 - (maxPrice / 180) * 100 + 1 + '%';
@@ -34,7 +32,6 @@ export const PriceInputFilter = ({ state }: { state: number[] }) => {
 
   const changePricer = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
-    console.log(e.target.value);
 
     if (maxPrice - minPrice > 2) {
       ref.current.style.left = (minPrice / 180) * 100 + 1 + '%';

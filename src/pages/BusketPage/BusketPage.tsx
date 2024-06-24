@@ -1,5 +1,9 @@
-import React from 'react';
+import { CartList } from '../../components/CartList/CartList';
 
 export const BusketPage = () => {
-  return <div>BusketPage</div>;
+  return (
+    <main>
+      <CartList />
+    </main>
+  );
 };

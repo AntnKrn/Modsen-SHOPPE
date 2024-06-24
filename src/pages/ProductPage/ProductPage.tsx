@@ -11,7 +11,9 @@ import {
 
 export const ProductPage = () => {
   const { id } = useParams();
-  const { data: product, isLoading: isProductLoading } = useGetProductQuery(id);
+  const { data: product, isLoading: isProductLoading } = useGetProductQuery(
+    Number(id),
+  );
   const { data: similarProducts, isSuccess: isSimilarSuccess } =
     useGetProductsByLimitQuery(3);
   return (

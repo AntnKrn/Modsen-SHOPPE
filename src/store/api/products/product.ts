@@ -10,8 +10,8 @@ export const productApi = createApi({
     getProducts: builder.query<IProduct[], string>({
       query: () => `/products`,
     }),
-    getProduct: builder.query<IProduct, string>({
-      query: (id: string) => `/products/${id}`,
+    getProduct: builder.query<IProduct, number>({
+      query: (id: number) => `/products/${id}`,
     }),
     getProductsByCategory: builder.query<IProduct[], string>({
       query: (category: string) => `/products/category/${category}`,
@@ -32,8 +32,3 @@ export const {
   useGetCategoriesQuery,
   useGetProductsByLimitQuery,
 } = productApi;
-
-/* getProducts: builder.query<IProduct[], string>({
-  query: (limit: string) =>
-    `/products` + `${limit ? `?limit=${limit}` : ''}`,
-}), */

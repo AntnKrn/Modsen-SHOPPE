@@ -10,17 +10,21 @@ import {
   ListItem,
   LeftNavItems,
   MODSENSHOPPE,
+  ProfileHover,
 } from './Header.styled';
 import { Busket } from '../../assets/icons/busket';
 import { Search } from '../../assets/icons/search';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { change } from '../../store/features/theme/themeSlice';
+import { Profile } from '../../assets/icons/Profile';
+import { RootState } from '../../store/store';
+import { clearUser } from '../../store/features/auth/authSlice';
 
 export const Header = () => {
   const [checked, setChecked] = useState(false); // store value
   const dispatch = useDispatch();
-
+  const isAuth = useSelector((state: RootState) => state.auth.isAuth);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
     dispatch(change());
@@ -56,10 +60,24 @@ export const Header = () => {
           <ListItem $marginRight={43}>
             <Search />
           </ListItem>
-          <ListItem $marginRight={14}>
+          <ListItem $marginRight={41}>
             <Link to="/busket">
               <Busket />
             </Link>
+          </ListItem>
+          <ListItem $marginRight={41}>
+            <ProfileHover>
+              <Profile />
+
+              {isAuth ? (
+                <p onClick={() => dispatch(clearUser())}>Sign out</p>
+              ) : (
+                <p>
+                  {' '}
+                  <Link to="/authorization">Sign in</Link>
+                </p>
+              )}
+            </ProfileHover>
           </ListItem>
         </NavigationList>
       </Navigation>

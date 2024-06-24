@@ -5,6 +5,12 @@ import { COLORS } from '../../constants/styles/mainColors';
 
 export const BodyWrapper = styled.main``;
 
+export const ImgWrapper = styled.div`
+  height: 646px;
+  margin: 0 auto;
+  position: relative;
+`;
+
 export const ShopTheLastTextWrapper = styled.div`
   margin-top: 64px;
   display: flex;

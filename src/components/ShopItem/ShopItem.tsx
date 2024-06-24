@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-  HoverItem,
   ProductCost,
   ProductName,
+  ShopItemContainer,
+  ShopItemIconsContainer,
   ShopItemImg,
   ShopItemWrapper,
 } from './ShopItem.styled';
@@ -11,32 +12,41 @@ import { IProduct } from '../../interfaces/IProducts';
 import { Busket } from '../../assets/icons/busket';
 import { Eye } from '../../assets/icons/eye';
 import { Heart } from '../../assets/icons/heart';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { useAddToBusketMutation } from '../../store/api/busket/busket';
 
-export const ShopItem = (product: IProduct) => {
+export const ShopItem = React.memo((product: IProduct) => {
+  const uuid = useSelector((state: RootState) => state.auth.uuid);
+  const [updateBusket] = useAddToBusketMutation();
+
+  const onClickBusket = () => {
+    updateBusket({
+      uuid: uuid,
+      id: product.id,
+      image: product.image,
+      title: product.title,
+      price: product.price,
+      quantity: 1,
+    });
+  };
+
   return (
     <ShopItemWrapper>
-      <Link to={`/product/${product.id}`}>
-        <div style={{ position: 'relative' }}>
-          <ShopItemImg src={product.image} />
-          <HoverItem>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '16px',
-              }}
-            >
-              <Busket />
-              <Eye />
-              <Heart />
-            </div>
-          </HoverItem>
-        </div>
-
-        <ProductName>{product.title}</ProductName>
-        <ProductCost>${product.price}</ProductCost>
-      </Link>
+      <ShopItemContainer>
+        <ShopItemImg src={product.image} />
+        <ShopItemIconsContainer>
+          <div onClick={onClickBusket}>
+            <Busket />
+          </div>
+          <Link to={`/product/${product.id}`}>
+            <Eye />
+          </Link>
+          <Heart />
+        </ShopItemIconsContainer>
+      </ShopItemContainer>
+      <ProductName>{product.title}</ProductName>
+      <ProductCost>${product.price}</ProductCost>
     </ShopItemWrapper>
   );
-};
+});

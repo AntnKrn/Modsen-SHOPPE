@@ -1,27 +1,25 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 
-import img1 from './img1.jpg';
-import img2 from './img2.jpg';
-import img3 from './img3.jpg';
-import img4 from './img4.jpg';
-import img5 from './img5.jpg';
 import {
   ButtonWrapper,
   ImgSlider,
   ImgSliderButton,
-  ImgWrapper,
   OnCarouselProductInfo,
   ProductCostOnCarousel,
   ProductLinkOnCarousel,
   ProductNameOnCarousel,
 } from './Carousel.styled';
 import { Link } from 'react-router-dom';
+import { IProduct } from '../../interfaces/IProducts';
 
-export const Carousel = () => {
-  const imagesUrls: string[] = [img1, img2, img3, img4, img5];
+interface ICarouselProps {
+  products: IProduct[];
+}
+export const Carousel = ({ products }: ICarouselProps) => {
+  const imagesUrls: string[] = [];
+  products.map((item: IProduct) => imagesUrls.push(item.image));
   const [imageIndex, setImageIndex] = useState(0);
   const ref: MutableRefObject<Element> = useRef<Element | null>(null);
-
   const onClickButton = (
     imgIndex?: number,
     type?: string,
@@ -65,27 +63,29 @@ export const Carousel = () => {
   });
 
   return (
-    <ImgWrapper>
-      <div>
-        <OnCarouselProductInfo>
-          <ProductNameOnCarousel>Name</ProductNameOnCarousel>
-          <ProductCostOnCarousel>$ 20,00</ProductCostOnCarousel>
-          <Link to={`/product/${imageIndex + 1}`}>
-            <ProductLinkOnCarousel>View Product</ProductLinkOnCarousel>
-          </Link>
-        </OnCarouselProductInfo>
-        <ImgSlider src={imagesUrls[imageIndex]} alt="" />
-        <ButtonWrapper>
-          {imagesUrls.map((img, index) => (
-            <ImgSliderButton
-              onClick={() => onClickButton(index, null, ref.current)}
-              key={img}
-              $number={index}
-              className={`img${index + 1} ${index === 0 ? 'active' : 0}`}
-            />
-          ))}
-        </ButtonWrapper>
-      </div>
-    </ImgWrapper>
+    <div>
+      <OnCarouselProductInfo>
+        <ProductNameOnCarousel>
+          {products[imageIndex].title}
+        </ProductNameOnCarousel>
+        <ProductCostOnCarousel>
+          {products[imageIndex].price}
+        </ProductCostOnCarousel>
+        <Link to={`/product/${imageIndex + 1}`}>
+          <ProductLinkOnCarousel>View Product</ProductLinkOnCarousel>
+        </Link>
+      </OnCarouselProductInfo>
+      <ImgSlider src={imagesUrls[imageIndex]} alt="" />
+      <ButtonWrapper>
+        {imagesUrls.map((img, index) => (
+          <ImgSliderButton
+            onClick={() => onClickButton(index, null, ref.current)}
+            key={img}
+            $number={index}
+            className={`img${index + 1} ${index === 0 ? 'active' : 0}`}
+          />
+        ))}
+      </ButtonWrapper>
+    </div>
   );
 };

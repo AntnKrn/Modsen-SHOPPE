@@ -2,9 +2,11 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
+import Dotenv from 'dotenv-webpack';
+import dotenv from 'dotenv';
+dotenv.config();
 
 type Mode = 'production' | 'development';
-
 interface EnvVariables {
   mode: Mode;
   port: number;
@@ -23,6 +25,9 @@ export default (env: EnvVariables) => {
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public', 'index.html'),
       }),
+      new webpack.DefinePlugin({
+        'process.env': JSON.stringify(process.env),
+      }),
     ],
     module: {
       rules: [
@@ -40,6 +45,12 @@ export default (env: EnvVariables) => {
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
+      fallback: {
+        fs: false,
+        os: false,
+        path: false,
+        crypto: false,
+      },
     },
     devServer: {
       port: env.port ?? 5000,

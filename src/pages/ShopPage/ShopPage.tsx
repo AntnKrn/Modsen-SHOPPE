@@ -19,10 +19,10 @@ export const ShopPage = () => {
   const filteredByPrice = useSelector(
     (state: RootState) => state.search.priceRange,
   );
-
   const { data, isSuccess } = filter
     ? useGetProductsByCategoryQuery(filter)
     : useGetProductsQuery('');
+
   return (
     <>
       <LineForFooterHeader />

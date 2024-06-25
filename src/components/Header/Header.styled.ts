@@ -4,11 +4,22 @@ import { ALLERTA_STENCIL } from '../../constants/styles/modelFont';
 import {
   DESKTOP_BODY_MEDIUM,
   DESKTOP_HEADING5,
+  MOBILE_HEADING1,
+  MOBILE_HEADING3,
 } from '../../constants/styles/fonts';
+import { resolution } from '../../constants/resolutions';
 
 export const StyledHeader = styled.header`
-  height: 42px;
-  margin-bottom: 16px;
+  @media (${resolution.laptop}) {
+    margin: -15px;
+    height: 100%; //100vh
+    position: static; //fixed
+    z-index: 2;
+    background-color: var(--bg-color);
+    width: 100vw;
+    padding: 15px;
+    display: block;
+  }
 `;
 
 export const Navigation = styled.nav`
@@ -18,26 +29,69 @@ export const Navigation = styled.nav`
   align-items: center;
   height: 100%;
   width: 100%;
-`;
 
-export const MODSENSHOPPE = styled.div`
-  position: absolute;
-  left: 0;
-
-  &:nth-child(2) {
-    color: 'var(--text-color) !important';
+  @media (${resolution.laptop}) {
+    display: none;
   }
 `;
 
+export const MobileInput = styled.input`
+  width: 100%;
+  height: 32px;
+  border: none;
+  color: ${COLORS.COLOR_DARK_GRAY};
+  font-weight: ${MOBILE_HEADING3.Weight};
+  font-size: ${MOBILE_HEADING3.Size};
+  border-radius: 4px;
+  padding: 10px 30px 10px;
+  background-color: ${COLORS.COLOR_LIGHT_GRAY};
+`;
+
+export const MobileInputWrapper = styled.div`
+  display: none;
+  position: relative;
+
+  svg {
+    color: ${COLORS.COLOR_DARK_GRAY};
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    left: 10px;
+    top: 11px;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
 export const ModsenSHOPPE = styled.h1<{ $HOPPE?: string }>`
-  color: ${(props) =>
-    props.$HOPPE ? `var(--text-color)` : COLORS.COLOR_ACCENT};
+  color: ${COLORS.COLOR_ACCENT};
   font-family: ${ALLERTA_STENCIL};
   font-style: normal;
   font-weight: 400;
   font-size: 35px;
   line-height: 40px;
   display: inline;
+  &:nth-of-type(2) {
+    color: var(--text-color);
+  }
+  @media (max-width: 768px) {
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 40.5px;
+  }
+`;
+
+export const MobileNavigation = styled.div`
+  display: none;
+  position: absolute;
+  align-items: baseline;
+
+  @media (max-width: 768px) {
+    display: flex;
+    position: static;
+    justify-content: space-between;
+  }
 `;
 
 export const NavigationList = styled.ul`
@@ -53,6 +107,11 @@ export const NavigationList = styled.ul`
   text-decoration: none;
   color: black;
   height: 21px;
+
+  @media (max-width: 768px) {
+    display: none;
+    right: 0;
+  }
 `;
 
 export const ListItem = styled.li<{ $marginRight?: number }>`
@@ -127,5 +186,39 @@ export const ProfileHover = styled.div`
     z-index: 1;
     background-color: var(--bg-color);
     color: var(--text-color);
+  }
+`;
+
+export const MobileHeaderWrapper = styled.div`
+  display: none;
+
+  @media (${resolution.laptop}) {
+    display: block;
+  }
+`;
+export const MobileMenuNavigation = styled.nav`
+  margin-top: 39px;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: ${MOBILE_HEADING1.Size};
+    font-weight: ${MOBILE_HEADING1.Weight};
+    line-height: ${MOBILE_HEADING1.LineHeight};
+    color: var(--text-color);
+    list-style: none;
+  }
+`;
+export const MobileHeaderIconsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 17px;
+  & svg:first-child {
+    width: 18px;
+    height: 18px;
+  }
+  & svg:nth-of-type(2) {
+    width: 20px;
+    height: 15px;
   }
 `;

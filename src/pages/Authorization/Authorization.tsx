@@ -17,7 +17,7 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { collection, doc, setDoc } from 'firebase/firestore';
-import { db } from '../../constants/firebase/firebaseAuthConfig';
+import { db } from '../../utils/firebaseConfig';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../store/features/auth/authSlice';
 import { useNavigate } from 'react-router';

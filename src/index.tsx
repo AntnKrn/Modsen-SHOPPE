@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './pages/router';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
-import './constants/firebase/firebaseAuthConfig';
+import './utils/firebaseConfig';
 
 const root = document.getElementById('root');
 

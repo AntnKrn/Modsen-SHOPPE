@@ -16,7 +16,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { useAddToBusketMutation } from '../../store/api/busket/busket';
 
-export const ShopItem = React.memo((product: IProduct) => {
+export const ShopItem = (product: IProduct) => {
   const uuid = useSelector((state: RootState) => state.auth.uuid);
   const [updateBusket] = useAddToBusketMutation();
 
@@ -49,4 +49,4 @@ export const ShopItem = React.memo((product: IProduct) => {
       <ProductCost>${product.price}</ProductCost>
     </ShopItemWrapper>
   );
-});
+};

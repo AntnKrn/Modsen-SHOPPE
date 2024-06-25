@@ -7,9 +7,12 @@ import {
 export const ImgSlider = styled.img`
   object-fit: contain;
   width: 100%;
-  height: 646px;
   display: block;
   border-radius: 16px;
+  height: 646px;
+  @media (max-width: 768px) {
+    height: 354px;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -22,6 +25,10 @@ export const ButtonWrapper = styled.div`
   left: 0;
   right: 0;
   margin: 0 auto 26.29px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 8px;
+  }
 `;
 
 export const ImgSliderButton = styled.button<{ $number?: number }>`
@@ -55,6 +62,11 @@ export const OnCarouselProductInfo = styled.div`
   gap: 10px;
   left: 20px;
   bottom: 50px;
+
+  @media (max-width: 768px) {
+    bottom: 26px;
+    left: 8px;
+  }
 `;
 
 export const ProductNameOnCarousel = styled.p`

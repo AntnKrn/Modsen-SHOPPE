@@ -1,6 +1,13 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
-import { deleteField, doc, getDoc, updateDoc } from 'firebase/firestore';
-import { db } from '../../../constants/firebase/firebaseAuthConfig';
+import {
+  deleteDoc,
+  deleteField,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+} from 'firebase/firestore';
+import { db } from '../../../utils/firebaseConfig';
 import { IBusketProdut } from '../../../interfaces/IBusket';
 
 export const busketApi = createApi({
@@ -109,6 +116,19 @@ export const busketApi = createApi({
       },
       invalidatesTags: ['Products'],
     }),
+
+    clearCart: build.mutation<void, string>({
+      queryFn: async (uuid) => {
+        try {
+          await deleteDoc(doc(db, 'busket', uuid));
+          await setDoc(doc(db, 'busket', uuid), {});
+          return { isSuccess: true };
+        } catch (err) {
+          return err;
+        }
+      },
+      invalidatesTags: ['Products'],
+    }),
   }),
 });
 
@@ -117,4 +137,5 @@ export const {
   useDeleteFromBusketMutation,
   useUpdateBusketMutation,
   useAddToBusketMutation,
+  useClearCartMutation,
 } = busketApi;

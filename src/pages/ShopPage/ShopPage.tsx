@@ -33,7 +33,7 @@ export const ShopPage = () => {
           <CatalogFilter />
           <ShopList
             data={
-              isSuccess
+              isSuccess && data
                 ? data
                     .filter((product: IProduct) =>
                       product.title.toLowerCase().includes(seatchedText),

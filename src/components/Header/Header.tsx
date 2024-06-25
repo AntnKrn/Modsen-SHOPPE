@@ -9,8 +9,13 @@ import {
   Switch,
   ListItem,
   LeftNavItems,
-  MODSENSHOPPE,
   ProfileHover,
+  MobileNavigation,
+  MobileInput,
+  MobileInputWrapper,
+  MobileMenuNavigation,
+  MobileHeaderWrapper,
+  MobileHeaderIconsWrapper,
 } from './Header.styled';
 import { Busket } from '../../assets/icons/busket';
 import { Search } from '../../assets/icons/search';
@@ -20,6 +25,8 @@ import { change } from '../../store/features/theme/themeSlice';
 import { Profile } from '../../assets/icons/Profile';
 import { RootState } from '../../store/store';
 import { clearUser } from '../../store/features/auth/authSlice';
+import { MobileMenu } from '../../assets/icons/mobileMenu';
+import { CloseMenu } from '../../assets/icons/CloseMenu';
 
 export const Header = () => {
   const [checked, setChecked] = useState(false); // store value
@@ -30,16 +37,28 @@ export const Header = () => {
     dispatch(change());
   };
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const onClickHandler = () => {
+    setIsMobileMenuOpen((prev) => {
+      const header = document.getElementsByTagName('header')[0];
+      header.style.position = isMobileMenuOpen ? 'static' : 'fixed';
+      header.style.height = isMobileMenuOpen ? '100%' : '100vh';
+      document.getElementsByTagName('body')[0].style.overflow = isMobileMenuOpen
+        ? 'visible'
+        : 'hidden';
+
+      return !prev;
+    });
+  };
+
   return (
     <StyledHeader>
       <Navigation>
-        <MODSENSHOPPE>
-          <Link to="/">
-            <ModsenSHOPPE>Modsen S</ModsenSHOPPE>
-            <ModsenSHOPPE $HOPPE="black">HOPPE</ModsenSHOPPE>
-          </Link>
-        </MODSENSHOPPE>
-
+        <Link to="/">
+          <ModsenSHOPPE>Modsen S</ModsenSHOPPE>
+          <ModsenSHOPPE $HOPPE="black">HOPPE</ModsenSHOPPE>
+        </Link>
         <NavigationList>
           <LeftNavItems>
             <ListItem $marginRight={64}>
@@ -81,6 +100,60 @@ export const Header = () => {
           </ListItem>
         </NavigationList>
       </Navigation>
+      <MobileHeaderWrapper>
+        <MobileNavigation>
+          <Link to="/">
+            <ModsenSHOPPE>Modsen S</ModsenSHOPPE>
+            <ModsenSHOPPE $HOPPE="black">HOPPE</ModsenSHOPPE>
+          </Link>
+          <MobileHeaderIconsWrapper>
+            <div>
+              <Busket />
+            </div>
+            <div onClick={onClickHandler}>
+              {isMobileMenuOpen ? <CloseMenu /> : <MobileMenu />}
+            </div>
+          </MobileHeaderIconsWrapper>
+        </MobileNavigation>
+
+        <MobileInputWrapper>
+          <MobileInput placeholder="Search" />
+          <Search />
+        </MobileInputWrapper>
+        {isMobileMenuOpen ? (
+          <MobileMenuNavigation>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>{' '}
+              </li>
+
+              <li>
+                <Link to="/">Shop</Link>
+              </li>
+
+              <li>
+                <Link to="/">About</Link>
+              </li>
+
+              <li>
+                <Link to="/">Blog</Link>
+              </li>
+
+              <li>
+                <Link to="/">Help</Link>
+              </li>
+
+              <li>
+                <Link to="/">Contact</Link>
+              </li>
+
+              <li>
+                <Link to="/">Search</Link>
+              </li>
+            </ul>
+          </MobileMenuNavigation>
+        ) : null}
+      </MobileHeaderWrapper>
     </StyledHeader>
   );
 };

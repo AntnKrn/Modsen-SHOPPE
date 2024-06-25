@@ -6,6 +6,7 @@ import {
   FooterWrapper,
   SocialMediaWrapper,
   StyledText,
+  SubscribeEmailForm,
   ThermsAndSocialMedia,
 } from './Footer.styled';
 import { LineForFooterHeader } from '../LineForFooterHeader/LineForFooterHeader';
@@ -68,11 +69,7 @@ export const Footer = () => {
           <FooterNavItem>TERMS OF SERVICES</FooterNavItem>
           <FooterNavItem>SHIPPING AND RETURNS</FooterNavItem>
         </FooterNav>
-        <form
-          style={{ width: '396px', position: 'relative' }}
-          onSubmit={handleSubmit(onSubmit)}
-          ref={form}
-        >
+        <SubscribeEmailForm onSubmit={handleSubmit(onSubmit)} ref={form}>
           <Input
             placeholder="Give an email, get the newsletter."
             name="email"
@@ -80,20 +77,24 @@ export const Footer = () => {
             error={errors}
             reset={resetField}
           >
-            <button type="submit" style={{ border: 'none' }}>
+            <button type="submit">
               <SendArrow />
             </button>
           </Input>
-        </form>
+          <input type="checkbox" />
+          <span> I agree to the website’s terms and conditions.</span>
+        </SubscribeEmailForm>
       </FooterNavAndSubscribeEmail>
 
       <ThermsAndSocialMedia>
-        <StyledText onSubmit={handleSubmit(onSubmit)}>
+        <StyledText>
           <span style={{ color: 'var(--text-color)' }}>© 2023 Shelly.</span>{' '}
           Terms of use <span style={{ color: 'var(--text-color)' }}>and</span>{' '}
           privacy policy.
         </StyledText>
         <SocialMediaWrapper>
+          <span>Follow us</span>
+          <div />
           <LinkedIn />
           <Facebook />
           <Instagram />

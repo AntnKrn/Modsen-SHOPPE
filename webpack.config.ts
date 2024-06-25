@@ -41,6 +41,10 @@ export default (env: EnvVariables) => {
           use: [{ loader: 'file-loader' }],
           exclude: /node_modules/,
         },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+        },
       ],
     },
     resolve: {

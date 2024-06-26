@@ -42,13 +42,14 @@ export const Global = createGlobalStyle<{ $theme: boolean }>`
 `;
 
 export const AppWrapper = styled.div`
-  /*   min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 200px);
   display: flex;
   flex-direction: column;
- */
+
   margin: 100px;
 
   @media (max-width: 768px) {
     margin: 15px;
+    min-height: calc(100vh - 30px);
   }
 `;

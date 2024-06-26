@@ -37,9 +37,12 @@ export default (env: EnvVariables) => {
           exclude: /node_modules/,
         },
         {
-          test: /\.(png|jpe?g|gif|svg)$/i,
-          use: [{ loader: 'file-loader' }],
-          exclude: /node_modules/,
+          test: /\.(png|jpe?g|gif)$/i,
+          type: 'asset/resource',
+        },
+        {
+          test: /\.svg$/,
+          use: ['@svgr/webpack'],
         },
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,

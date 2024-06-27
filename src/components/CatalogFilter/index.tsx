@@ -1,5 +1,9 @@
 import React from 'react';
-import { CatalogFilterWrapper } from './index.styled';
+import {
+  CatalogFilterWrapper,
+  CloseMenuWrapper,
+  StyledCloseMenu,
+} from './index.styled';
 import { PriceInputFilter } from '../PriceInput';
 import { Chooser } from '../Chooser';
 import { useGetCategoriesQuery } from '../../store/api/products/product';
@@ -12,7 +16,15 @@ import {
 import { sort } from '../../store/features/search/searchSlice';
 import { RootState } from '../../store/store';
 
-export const CatalogFilter = () => {
+interface ICatalogFilter {
+  isFilterOpen: boolean;
+  handleClose(): void;
+}
+
+export const CatalogFilter = ({
+  isFilterOpen,
+  handleClose,
+}: ICatalogFilter) => {
   const filter = useSelector((state: RootState) => state.filter.filter);
   const seatchedText = useSelector((state: RootState) => state.search.text);
   const sortBy = useSelector((state: RootState) => state.search.sort);
@@ -33,8 +45,11 @@ export const CatalogFilter = () => {
   };
 
   return (
-    <CatalogFilterWrapper>
+    <CatalogFilterWrapper $isOpen={isFilterOpen}>
       <SearchInput state={seatchedText} />
+      <CloseMenuWrapper onClick={handleClose}>
+        <StyledCloseMenu />
+      </CloseMenuWrapper>
       <Chooser
         state={filter}
         chooserText="Shop By"

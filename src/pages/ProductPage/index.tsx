@@ -23,7 +23,6 @@ export const ProductPage = () => {
           <ProductDescription description={data.description} />
         </>
       ) : null}
-
       <SimilarItems>Similar Items</SimilarItems>
       <SimilarShopList>
         <ShopList data={isSimilarSuccess ? similarProducts : []} />

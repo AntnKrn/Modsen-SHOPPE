@@ -17,4 +17,8 @@ export const ShopListWrapper = styled.div`
     row-gap: 24px;
     margin-bottom: 94px;
   }
+
+  @media ((min-width: 768px) and (${resolution.desktop})) {
+    width: fit-content;
+  }
 `;

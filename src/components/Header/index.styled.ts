@@ -10,7 +10,7 @@ import {
 import { resolution } from '../../constants/resolutions';
 
 export const StyledHeader = styled.header`
-  @media (${resolution.laptop}) {
+  @media (${resolution.desktop}) {
     margin: -15px;
     height: 100%; //100vh
     position: static; //fixed
@@ -30,7 +30,7 @@ export const Navigation = styled.nav`
   height: 100%;
   width: 100%;
 
-  @media (${resolution.laptop}) {
+  @media (${resolution.desktop}) {
     display: none;
   }
 `;
@@ -63,7 +63,7 @@ export const MobileInputWrapper = styled.div`
     top: 11px;
   }
 
-  @media (max-width: 768px) {
+  @media (${resolution.desktop}) {
     display: block;
   }
 `;
@@ -78,7 +78,7 @@ export const ModsenSHOPPE = styled.h1<{ $HOPPE?: string }>`
   &:nth-of-type(2) {
     color: var(--text-color);
   }
-  @media (max-width: 768px) {
+  @media (${resolution.desktop}) {
     font-weight: 400;
     font-size: 25px;
     line-height: 40.5px;
@@ -90,7 +90,7 @@ export const MobileNavigation = styled.div`
   position: absolute;
   align-items: baseline;
 
-  @media (max-width: 768px) {
+  @media (${resolution.desktop}) {
     display: flex;
     position: static;
     justify-content: space-between;
@@ -111,7 +111,7 @@ export const NavigationList = styled.ul`
   color: black;
   height: 21px;
 
-  @media (max-width: 768px) {
+  @media (${resolution.desktop}) {
     display: none;
     right: 0;
   }
@@ -195,7 +195,7 @@ export const ProfileHover = styled.div`
 export const MobileHeaderWrapper = styled.div`
   display: none;
 
-  @media (${resolution.laptop}) {
+  @media (${resolution.desktop}) {
     display: block;
   }
 `;

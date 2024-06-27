@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { ShopTheLatestText } from '../../components/ShopTheLatestText';
-import { LineForFooterHeader } from '../../components/LineForFooterHeader';
+import { LineForFooterHeader } from '../../components/Line';
 import { CatalogContent, ShopPageMain } from './index.styled';
 import { CatalogFilter } from '../../components/CatalogFilter';
 import { ShopList } from '../../components/ShopList';
@@ -43,6 +43,12 @@ export const ShopPage = () => {
         if (sortBy === null) return;
       });
   };
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  const handleClose = () => {
+    setIsFilterOpen((prev) => !prev);
+  };
+
   return (
     <>
       <LineForFooterHeader />
@@ -50,10 +56,13 @@ export const ShopPage = () => {
         <ShopTheLatestText />
         <CatalogContent>
           <MobileFilterWrapper>
-            <FilterSVG />
+            <FilterSVG onClick={handleClose} />
             <span>Filters</span>
           </MobileFilterWrapper>
-          <CatalogFilter />
+          <CatalogFilter
+            isFilterOpen={isFilterOpen}
+            handleClose={handleClose}
+          />
           <ShopList data={isSuccess && data ? filterProducts(data) : []} />
         </CatalogContent>
       </ShopPageMain>

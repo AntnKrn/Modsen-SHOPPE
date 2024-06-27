@@ -2,22 +2,37 @@ import styled from 'styled-components';
 import {
   DESKTOP_BODY_LARGE,
   DESKTOP_HEADING1,
+  MOBILE_HEADING1,
+  MOBILE_HEADING2,
 } from '../../constants/styles/fonts';
+import { resolution } from '../../constants/resolutions';
 
 export const StyledAuthorizationMain = styled.div`
   margin-top: 100px;
   margin-bottom: 200px;
+
+  @media (${resolution.desktop}) {
+    margin: 30px 0 50px;
+  }
 `;
 
 export const AuthForm = styled.form`
   margin: 0 auto;
   width: 1000px;
+
+  @media (${resolution.desktop}) {
+    width: 100%;
+  }
 `;
 
 export const InputsField = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 100px;
+
+  @media (${resolution.desktop}) {
+    row-gap: 50px;
+  }
 `;
 
 export const Title = styled.div`
@@ -26,6 +41,13 @@ export const Title = styled.div`
   line-height: ${DESKTOP_HEADING1.LineHeight};
   text-align: center;
   margin-bottom: 100px;
+
+  @media (${resolution.desktop}) {
+    font-size: ${MOBILE_HEADING1.Size};
+    font-weight: ${MOBILE_HEADING1.Weight};
+    line-height: ${MOBILE_HEADING1.LineHeight};
+    margin-bottom: 50px;
+  }
 `;
 
 export const SendButton = styled.input`
@@ -47,6 +69,12 @@ export const SendButton = styled.input`
   &:hover {
     background-color: var(--bg-color);
     color: var(--text-color);
+  }
+  @media (${resolution.desktop}) {
+    width: 100%;
+    font-size: ${MOBILE_HEADING2.Size};
+    font-weight: ${MOBILE_HEADING2.Weight};
+    line-height: ${MOBILE_HEADING2.LineHeight};
   }
 `;
 

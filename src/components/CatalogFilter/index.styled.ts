@@ -3,13 +3,27 @@ import { resolution } from '../../constants/resolutions';
 import Filter from '../../assets/icons/Filters.svg';
 import { COLORS } from '../../constants/styles/mainColors';
 import { MOBILE_BODY_SMALL } from '../../constants/styles/fonts';
+import { CloseMenu } from '../../assets/icons/CloseMenu';
 
-export const CatalogFilterWrapper = styled.div`
+export const CloseMenuWrapper = styled.div`
+  position: absolute;
+  right: 15px;
+  top: 15px;
+`;
+export const StyledCloseMenu = styled(CloseMenu)``;
+
+export const CatalogFilterWrapper = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
 
   @media (${resolution.laptop}) {
-    display: none;
+    display: ${(props) => (props.$isOpen ? 'flex' : `none`)};
+    top: 0;
+    position: fixed;
+    z-index: 3;
+    background-color: var(--bg-color);
+    height: 100vh;
+    justify-content: center;
   }
 `;
 

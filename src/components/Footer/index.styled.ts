@@ -25,6 +25,17 @@ export const FooterWrapper = styled.footer`
       line-height: ${MOBILE_BODY_SMALL.LineHeight};
     }
   }
+
+  @media (${resolution.desktop}) {
+    h5,
+    p,
+    input,
+    span {
+      font-size: ${MOBILE_BODY_SMALL.Size};
+      font-weight: ${MOBILE_BODY_SMALL.Weight};
+      line-height: ${MOBILE_BODY_SMALL.LineHeight};
+    }
+  }
 `;
 
 export const FooterNav = styled.div`
@@ -62,10 +73,14 @@ export const SubscribeEmailForm = styled.form`
   @media (${resolution.laptop}) {
     width: 100%;
   }
+  @media (${resolution.desktop}) and (min-width: 768px) {
+    width: 300px;
+  }
 `;
 
 export const MobileAgreements = styled.div`
   display: none;
+  margin-top: 25px;
   @media (${resolution.laptop}) {
     display: inline-block;
   }

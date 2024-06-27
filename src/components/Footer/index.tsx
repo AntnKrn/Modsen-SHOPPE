@@ -10,7 +10,7 @@ import {
   SubscribeEmailForm,
   ThermsAndSocialMedia,
 } from './index.styled';
-import { LineForFooterHeader } from '../LineForFooterHeader';
+import { LineForFooterHeader } from '../Line';
 
 import { SendArrow } from '../../assets/icons/sendArrow';
 import { Input } from '../Input';

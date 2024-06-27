@@ -124,31 +124,45 @@ export const Header = () => {
           <MobileMenuNavigation>
             <ul>
               <li>
-                <Link to="/">Home</Link>{' '}
+                <Link to="/" onClick={onClickHandler}>
+                  Home
+                </Link>{' '}
               </li>
 
               <li>
-                <Link to="/">Shop</Link>
+                <Link to="/shop" onClick={onClickHandler}>
+                  Shop
+                </Link>
               </li>
 
               <li>
-                <Link to="/">About</Link>
+                <Link to="/" onClick={onClickHandler}>
+                  About
+                </Link>
               </li>
 
               <li>
-                <Link to="/">Blog</Link>
+                <Link to="/busket" onClick={onClickHandler}>
+                  Busket
+                </Link>
               </li>
 
               <li>
-                <Link to="/">Help</Link>
+                <Link to="/" onClick={onClickHandler}>
+                  Help
+                </Link>
               </li>
 
               <li>
-                <Link to="/">Contact</Link>
+                <Link to="/contact" onClick={onClickHandler}>
+                  Contact
+                </Link>
               </li>
 
               <li>
-                <Link to="/">Search</Link>
+                <Link to="/" onClick={onClickHandler}>
+                  Search
+                </Link>
               </li>
             </ul>
           </MobileMenuNavigation>

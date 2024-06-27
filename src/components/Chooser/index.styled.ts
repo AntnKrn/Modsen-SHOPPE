@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { COLORS } from '../../constants/styles/mainColors';
+import { resolution } from '../../constants/resolutions';
+import { MOBILE_HEADING1, MOBILE_HEADING2 } from '../../constants/styles/fonts';
 
 export const ChooserWrapper = styled.div`
   display: inline-block;
@@ -19,6 +21,11 @@ export const ChooserWrapper = styled.div`
       display: block;
     }
   }
+
+  @media (${resolution.laptop}) {
+    width: auto;
+    height: 25px;
+  }
 `;
 
 export const TextAndSVGWrapper = styled.div`
@@ -30,6 +37,15 @@ export const TextAndSVGWrapper = styled.div`
   cursor: pointer;
   svg {
     transition: 1s;
+  }
+
+  @media (${resolution.laptop}) {
+    font-size: ${MOBILE_HEADING2.Size};
+    font-weight: ${MOBILE_HEADING2.Weight};
+    line-height: ${MOBILE_HEADING2.LineHeight};
+    margin: 0;
+    width: auto;
+    height: 25px;
   }
 `;
 
@@ -43,6 +59,11 @@ export const Options = styled.div`
   height: 51px;
   border: 1px solid ${COLORS.COLOR_GRAY};
   border-radius: 4px;
+
+  @media (${resolution.laptop}) {
+    width: auto;
+    height: 25px;
+  }
 `;
 
 export const OptionWrapper = styled.div`

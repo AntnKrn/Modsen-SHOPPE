@@ -9,7 +9,6 @@ import { App } from '../components/App';
 import { Authorization } from './Authorization';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { ReactElement } from 'react';
 
 const Reder = ({ children }: any) => {
   const location = useLocation();

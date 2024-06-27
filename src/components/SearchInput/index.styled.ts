@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { DESKTOP_HEADING5 } from '../../constants/styles/fonts';
 import { COLORS } from '../../constants/styles/mainColors';
+import { resolution } from '../../constants/resolutions';
 
 export const StyledInput = styled.input<{
   $Color: string;
@@ -32,5 +33,8 @@ export const SearchInputWrapper = styled.div`
   div {
     position: absolute;
     right: 0;
+  }
+  @media (${resolution.desktop}) {
+    display: none;
   }
 `;

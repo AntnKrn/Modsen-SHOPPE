@@ -2,6 +2,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { COLORS } from '../constants/styles/mainColors';
 import DMSans from '../assets/fonts/DMSans.ttf';
 import AllertaStencil from '../assets/fonts/AllertaStencil.ttf';
+import { resolution } from '../constants/resolutions';
 export const Global = createGlobalStyle<{ $theme: boolean }>`
     @font-face {
         font-family: DM Sans;
@@ -48,7 +49,7 @@ export const AppWrapper = styled.div`
 
   margin: 100px;
 
-  @media (max-width: 768px) {
+  @media (${resolution.desktop}) {
     margin: 15px;
     min-height: calc(100vh - 30px);
   }

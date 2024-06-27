@@ -12,7 +12,7 @@ export const FormContainer = styled.form`
   text-align: center;
   margin: 125px 170px 250px;
 
-  @media (${resolution.laptop}) {
+  @media (${resolution.desktop}) {
     margin: 39px 0 96px;
     align-items: center;
   }
@@ -25,7 +25,7 @@ export const ContainerContactUs = styled.div`
   flex-direction: column;
   margin: 0 auto;
   justify-content: space-between;
-  @media (${resolution.laptop}) {
+  @media (${resolution.desktop}) {
     height: initial;
     margin: 0 0 69px;
   }
@@ -36,7 +36,7 @@ export const Title = styled.h1`
   font-weight: ${DESKTOP_HEADING1.Weight};
   line-height: ${DESKTOP_HEADING1.LineHeight};
 
-  @media (${resolution.laptop}) {
+  @media (${resolution.desktop}) {
     font-size: ${MOBILE_HEADING1.Size};
     font-weight: ${MOBILE_HEADING1.Weight};
     line-height: ${MOBILE_HEADING1.LineHeight};
@@ -49,7 +49,7 @@ export const Description = styled.h3`
   font-weight: ${DESKTOP_HEADING3.Weight};
   line-height: ${DESKTOP_HEADING3.LineHeight};
 
-  @media (${resolution.laptop}) {
+  @media (${resolution.desktop}) {
     display: none;
   }
 `;
@@ -76,7 +76,7 @@ export const InputsField = styled.div`
     }
   }
 
-  @media (${resolution.laptop}) {
+  @media (${resolution.desktop}) {
     display: flex;
     flex-direction: column;
     gap: 47px;
@@ -110,7 +110,7 @@ export const SendButton = styled.input`
     color: var(--text-color);
   }
 
-  @media (${resolution.laptop}) {
+  @media (${resolution.desktop}) {
     font-size: ${MOBILE_BODY_SMALL.Size};
     font-weight: ${MOBILE_BODY_SMALL.Weight};
     line-height: ${MOBILE_BODY_SMALL.LineHeight};

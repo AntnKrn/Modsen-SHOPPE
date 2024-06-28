@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { COLORS } from '../../constants/styles/mainColors';
 import { resolution } from '../../constants/resolutions';
-import { MOBILE_HEADING1, MOBILE_HEADING2 } from '../../constants/styles/fonts';
+import { MOBILE_HEADING2 } from '../../constants/styles/fonts';
 
 export const ChooserWrapper = styled.div`
   display: inline-block;
@@ -69,7 +69,6 @@ export const Options = styled.div`
 export const OptionWrapper = styled.div`
   border: 1px solid ${COLORS.COLOR_GRAY};
   border-radius: 4px;
-
   background-color: var(--bg-color);
   width: 100%;
   display: none;

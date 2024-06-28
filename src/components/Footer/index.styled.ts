@@ -4,6 +4,8 @@ import {
   MOBILE_BODY_SMALL,
 } from '../../constants/styles/fonts';
 import { resolution } from '../../constants/resolutions';
+import { Link } from 'react-router-dom';
+import { COLORS } from '../../constants/styles/mainColors';
 
 export const FooterWrapper = styled.footer`
   height: 159px;
@@ -50,14 +52,14 @@ export const FooterNav = styled.div`
   }
 `;
 
-export const FooterNavItem = styled.h5`
+export const FooterNavItem = styled(Link)`
   font-size: ${DESKTOP_HEADING5.Size};
   font-weight: ${DESKTOP_HEADING5.Weight};
   line-height: ${DESKTOP_HEADING5.LineHeight};
-  color: rgba(112, 112, 112, 1);
+  color: ${COLORS.COLOR_LIGHT_GRAY} !important;
 `;
 
-export const FooterNavAndSubscribeEmail = styled.div`
+export const FooterNavAndForm = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -66,32 +68,14 @@ export const FooterNavAndSubscribeEmail = styled.div`
   }
 `;
 
-export const SubscribeEmailForm = styled.form`
-  position: relative;
-  width: 396px;
-
-  @media (${resolution.laptop}) {
-    width: 100%;
-  }
-  @media (${resolution.desktop}) and (min-width: 768px) {
-    width: 300px;
-  }
-`;
-
 export const MobileAgreements = styled.div`
   display: none;
-  margin-top: 25px;
   @media (${resolution.laptop}) {
     display: inline-block;
   }
 `;
 
-export const ArrowWrapper = styled.div`
-  position: absolute;
-  right: 0;
-`;
-
-export const StyledText = styled.p`
+export const ThermsWrapper = styled.p`
   @media (${resolution.laptop}) {
     order: 2;
   }
@@ -159,5 +143,21 @@ export const ThermsAndSocialMedia = styled.h5`
     span {
       color: rgba(112, 112, 112, 1) !important;
     }
+  }
+`;
+
+export const FormWrapper = styled.div`
+  width: 396px;
+  form {
+    position: relative;
+
+    button {
+      position: absolute;
+      right: 0;
+      top: 7px;
+    }
+  }
+  @media (${resolution.laptop}) {
+    width: 100%;
   }
 `;

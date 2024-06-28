@@ -24,6 +24,10 @@ export const CatalogFilterWrapper = styled.div<{ $isOpen: boolean }>`
     background-color: var(--bg-color);
     height: 100vh;
     justify-content: center;
+
+    & > div:nth-child(1) {
+      display: none;
+    }
   }
 `;
 

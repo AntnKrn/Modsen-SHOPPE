@@ -33,6 +33,11 @@ export const Global = createGlobalStyle<{ $theme: boolean }>`
         color: var(--text-color);
         background-color: var(--bg-color);
         border: none;
+        border-radius: 0;
+
+        &:focus {
+            outline: none;
+        }
     }
 
     body {

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { LineForFooterHeader } from '../Line';
+import { Divider } from '../Divider';
 import {
   DesctiptionText,
   DesctiptionTextHeader,
@@ -27,7 +27,7 @@ export const ProductDescription = ({ description }: IProductDescription) => {
           architecto.
         </p>
       </DesctiptionTextHeader>
-      <LineForFooterHeader />
+      <Divider />
       <DesctiptionText>{description}</DesctiptionText>
     </ProductDescriptionWrapper>
   );

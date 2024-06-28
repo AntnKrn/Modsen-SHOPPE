@@ -1,7 +1,5 @@
 import React from 'react';
-import { IconWrapper, InputContainer, ErrorMessage } from './index.styled';
-import { StyledInput } from './StyledInput';
-import { Delete } from '../../assets/icons/Delete';
+import { InputContainer, ErrorMessage, StyledInput } from './index.styled';
 
 interface IPropsInput {
   children?: React.ReactNode;
@@ -25,20 +23,11 @@ export const Input = ({
 }: IPropsInput) => {
   return (
     <InputContainer>
-      <StyledInput
-        {...register}
-        placeholder={placeholder}
-        $Color="gray"
-        autoComplete="off"
-      />
+      <StyledInput {...register} placeholder={placeholder} autoComplete="off" />
       {error[name] && <ErrorMessage>{error[name].message}</ErrorMessage>}
-      <IconWrapper>
-        <div onClick={() => reset(name, '')}>
+      {/* <div onClick={() => reset(name, '')}>
           <Delete />
-        </div>
-        {/* eslint-disable-next-line no-constant-condition */}
-        <div>{{ children } ? children : null}</div>
-      </IconWrapper>
+        </div> */}
     </InputContainer>
   );
 };

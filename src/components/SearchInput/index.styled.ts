@@ -1,40 +1,52 @@
 import styled from 'styled-components';
-import { DESKTOP_HEADING5 } from '../../constants/styles/fonts';
+import {
+  DESKTOP_HEADING5,
+  MOBILE_HEADING3,
+} from '../../constants/styles/fonts';
 import { COLORS } from '../../constants/styles/mainColors';
 import { resolution } from '../../constants/resolutions';
+import Search from '../../assets/icons/socialMedia/svg/search.svg';
 
-export const StyledInput = styled.input<{
-  $Color: string;
-}>`
+export const StyledSearch = styled(Search)`
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  right: 0;
+  top: 0;
+  fill: var(--text-color);
+
+  @media (${resolution.laptop}) {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 10px;
+    top: 10px;
+  }
+`;
+
+export const StyledInput = styled.input`
   width: 100%;
   border: none;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: ${(props) =>
-    props.$Color === 'gray'
-      ? ` ${COLORS.COLOR_GRAY}`
-      : ` ${COLORS.COLOR_BLACK}`};
+  border-bottom: 1px solid black;
   font-size: ${DESKTOP_HEADING5.Size};
   font-weight: ${DESKTOP_HEADING5.Weight};
   line-height: ${DESKTOP_HEADING5.LineHeight};
-  padding-bottom: 11px;
-  box-shadow: 'none';
-  &:focus {
-    outline: none;
+  outline: none;
+
+  @media (${resolution.laptop}) {
+    height: 32px;
+    border: none;
+    color: ${COLORS.COLOR_DARK_GRAY};
+    background-color: ${COLORS.COLOR_LIGHT_GRAY};
+    font-weight: ${MOBILE_HEADING3.Weight};
+    font-size: ${MOBILE_HEADING3.Size};
+    border-radius: 4px;
+    padding: 10px 30px 10px;
   }
 `;
 
 export const SearchInputWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 39px;
   position: relative;
-
-  div {
-    position: absolute;
-    right: 0;
-  }
-  @media (${resolution.desktop}) {
-    display: none;
-  }
 `;

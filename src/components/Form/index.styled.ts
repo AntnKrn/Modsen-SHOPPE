@@ -8,16 +8,6 @@ import {
 } from '../../constants/styles/fonts';
 import { resolution } from '../../constants/resolutions';
 
-export const FormContainer = styled.form`
-  text-align: center;
-  margin: 125px 170px 250px;
-
-  @media (${resolution.desktop}) {
-    margin: 39px 0 96px;
-    align-items: center;
-  }
-`;
-
 export const ContainerContactUs = styled.div`
   max-width: 561px;
   height: 134px;
@@ -51,43 +41,6 @@ export const Description = styled.h3`
 
   @media (${resolution.desktop}) {
     display: none;
-  }
-`;
-
-export const InputsField = styled.div`
-  margin: 108px 0px 96px;
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 116px;
-  row-gap: 94px;
-
-  input:hover {
-    & + div {
-      display: block;
-    }
-  }
-
-  div:nth-of-type(5) {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    margin-top: 126px;
-    input {
-      padding-bottom: 44px;
-    }
-  }
-
-  @media (${resolution.desktop}) {
-    display: flex;
-    flex-direction: column;
-    gap: 47px;
-    margin: 0;
-    div:nth-of-type(5) {
-      margin-top: 0px;
-
-      input {
-        padding: 0;
-      }
-    }
   }
 `;
 

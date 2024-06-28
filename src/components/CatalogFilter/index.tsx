@@ -26,7 +26,6 @@ export const CatalogFilter = ({
   handleClose,
 }: ICatalogFilter) => {
   const filter = useSelector((state: RootState) => state.filter.filter);
-  const seatchedText = useSelector((state: RootState) => state.search.text);
   const sortBy = useSelector((state: RootState) => state.search.sort);
   const filteredByPrice = useSelector(
     (state: RootState) => state.search.priceRange,
@@ -46,7 +45,7 @@ export const CatalogFilter = ({
 
   return (
     <CatalogFilterWrapper $isOpen={isFilterOpen}>
-      <SearchInput state={seatchedText} />
+      <SearchInput />
       <CloseMenuWrapper onClick={handleClose}>
         <StyledCloseMenu />
       </CloseMenuWrapper>

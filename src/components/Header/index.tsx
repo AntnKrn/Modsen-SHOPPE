@@ -10,33 +10,35 @@ import {
   ListItem,
   LeftNavItems,
   ProfileHover,
-  MobileNavigation,
-  MobileInput,
-  MobileInputWrapper,
+  MobileHeader,
   MobileMenuNavigation,
   MobileHeaderWrapper,
   MobileHeaderIconsWrapper,
+  MobileSearchInputWrapper,
+  StyledSearch,
+  StyledBusket,
+  StyledProfile,
 } from './index.styled';
 import { Busket } from '../../assets/icons/busket';
-import { Search } from '../../assets/icons/search';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { change } from '../../store/features/theme/themeSlice';
-import { Profile } from '../../assets/icons/Profile';
 import { RootState } from '../../store/store';
 import { clearUser } from '../../store/features/auth/authSlice';
 import { MobileMenu } from '../../assets/icons/mobileMenu';
 import { CloseMenu } from '../../assets/icons/CloseMenu';
+import { paths } from '../../constants/paths';
+import { mobileMenuLinks } from './mobileMenuLinks';
+import { SearchInput } from '../SearchInput';
 
 export const Header = () => {
-  const [checked, setChecked] = useState(false); // store value
+  const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
   const isAuth = useSelector((state: RootState) => state.auth.isAuth);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
     dispatch(change());
   };
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const onClickHandler = () => {
@@ -52,12 +54,16 @@ export const Header = () => {
     });
   };
 
+  const handleSignOut = () => {
+    dispatch(clearUser());
+  };
+
   return (
     <StyledHeader>
       <Navigation>
-        <Link to="/">
+        <Link to={paths.main}>
           <ModsenSHOPPE>Modsen S</ModsenSHOPPE>
-          <ModsenSHOPPE $HOPPE="black">HOPPE</ModsenSHOPPE>
+          <ModsenSHOPPE>HOPPE</ModsenSHOPPE>
         </Link>
         <NavigationList>
           <LeftNavItems>
@@ -77,22 +83,21 @@ export const Header = () => {
             </Label>
           </ListItem>
           <ListItem $marginRight={43}>
-            <Search />
+            <StyledSearch />
           </ListItem>
           <ListItem $marginRight={41}>
             <Link to="/busket">
-              <Busket />
+              <StyledBusket />
             </Link>
           </ListItem>
           <ListItem $marginRight={41}>
             <ProfileHover>
-              <Profile />
+              <StyledProfile />
 
               {isAuth ? (
-                <p onClick={() => dispatch(clearUser())}>Sign out</p>
+                <p onClick={handleSignOut}>Sign out</p>
               ) : (
                 <p>
-                  {' '}
                   <Link to="/authorization">Sign in</Link>
                 </p>
               )}
@@ -100,70 +105,44 @@ export const Header = () => {
           </ListItem>
         </NavigationList>
       </Navigation>
+
       <MobileHeaderWrapper>
-        <MobileNavigation>
-          <Link to="/">
+        <MobileHeader>
+          <Link to={paths.main}>
             <ModsenSHOPPE>Modsen S</ModsenSHOPPE>
-            <ModsenSHOPPE $HOPPE="black">HOPPE</ModsenSHOPPE>
+            <ModsenSHOPPE>HOPPE</ModsenSHOPPE>
           </Link>
           <MobileHeaderIconsWrapper>
-            <div>
+            <Link to={paths.cart}>
               <Busket />
-            </div>
+            </Link>
             <div onClick={onClickHandler}>
               {isMobileMenuOpen ? <CloseMenu /> : <MobileMenu />}
             </div>
           </MobileHeaderIconsWrapper>
-        </MobileNavigation>
-
-        <MobileInputWrapper>
-          <MobileInput placeholder="Search" />
-          <Search />
-        </MobileInputWrapper>
+        </MobileHeader>
+        <MobileSearchInputWrapper>
+          <SearchInput />
+        </MobileSearchInputWrapper>
         {isMobileMenuOpen ? (
           <MobileMenuNavigation>
             <ul>
-              <li>
-                <Link to="/" onClick={onClickHandler}>
-                  Home
-                </Link>{' '}
-              </li>
-
-              <li>
-                <Link to="/shop" onClick={onClickHandler}>
-                  Shop
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/" onClick={onClickHandler}>
-                  About
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/busket" onClick={onClickHandler}>
-                  Busket
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/" onClick={onClickHandler}>
-                  Help
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/contact" onClick={onClickHandler}>
-                  Contact
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/" onClick={onClickHandler}>
-                  Search
-                </Link>
-              </li>
+              {mobileMenuLinks.map((link) => (
+                <li key={link.title}>
+                  <Link to={link.path} onClick={onClickHandler}>
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+              {isAuth ? (
+                <li onClick={handleSignOut}>Sign out</li>
+              ) : (
+                <li>
+                  <Link to="/authorization" onClick={onClickHandler}>
+                    Sign in
+                  </Link>
+                </li>
+              )}
             </ul>
           </MobileMenuNavigation>
         ) : null}

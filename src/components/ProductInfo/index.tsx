@@ -17,7 +17,7 @@ import { Facebook } from '../../assets/icons/socialMedia/Facebook';
 import { Instagram } from '../../assets/icons/socialMedia/Instagram';
 import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 import { IProductInfoProps } from './IProductInfoProps';
-import { Line } from '../Line/index.styled';
+import { StyledDivider } from '../Divider/index.styled';
 
 export const ProductInfo = ({ ...product }: IProductInfoProps) => {
   const ref = useRef<HTMLSpanElement>();

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { SearchInputWrapper, StyledInput } from './index.styled';
-import { Search } from '../../assets/icons/search';
-import { useDispatch } from 'react-redux';
+import { SearchInputWrapper, StyledInput, StyledSearch } from './index.styled';
+import { useDispatch, useSelector } from 'react-redux';
 import { searchByTitle } from '../../store/features/search/searchSlice';
 import { useDebounce } from '../../hooks/useDebounce';
+import { RootState } from '../../store/store';
 
-export const SearchInput = ({ state }: { state: string }) => {
-  const [searchText, setSearchText] = useState(state);
+export const SearchInput = () => {
+  const searchedText = useSelector((state: RootState) => state.search.text);
+
+  const [searchText, setSearchText] = useState(searchedText);
 
   const dispatch = useDispatch();
   const debouncedSearch = useDebounce(searchText);
@@ -22,14 +24,11 @@ export const SearchInput = ({ state }: { state: string }) => {
   return (
     <SearchInputWrapper>
       <StyledInput
-        $Color="gray"
         placeholder="Search..."
         value={searchText}
         onChange={onChangeText}
       />
-      <div>
-        <Search />
-      </div>
+      <StyledSearch />
     </SearchInputWrapper>
   );
 };

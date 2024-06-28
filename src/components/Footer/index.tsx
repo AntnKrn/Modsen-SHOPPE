@@ -1,99 +1,65 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import {
   FooterNav,
-  FooterNavAndSubscribeEmail,
+  FooterNavAndForm,
   FooterNavItem,
   FooterWrapper,
+  FormWrapper,
   MobileAgreements,
   SocialMediaWrapper,
-  StyledText,
-  SubscribeEmailForm,
+  ThermsWrapper,
   ThermsAndSocialMedia,
 } from './index.styled';
-import { LineForFooterHeader } from '../Line';
-
+import { Divider } from '../Divider';
 import { SendArrow } from '../../assets/icons/sendArrow';
-import { Input } from '../Input';
-import { Link } from 'react-router-dom';
-import { Instagram } from '../../assets/icons/socialMedia/Instagram';
-import { LinkedIn } from '../../assets/icons/socialMedia/LinkedIn';
-import { Facebook } from '../../assets/icons/socialMedia/Facebook';
-import { Twitter } from '../../assets/icons/socialMedia/Twitter';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import emailjs from '@emailjs/browser';
-import { schema } from './schema';
+import Instagram from '../../assets/icons/socialMedia/svg/instagram.svg';
+import LinkedIn from '../../assets/icons/socialMedia/svg/linkedin.svg';
+import Facebook from '../../assets/icons/socialMedia/svg/facebook.svg';
+import Twitter from '../../assets/icons/socialMedia/svg/twitter.svg';
+import { validationInitForm, validationSchema } from './validationSchema';
+import { paths } from '../../constants/paths';
+import { IFormInputs } from '../../interfaces/IForm';
+import { Form } from '../Form';
+
+const inputs: IFormInputs[] = [
+  { placeholder: 'Give an email, get the newsletter.', name: 'email' },
+];
 
 export const Footer = () => {
-  const form = useRef();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    resetField,
-    formState,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
-  useEffect(() => {
-    if (formState.isSubmitSuccessful) {
-      reset({ email: '' });
-    }
-  }, [formState, reset]);
-
-  const onSubmit = () => {
-    emailjs
-      .sendForm('service_2cx4qgg', 'template_ghibljp', form.current, {
-        publicKey: 'BYAM0TqW9lBcPV3bw',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-  };
-
   return (
     <FooterWrapper>
-      <LineForFooterHeader />
-      <FooterNavAndSubscribeEmail>
+      <Divider />
+      <FooterNavAndForm>
         <FooterNav>
-          <Link to="/contact">
-            <FooterNavItem>CONTACT</FooterNavItem>
-          </Link>
-          <FooterNavItem>TERMS OF SERVICES</FooterNavItem>
-          <FooterNavItem>SHIPPING AND RETURNS</FooterNavItem>
+          <FooterNavItem to={paths.contact}>CONTACT</FooterNavItem>
+          <FooterNavItem to={paths.main}>TERMS OF SERVICES</FooterNavItem>
+          <FooterNavItem to={paths.main}>SHIPPING AND RETURNS</FooterNavItem>
         </FooterNav>
-        <SubscribeEmailForm onSubmit={handleSubmit(onSubmit)} ref={form}>
-          <Input
-            placeholder="Give an email, get the newsletter."
-            name="email"
-            register={{ ...register('email') }}
-            error={errors}
-            reset={resetField}
+        <FormWrapper>
+          <Form
+            inputs={inputs}
+            initForm={validationInitForm}
+            schema={validationSchema}
           >
             <button type="submit">
               <SendArrow />
             </button>
-          </Input>
-          <MobileAgreements>
-            <input type="checkbox" />
-            <span> I agree to the website’s terms and conditions.</span>
-          </MobileAgreements>
-        </SubscribeEmailForm>
-      </FooterNavAndSubscribeEmail>
+          </Form>
+        </FormWrapper>
+
+        <MobileAgreements>
+          <input type="checkbox" />
+          <span> I agree to the website’s terms and conditions.</span>
+        </MobileAgreements>
+      </FooterNavAndForm>
 
       <ThermsAndSocialMedia>
-        <StyledText>
-          <span>© 2023 Shelly.</span>
-          Terms of use <span>and</span>
+        <ThermsWrapper>
+          <span>© 2023 Shelly.</span> Terms of use <span> and </span>
           privacy policy.
-        </StyledText>
+        </ThermsWrapper>
         <SocialMediaWrapper>
           <span>Follow us</span>
-          <div />
           <LinkedIn />
           <Facebook />
           <Instagram />

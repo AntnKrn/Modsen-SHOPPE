@@ -8,18 +8,36 @@ import {
   MOBILE_HEADING3,
 } from '../../constants/styles/fonts';
 import { resolution } from '../../constants/resolutions';
+import Search from '../../assets/icons/socialMedia/svg/search.svg';
+import Cart from '../../assets/icons/socialMedia/svg/cart.svg';
+import Profile from '../../assets/icons/socialMedia/svg/profile.svg';
 
 export const StyledHeader = styled.header`
   @media (${resolution.desktop}) {
-    margin: -15px;
-    height: 100%; //100vh
-    position: static; //fixed
+    margin: -15px -15px 0;
+    height: 100%;
+    position: static;
     z-index: 2;
     background-color: var(--bg-color);
     width: 100vw;
     padding: 15px;
     display: block;
   }
+`;
+
+export const StyledSearch = styled(Search)`
+  width: 19px;
+  height: 19px;
+`;
+
+export const StyledBusket = styled(Cart)`
+  width: 21px;
+  height: 21px;
+`;
+
+export const StyledProfile = styled(Profile)`
+  width: 21px;
+  height: 21px;
 `;
 
 export const Navigation = styled.nav`
@@ -45,39 +63,28 @@ export const MobileInput = styled.input`
   border-radius: 4px;
   padding: 10px 30px 10px;
   background-color: ${COLORS.COLOR_LIGHT_GRAY};
-  &:focus {
-    outline: none;
-  }
 `;
 
 export const MobileInputWrapper = styled.div`
   display: none;
   position: relative;
 
-  svg {
-    color: ${COLORS.COLOR_DARK_GRAY};
-    position: absolute;
-    width: 12px;
-    height: 10px;
-    left: 10px;
-    top: 11px;
-  }
-
   @media (${resolution.desktop}) {
     display: block;
   }
 `;
-export const ModsenSHOPPE = styled.h1<{ $HOPPE?: string }>`
+export const ModsenSHOPPE = styled.h1`
   color: ${COLORS.COLOR_ACCENT};
   font-family: ${ALLERTA_STENCIL};
-  font-style: normal;
   font-weight: 400;
   font-size: 35px;
   line-height: 40px;
   display: inline;
+
   &:nth-of-type(2) {
     color: var(--text-color);
   }
+
   @media (${resolution.desktop}) {
     font-weight: 400;
     font-size: 25px;
@@ -85,7 +92,7 @@ export const ModsenSHOPPE = styled.h1<{ $HOPPE?: string }>`
   }
 `;
 
-export const MobileNavigation = styled.div`
+export const MobileHeader = styled.header`
   display: none;
   position: absolute;
   align-items: baseline;
@@ -120,16 +127,19 @@ export const NavigationList = styled.ul`
 export const ListItem = styled.li<{ $marginRight?: number }>`
   margin-right: ${(props) => props.$marginRight}px;
   color: var(--text-color);
+
   &:nth-child(5):hover {
     p {
       display: block;
     }
   }
 `;
+
 export const LeftNavItems = styled.div`
   display: flex;
   align-items: center;
 `;
+
 export const Label = styled.label`
   display: flex;
   align-items: center;
@@ -176,6 +186,7 @@ export const Input = styled.input`
 
 export const ProfileHover = styled.div`
   position: relative;
+
   p {
     border: .5px solid var(--text-color);\
     font-size: ${DESKTOP_BODY_MEDIUM.Size};
@@ -199,8 +210,18 @@ export const MobileHeaderWrapper = styled.div`
     display: block;
   }
 `;
+
+export const MobileSearchInputWrapper = styled.div`
+  display: none;
+
+  @media (${resolution.laptop}) {
+    display: block;
+  }
+`;
+
 export const MobileMenuNavigation = styled.nav`
   margin-top: 39px;
+
   ul {
     display: flex;
     flex-direction: column;
@@ -212,14 +233,17 @@ export const MobileMenuNavigation = styled.nav`
     list-style: none;
   }
 `;
+
 export const MobileHeaderIconsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 17px;
+
   & svg:first-child {
     width: 18px;
     height: 18px;
   }
+
   & svg:nth-of-type(2) {
     width: 20px;
     height: 15px;

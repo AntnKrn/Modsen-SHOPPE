@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { ShopTheLatestText } from '../../components/ShopTheLatestText';
-import { LineForFooterHeader } from '../../components/Line';
+import { Divider } from '../../components/Divider';
 import { CatalogContent, ShopPageMain } from './index.styled';
 import { CatalogFilter } from '../../components/CatalogFilter';
 import { ShopList } from '../../components/ShopList';
@@ -51,7 +51,7 @@ export const ShopPage = () => {
 
   return (
     <>
-      <LineForFooterHeader />
+      <Divider />
       <ShopPageMain>
         <ShopTheLatestText />
         <CatalogContent>

@@ -72,8 +72,11 @@
     }
   },
   "lint-staged": {
-    "*.(ts|tsx)": [
-      "yarn lint"
+    "*.{ts,tsx}": [
+      "yarn lint",
+      "eslint --fix",
+      "prettier --write",
+      "git add"
     ]
   }
 }

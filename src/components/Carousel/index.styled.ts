@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import {
   DESKTOP_BODY_MEDIUM,
   DESKTOP_HEADING4,

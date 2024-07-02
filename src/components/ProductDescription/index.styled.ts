@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+
+import { resolution } from '../../constants/resolutions';
 import {
   DESKTOP_HEADING3,
   DESKTOP_HEADING5,
   MOBILE_HEADING2,
 } from '../../constants/styles/fonts';
-import { resolution } from '../../constants/resolutions';
 import { COLORS } from '../../constants/styles/mainColors';
 
 export const ProductDescriptionWrapper = styled.div`

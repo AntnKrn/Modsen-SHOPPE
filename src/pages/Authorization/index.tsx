@@ -1,5 +1,19 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { yupResolver } from '@hookform/resolvers/yup';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
+import { collection, doc, setDoc } from 'firebase/firestore';
+
 import { Input } from '../../components/Input';
+import { db } from '../../services/firebaseConfig';
+import { setUser } from '../../store/features/auth/authSlice';
+
 import {
   AuthForm,
   InputsField,
@@ -8,19 +22,7 @@ import {
   SwitchFormWrapper,
   Title,
 } from './index.styled';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
-import { IAuthForm, authInitForm, authSchema } from './schemas';
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
-import { collection, doc, setDoc } from 'firebase/firestore';
-import { db } from '../../utils/firebaseConfig';
-import { useDispatch } from 'react-redux';
-import { setUser } from '../../store/features/auth/authSlice';
-import { useNavigate } from 'react-router';
+import { authInitForm, authSchema, IAuthForm } from './schemas';
 
 export const Authorization = () => {
   const history = useNavigate();

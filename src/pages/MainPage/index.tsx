@@ -1,16 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { Carousel } from '../../components/Carousel';
+import { Loader } from '../../components/Loader/index.styled';
+import { ShopList } from '../../components/ShopList';
+import { ShopTheLatestText } from '../../components/ShopTheLatestText';
+import { useGetProductsByLimitQuery } from '../../store/api/products/product';
+
 import {
   BodyWrapper,
   ImgWrapper,
   ShopTheLastTextWrapper,
   ViewAllText,
 } from './index.styled';
-import { ShopList } from '../../components/ShopList';
-import { ShopTheLatestText } from '../../components/ShopTheLatestText';
-import { Link } from 'react-router-dom';
-import { useGetProductsByLimitQuery } from '../../store/api/products/product';
-import { Loader } from '../../components/Loader/index.styled';
 
 export const MainPage = () => {
   const { data, isSuccess } = useGetProductsByLimitQuery(6);

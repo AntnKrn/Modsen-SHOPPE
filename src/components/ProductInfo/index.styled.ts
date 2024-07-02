@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+
+import { resolution } from '../../constants/resolutions';
 import {
   DESKTOP_HEADING2,
   DESKTOP_HEADING4,
@@ -7,7 +9,6 @@ import {
   MOBILE_HEADING2,
 } from '../../constants/styles/fonts';
 import { COLORS } from '../../constants/styles/mainColors';
-import { resolution } from '../../constants/resolutions';
 
 export const ProductInfoText = styled.div`
   margin-left: 62px;

@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+
+import { resolution } from '../../constants/resolutions';
 import {
   DESKTOP_HEADING2,
   MOBILE_HEADING2,
 } from '../../constants/styles/fonts';
-import { resolution } from '../../constants/resolutions';
 
 export const SimilarItems = styled.h2`
   margin-top: 96px;

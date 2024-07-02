@@ -1,15 +1,17 @@
 import React from 'react';
-import { CartListWrapper, OrderText, OrderTextWrapper } from './index.styled';
+import { useSelector } from 'react-redux';
+
+import { IBusketProdut } from '../../interfaces/IBusket';
 import {
   useClearCartMutation,
   useGetBusketQuery,
 } from '../../store/api/busket/busket';
-import { CartItem } from '../CartItem';
-import { IBusketProdut } from '../../interfaces/IBusket';
-import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import { Loader } from '../Loader/index.styled';
+import { CartItem } from '../CartItem';
 import { EmptyCart } from '../EmptyCart';
+import { Loader } from '../Loader/index.styled';
+
+import { CartListWrapper, OrderText, OrderTextWrapper } from './index.styled';
 
 export const CartList = () => {
   const uuid = useSelector((state: RootState) => state.auth.uuid);

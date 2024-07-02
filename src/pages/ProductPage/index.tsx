@@ -1,13 +1,15 @@
 import React from 'react';
-import { ProductInfo } from '../../components/ProductInfo';
-import { ProductDescription } from '../../components/ProductDescription';
-import { ProductPageMain, SimilarItems, SimilarShopList } from './index.styled';
-import { ShopList } from '../../components/ShopList';
 import { useParams } from 'react-router-dom';
+
+import { ProductDescription } from '../../components/ProductDescription';
+import { ProductInfo } from '../../components/ProductInfo';
+import { ShopList } from '../../components/ShopList';
 import {
   useGetProductQuery,
   useGetProductsByLimitQuery,
 } from '../../store/api/products/product';
+
+import { ProductPageMain, SimilarItems, SimilarShopList } from './index.styled';
 
 export const ProductPage = () => {
   const { id } = useParams();

@@ -1,251 +1,132 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constants/styles/mainColors';
-import { ALLERTA_STENCIL } from '../../constants/styles/modelFont';
+
+import Cart from '../../assets/icons/socialMedia/svg/cart.svg';
+import CloseMobileMenu from '../../assets/icons/socialMedia/svg/closeMobileMenu.svg';
+import MobileMenu from '../../assets/icons/socialMedia/svg/mobileMenu.svg';
+import Profile from '../../assets/icons/socialMedia/svg/profile.svg';
+import Search from '../../assets/icons/socialMedia/svg/search.svg';
+import { resolution } from '../../constants/resolutions';
 import {
-  DESKTOP_BODY_MEDIUM,
   DESKTOP_HEADING5,
   MOBILE_HEADING1,
-  MOBILE_HEADING3,
 } from '../../constants/styles/fonts';
-import { resolution } from '../../constants/resolutions';
-import Search from '../../assets/icons/socialMedia/svg/search.svg';
-import Cart from '../../assets/icons/socialMedia/svg/cart.svg';
-import Profile from '../../assets/icons/socialMedia/svg/profile.svg';
+import { COLORS } from '../../constants/styles/mainColors';
 
-export const StyledHeader = styled.header`
-  @media (${resolution.desktop}) {
-    margin: -15px -15px 0;
-    height: 100%;
-    position: static;
-    z-index: 2;
-    background-color: var(--bg-color);
-    width: 100vw;
-    padding: 15px;
-    display: block;
+export const StyledHeader = styled.header<{ $Open?: boolean }>`
+  margin: 0 -15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: ${(props) => (props.$Open ? 'fixed' : 'relative')};
+  z-index: 2;
+  background-color: var(--bg-color);
+  height: ${(props) => (props.$Open ? '100vh' : 'auto')};
+  width: ${(props) => (props.$Open ? '100vw' : 'auto')};
+  align-content: flex-start;
+`;
+
+export const LogoText = styled.span`
+  text-align: left;
+  font-family: Allerta Stencil;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 40.5px;
+  cursor: pointer;
+  color: var(--text-color);
+  & > span {
+    color: ${COLORS.COLOR_ACCENT};
   }
 `;
 
-export const StyledSearch = styled(Search)`
+export const ListItem = styled.li<{ $MarginLeft?: number }>`
+  display: inline-block;
+  margin-left: ${(props) => props.$MarginLeft}px;
+  font-size: ${DESKTOP_HEADING5.Size};
+  font-weight: ${DESKTOP_HEADING5.Weight};
+  line-height: ${DESKTOP_HEADING5.LineHeight};
+  cursor: pointer;
+  &:nth-of-type(2n) {
+    display: none;
+  }
+
+  @media (${resolution.laptop}) {
+    font-size: ${MOBILE_HEADING1.Size};
+    font-weight: ${MOBILE_HEADING1.Weight};
+    line-height: ${MOBILE_HEADING1.LineHeight};
+    &:nth-of-type(2n) {
+      display: inline-block;
+    }
+    &:nth-of-type(2n + 1) {
+      display: none;
+    }
+  }
+`;
+
+export const SearchSvg = styled(Search)`
   width: 19px;
   height: 19px;
 `;
 
-export const StyledBusket = styled(Cart)`
+export const CartSvg = styled(Cart)`
   width: 21px;
   height: 21px;
 `;
 
-export const StyledProfile = styled(Profile)`
+export const ProfileSvg = styled(Profile)`
   width: 21px;
   height: 21px;
+  margin-right: 14px;
 `;
 
-export const Navigation = styled.nav`
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-
-  @media (${resolution.desktop}) {
-    display: none;
-  }
+export const MobileMenuSvg = styled(MobileMenu)`
+  width: 20px;
+  height: 15px;
 `;
 
-export const MobileInput = styled.input`
-  width: 100%;
-  height: 32px;
-  border: none;
-  color: ${COLORS.COLOR_DARK_GRAY};
-  font-weight: ${MOBILE_HEADING3.Weight};
-  font-size: ${MOBILE_HEADING3.Size};
-  border-radius: 4px;
-  padding: 10px 30px 10px;
-  background-color: ${COLORS.COLOR_LIGHT_GRAY};
+export const CloseMobileMenuSvg = styled(CloseMobileMenu)`
+  width: 16px;
+  height: 16px;
 `;
 
-export const MobileInputWrapper = styled.div`
+export const MobileUpperRightIcons = styled.div`
   display: none;
-  position: relative;
-
-  @media (${resolution.desktop}) {
-    display: block;
-  }
-`;
-export const ModsenSHOPPE = styled.h1`
-  color: ${COLORS.COLOR_ACCENT};
-  font-family: ${ALLERTA_STENCIL};
-  font-weight: 400;
-  font-size: 35px;
-  line-height: 40px;
-  display: inline;
-
-  &:nth-of-type(2) {
-    color: var(--text-color);
-  }
-
-  @media (${resolution.desktop}) {
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 40.5px;
-  }
-`;
-
-export const MobileHeader = styled.header`
-  display: none;
-  position: absolute;
-  align-items: baseline;
-
-  @media (${resolution.desktop}) {
-    display: flex;
-    position: static;
-    justify-content: space-between;
-  }
-`;
-
-export const NavigationList = styled.ul`
-  list-style-type: none;
-  position: absolute;
-  right: 0;
-  display: flex;
   flex-direction: row;
-  font-style: normal;
-  font-weight: ${DESKTOP_HEADING5.Weight};
-  font-size: ${DESKTOP_HEADING5.Size};
-  line-height: ${DESKTOP_HEADING5.LineHeight};
-  text-decoration: none;
-  color: black;
-  height: 21px;
-
-  @media (${resolution.desktop}) {
-    display: none;
-    right: 0;
-  }
-`;
-
-export const ListItem = styled.li<{ $marginRight?: number }>`
-  margin-right: ${(props) => props.$marginRight}px;
-  color: var(--text-color);
-
-  &:nth-child(5):hover {
-    p {
-      display: block;
-    }
-  }
-`;
-
-export const LeftNavItems = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const Label = styled.label`
-  display: flex;
   align-items: center;
   gap: 10px;
-  cursor: pointer;
-`;
-
-export const Switch = styled.div`
-  position: relative;
-  width: 45px;
-  height: 21px;
-  background: #78788029;
-  border-radius: 99px;
-  transition: 0.4s;
-  border: 0.5px solid #0000000a;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
-
-  &:before {
-    transition: 0.4s;
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 18px;
-    border-radius: 99px;
-    background: ${COLORS.COLOR_WHITE};
-    top: 0.5px;
-    left: 1px;
-    transform: translate(0, 0.5px);
-  }
-`;
-
-export const Input = styled.input`
-  display: none;
-
-  &:checked + ${Switch} {
-    background: #78788029;
-
-    &:before {
-      background: ${COLORS.COLOR_BLACK};
-      transform: translate(20px, 0.5px);
-    }
-  }
-`;
-
-export const ProfileHover = styled.div`
-  position: relative;
-
-  p {
-    border: .5px solid var(--text-color);\
-    font-size: ${DESKTOP_BODY_MEDIUM.Size};
-    cursor: pointer;
-    width: 61px;
-    right: -22px;
-    text-align: left;
-    display: none;
-    position: absolute;
-    transition: 1s;
-    z-index: 1;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-`;
-
-export const MobileHeaderWrapper = styled.div`
-  display: none;
-
-  @media (${resolution.desktop}) {
-    display: block;
-  }
-`;
-
-export const MobileSearchInputWrapper = styled.div`
-  display: none;
 
   @media (${resolution.laptop}) {
-    display: block;
-  }
-`;
-
-export const MobileMenuNavigation = styled.nav`
-  margin-top: 39px;
-
-  ul {
     display: flex;
-    flex-direction: column;
-    gap: 24px;
-    font-size: ${MOBILE_HEADING1.Size};
-    font-weight: ${MOBILE_HEADING1.Weight};
-    line-height: ${MOBILE_HEADING1.LineHeight};
-    color: var(--text-color);
-    list-style: none;
   }
 `;
 
-export const MobileHeaderIconsWrapper = styled.div`
+export const List = styled.ul`
   display: flex;
+  align-items: center;
   flex-direction: row;
-  gap: 17px;
 
-  & svg:first-child {
-    width: 18px;
-    height: 18px;
+  @media (${resolution.laptop}) {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
   }
+`;
 
-  & svg:nth-of-type(2) {
-    width: 20px;
-    height: 15px;
+export const StyledNav = styled.nav`
+  align-content: center;
+  @media (${resolution.laptop}) {
+    order: 3;
+    margin-top: 39px;
+  }
+`;
+
+export const SearchInputWrapper = styled.div`
+  width: 100%;
+  display: none;
+  @media (${resolution.laptop}) {
+    display: block;
   }
 `;

@@ -1,4 +1,15 @@
 import React from 'react';
+
+import { SendArrow } from '../../assets/icons/sendArrow';
+import Facebook from '../../assets/icons/socialMedia/svg/facebook.svg';
+import Instagram from '../../assets/icons/socialMedia/svg/instagram.svg';
+import LinkedIn from '../../assets/icons/socialMedia/svg/linkedin.svg';
+import Twitter from '../../assets/icons/socialMedia/svg/twitter.svg';
+import { paths } from '../../constants/paths';
+import { IFormInputs } from '../../interfaces/IForm';
+import { Divider } from '../Divider';
+import { Form } from '../Form';
+
 import {
   FooterNav,
   FooterNavAndForm,
@@ -7,19 +18,10 @@ import {
   FormWrapper,
   MobileAgreements,
   SocialMediaWrapper,
-  ThermsWrapper,
   ThermsAndSocialMedia,
+  ThermsWrapper,
 } from './index.styled';
-import { Divider } from '../Divider';
-import { SendArrow } from '../../assets/icons/sendArrow';
-import Instagram from '../../assets/icons/socialMedia/svg/instagram.svg';
-import LinkedIn from '../../assets/icons/socialMedia/svg/linkedin.svg';
-import Facebook from '../../assets/icons/socialMedia/svg/facebook.svg';
-import Twitter from '../../assets/icons/socialMedia/svg/twitter.svg';
 import { validationInitForm, validationSchema } from './validationSchema';
-import { paths } from '../../constants/paths';
-import { IFormInputs } from '../../interfaces/IForm';
-import { Form } from '../Form';
 
 const inputs: IFormInputs[] = [
   { placeholder: 'Give an email, get the newsletter.', name: 'email' },

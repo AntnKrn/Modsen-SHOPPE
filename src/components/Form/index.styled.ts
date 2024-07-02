@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+
+import { resolution } from '../../constants/resolutions';
 import {
   DESKTOP_BODY_LARGE,
   DESKTOP_HEADING1,
@@ -6,7 +8,6 @@ import {
   MOBILE_BODY_SMALL,
   MOBILE_HEADING1,
 } from '../../constants/styles/fonts';
-import { resolution } from '../../constants/resolutions';
 
 export const ContainerContactUs = styled.div`
   max-width: 561px;

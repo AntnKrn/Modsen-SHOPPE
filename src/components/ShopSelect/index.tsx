@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Option, Select } from './index.styled';
 
 interface IShopSelectProps {

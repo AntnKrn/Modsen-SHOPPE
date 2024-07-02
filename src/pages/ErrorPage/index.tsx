@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import {
   ErrorDescription,
   ErrorText,
   ErrorWrapper,
   HomeButton,
 } from './index.styled';
-import { Link } from 'react-router-dom';
 
 export const ErrorPage = () => {
   return (

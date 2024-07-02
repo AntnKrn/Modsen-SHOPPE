@@ -1,21 +1,27 @@
 import styled from 'styled-components';
-import { resolution } from '../../constants/resolutions';
-import Filter from '../../assets/icons/Filters.svg';
-import { COLORS } from '../../constants/styles/mainColors';
-import { MOBILE_BODY_SMALL } from '../../constants/styles/fonts';
+
 import { CloseMenu } from '../../assets/icons/CloseMenu';
+import Filter from '../../assets/icons/Filters.svg';
+import { resolution } from '../../constants/resolutions';
+import { MOBILE_BODY_SMALL } from '../../constants/styles/fonts';
+import { COLORS } from '../../constants/styles/mainColors';
 
 export const CloseMenuWrapper = styled.div`
+  display: none;
   position: absolute;
   right: 15px;
   top: 15px;
+
+  @media (${resolution.laptop}) {
+    display: block;
+  }
 `;
 export const StyledCloseMenu = styled(CloseMenu)``;
 
 export const CatalogFilterWrapper = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
-
+  gap: 10px;
   @media (${resolution.laptop}) {
     display: ${(props) => (props.$isOpen ? 'flex' : `none`)};
     top: 0;

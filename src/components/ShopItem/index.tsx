@@ -1,4 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import { Busket } from '../../assets/icons/busket';
+import { Eye } from '../../assets/icons/eye';
+import { Heart } from '../../assets/icons/heart';
+import { IProduct } from '../../interfaces/IProducts';
+import { useAddToBusketMutation } from '../../store/api/busket/busket';
+import { RootState } from '../../store/store';
+
 import {
   ProductCost,
   ProductName,
@@ -7,14 +17,6 @@ import {
   ShopItemImg,
   ShopItemWrapper,
 } from './index.styled';
-import { Link } from 'react-router-dom';
-import { IProduct } from '../../interfaces/IProducts';
-import { Busket } from '../../assets/icons/busket';
-import { Eye } from '../../assets/icons/eye';
-import { Heart } from '../../assets/icons/heart';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import { useAddToBusketMutation } from '../../store/api/busket/busket';
 
 export const ShopItem = (product: IProduct) => {
   const uuid = useSelector((state: RootState) => state.auth.uuid);

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+
+import Search from '../../assets/icons/socialMedia/svg/search.svg';
+import { resolution } from '../../constants/resolutions';
 import {
   DESKTOP_HEADING5,
   MOBILE_HEADING3,
 } from '../../constants/styles/fonts';
 import { COLORS } from '../../constants/styles/mainColors';
-import { resolution } from '../../constants/resolutions';
-import Search from '../../assets/icons/socialMedia/svg/search.svg';
 
 export const StyledSearch = styled(Search)`
   position: absolute;
@@ -27,7 +28,7 @@ export const StyledSearch = styled(Search)`
 export const StyledInput = styled.input`
   width: 100%;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--text-color);
   font-size: ${DESKTOP_HEADING5.Size};
   font-weight: ${DESKTOP_HEADING5.Weight};
   line-height: ${DESKTOP_HEADING5.LineHeight};

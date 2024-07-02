@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+
+import { ChooserOpenner } from '../../assets/icons/ChooserOpenner';
+
 import {
   ChooserText,
   ChooserWrapper,
   OptionWrapper,
   TextAndSVGWrapper,
 } from './index.styled';
-import { ChooserOpenner } from '../../assets/icons/ChooserOpenner';
 
 interface IChooserProps {
   chooserText: string;

@@ -1,5 +1,8 @@
 import React from 'react';
-import { InputContainer, ErrorMessage, StyledInput } from './index.styled';
+
+import Delete from '../../assets/icons/socialMedia/svg/close.svg';
+
+import { ErrorMessage, InputContainer, StyledInput } from './index.styled';
 
 interface IPropsInput {
   children?: React.ReactNode;
@@ -14,7 +17,6 @@ interface IPropsInput {
 }
 
 export const Input = ({
-  children,
   error,
   register,
   name,
@@ -25,9 +27,7 @@ export const Input = ({
     <InputContainer>
       <StyledInput {...register} placeholder={placeholder} autoComplete="off" />
       {error[name] && <ErrorMessage>{error[name].message}</ErrorMessage>}
-      {/* <div onClick={() => reset(name, '')}>
-          <Delete />
-        </div> */}
+      <Delete onClick={() => reset(name, '')} />
     </InputContainer>
   );
 };

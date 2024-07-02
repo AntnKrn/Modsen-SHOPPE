@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { SearchInputWrapper, StyledInput, StyledSearch } from './index.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { searchByTitle } from '../../store/features/search/searchSlice';
+
 import { useDebounce } from '../../hooks/useDebounce';
+import { searchByTitle } from '../../store/features/search/searchSlice';
 import { RootState } from '../../store/store';
+
+import { SearchInputWrapper, StyledInput, StyledSearch } from './index.styled';
 
 export const SearchInput = () => {
   const searchedText = useSelector((state: RootState) => state.search.text);

@@ -1,5 +1,5 @@
-import emailjs from '@emailjs/browser';
 import { RefObject } from 'react';
+import emailjs from '@emailjs/browser';
 
 export const onSubmitEmail = (form: RefObject<HTMLFormElement>): void => {
   emailjs

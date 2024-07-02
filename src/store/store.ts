@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import themeReducer from './features/theme/themeSlice';
+import { setupListeners } from '@reduxjs/toolkit/query';
+
+import { busketApi } from './api/busket/busket';
+import { productApi } from './api/products/product';
+import authReducer from './features/auth/authSlice';
 import filterReducer from './features/filter/filterSlice';
 import searchReducer from './features/search/searchSlice';
-import { productApi } from './api/products/product';
-import { setupListeners } from '@reduxjs/toolkit/query';
-import { busketApi } from './api/busket/busket';
-import authReducer from './features/auth/authSlice';
+import themeReducer from './features/theme/themeSlice';
 export const store = configureStore({
   reducer: {
     theme: themeReducer,

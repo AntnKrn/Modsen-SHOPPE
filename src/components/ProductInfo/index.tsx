@@ -1,5 +1,12 @@
 import React, { useRef } from 'react';
+
+import { Email } from '../../assets/icons/socialMedia/Email';
+import { Facebook } from '../../assets/icons/socialMedia/Facebook';
+import { Instagram } from '../../assets/icons/socialMedia/Instagram';
+import { Twitter } from '../../assets/icons/socialMedia/Twitter';
+import { Star } from '../../assets/icons/Star';
 import { ImgSector } from '../ImgSector';
+
 import {
   DesktopProductInfo,
   MobileProductInfo,
@@ -11,13 +18,7 @@ import {
   ProductTextInfo,
   ViewMore,
 } from './index.styled';
-import { Star } from '../../assets/icons/Star';
-import { Email } from '../../assets/icons/socialMedia/Email';
-import { Facebook } from '../../assets/icons/socialMedia/Facebook';
-import { Instagram } from '../../assets/icons/socialMedia/Instagram';
-import { Twitter } from '../../assets/icons/socialMedia/Twitter';
 import { IProductInfoProps } from './IProductInfoProps';
-import { StyledDivider } from '../Divider/index.styled';
 
 export const ProductInfo = ({ ...product }: IProductInfoProps) => {
   const ref = useRef<HTMLSpanElement>();
@@ -27,6 +28,7 @@ export const ProductInfo = ({ ...product }: IProductInfoProps) => {
     console.log(display);
     ref.current.style.display = display === 'none' ? 'inline' : 'none';
   };
+
   return (
     <>
       <DesktopProductInfo>

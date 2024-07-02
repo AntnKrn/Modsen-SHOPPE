@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { DESKTOP_BODY_LARGE } from '../../constants/styles/fonts';
 
 export const CartListWrapper = styled.div`

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { clearCookieByName, getCookieByName } from '../../../utils/cookie';
 
 interface IAuth {

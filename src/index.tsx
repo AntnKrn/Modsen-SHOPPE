@@ -1,10 +1,12 @@
-import { createRoot } from 'react-dom/client';
 import React from 'react';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './pages/router';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { RouterProvider } from 'react-router-dom';
+
+import './services/firebaseConfig';
+
+import { router } from './pages/router';
 import { store } from './store/store';
-import './utils/firebaseConfig';
 
 const root = document.getElementById('root');
 

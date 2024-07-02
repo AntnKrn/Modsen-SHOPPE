@@ -1,4 +1,7 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { IProduct } from '../../interfaces/IProducts';
 
 import {
   ButtonWrapper,
@@ -9,8 +12,6 @@ import {
   ProductLinkOnCarousel,
   ProductNameOnCarousel,
 } from './index.styled';
-import { Link } from 'react-router-dom';
-import { IProduct } from '../../interfaces/IProducts';
 
 interface ICarouselProps {
   products: IProduct[];

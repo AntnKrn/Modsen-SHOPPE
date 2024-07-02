@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
+import { resolution } from '../../constants/resolutions';
 import {
   DESKTOP_HEADING4,
   MOBILE_HEADING3,
 } from '../../constants/styles/fonts';
 import { COLORS } from '../../constants/styles/mainColors';
-import { resolution } from '../../constants/resolutions';
 
 export const BodyWrapper = styled.main``;
 

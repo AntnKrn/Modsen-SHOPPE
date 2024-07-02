@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
+
 import { Divider } from '../Divider';
+
 import {
   DesctiptionText,
   DesctiptionTextHeader,

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { EmptyCartText, EmptyCartWrapper, GoShopButton } from './index.styled';
 
 export const EmptyCart = () => {

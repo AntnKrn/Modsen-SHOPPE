@@ -1,4 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { searchByPrice } from '../../store/features/search/searchSlice';
+
 import {
   BackGroundProgressInput,
   PriceInput,
@@ -8,8 +12,6 @@ import {
   TextInsidePriceInput,
   UnderFilterText,
 } from './index.styled';
-import { useDispatch } from 'react-redux';
-import { searchByPrice } from '../../store/features/search/searchSlice';
 
 export const PriceInputFilter = ({ state }: { state: number[] }) => {
   const [minPrice, setMinPrice] = useState(state[0]);

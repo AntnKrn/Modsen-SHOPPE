@@ -1,16 +1,19 @@
 import React, { ReactNode, useEffect, useRef } from 'react';
-import { SendButton } from './index.styled';
-import { Input } from '../Input';
-import { useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { ObjectSchema } from 'yup';
+
 import { IFormInputs } from '../../interfaces/IForm';
 import { onSubmitEmail } from '../../services/submitEmail';
+import { Input } from '../Input';
+
+import { SendButton } from './index.styled';
 
 interface IForm {
   children?: ReactNode;
   inputs: IFormInputs[];
-  schema: any;
-  initForm: any;
+  schema: ObjectSchema<FieldValues>;
+  initForm: FieldValues;
 }
 
 export const Form = ({ inputs, initForm, schema, children }: IForm) => {

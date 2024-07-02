@@ -7,8 +7,9 @@ import {
   setDoc,
   updateDoc,
 } from 'firebase/firestore';
-import { db } from '../../../utils/firebaseConfig';
+
 import { IBusketProdut } from '../../../interfaces/IBusket';
+import { db } from '../../../services/firebaseConfig';
 
 export const busketApi = createApi({
   reducerPath: 'busketApi',

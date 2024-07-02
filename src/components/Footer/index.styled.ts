@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { resolution } from '../../constants/resolutions';
 import {
   DESKTOP_HEADING5,
   MOBILE_BODY_SMALL,
 } from '../../constants/styles/fonts';
-import { resolution } from '../../constants/resolutions';
-import { Link } from 'react-router-dom';
 import { COLORS } from '../../constants/styles/mainColors';
 
 export const FooterWrapper = styled.footer`
@@ -56,7 +57,7 @@ export const FooterNavItem = styled(Link)`
   font-size: ${DESKTOP_HEADING5.Size};
   font-weight: ${DESKTOP_HEADING5.Weight};
   line-height: ${DESKTOP_HEADING5.LineHeight};
-  color: ${COLORS.COLOR_LIGHT_GRAY} !important;
+  color: ${COLORS.COLOR_DARK_GRAY} !important;
 `;
 
 export const FooterNavAndForm = styled.div`

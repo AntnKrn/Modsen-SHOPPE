@@ -1,8 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { COLORS } from '../constants/styles/mainColors';
-import DMSans from '../assets/fonts/DMSans.ttf';
+
 import AllertaStencil from '../assets/fonts/AllertaStencil.ttf';
+import DMSans from '../assets/fonts/DMSans.ttf';
 import { resolution } from '../constants/resolutions';
+import { COLORS } from '../constants/styles/mainColors';
 export const Global = createGlobalStyle<{ $theme: boolean }>`
     @font-face {
         font-family: DM Sans;
@@ -38,6 +39,10 @@ export const Global = createGlobalStyle<{ $theme: boolean }>`
         &:focus {
             outline: none;
         }
+    }
+
+    svg {
+        display: block;
     }
 
     body {

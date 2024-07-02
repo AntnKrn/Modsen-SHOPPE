@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { Form } from '../../components/Form';
+import { IFormInputs } from '../../interfaces/IForm';
+
+import { FormWrapper } from './index.styled';
 import { schema } from './schema';
 import { initForm } from './schema';
-import { IFormInputs } from '../../interfaces/IForm';
-import { FormWrapper } from './index.styled';
 
 export const ContactPage = () => {
   const inputs: IFormInputs[] = [

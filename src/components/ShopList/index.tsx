@@ -1,7 +1,9 @@
 import React from 'react';
-import { ShopListWrapper } from './index.styled';
+
 import { IProduct } from '../../interfaces/IProducts';
 import { ShopItem } from '../ShopItem';
+
+import { ShopListWrapper } from './index.styled';
 
 interface IShopTheLastList {
   data: IProduct[];

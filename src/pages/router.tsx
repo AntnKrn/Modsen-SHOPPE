@@ -1,16 +1,19 @@
-import { Navigate, createBrowserRouter, useLocation } from 'react-router-dom';
-import { MainPage } from './MainPage';
-import { ErrorPage } from './ErrorPage';
-import { BusketPage } from './BusketPage';
-import { ContactPage } from './ContactPage';
-import { ShopPage } from './ShopPage';
-import { ProductPage } from './ProductPage';
-import { App } from '../components/App';
-import { Authorization } from './Authorization';
+import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
+import { createBrowserRouter, Navigate, useLocation } from 'react-router-dom';
+
+import { App } from '../components/App';
 import { RootState } from '../store/store';
 
-const Reder = ({ children }: any) => {
+import { Authorization } from './Authorization';
+import { BusketPage } from './BusketPage';
+import { ContactPage } from './ContactPage';
+import { ErrorPage } from './ErrorPage';
+import { MainPage } from './MainPage';
+import { ProductPage } from './ProductPage';
+import { ShopPage } from './ShopPage';
+
+const Guard = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
   const isAuth = useSelector((state: RootState) => state.auth.isAuth);
   if (isAuth) {
@@ -19,6 +22,7 @@ const Reder = ({ children }: any) => {
 
   return children;
 };
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -26,16 +30,16 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { path: '/', element: <MainPage /> },
-      { path: 'busket', element: <BusketPage /> },
+      { path: 'cart', element: <BusketPage /> },
       { path: 'contact', element: <ContactPage /> },
       { path: 'shop', element: <ShopPage /> },
       { path: 'product/:id', element: <ProductPage /> },
       {
         path: 'authorization',
         element: (
-          <Reder>
+          <Guard>
             <Authorization />
-          </Reder>
+          </Guard>
         ),
       },
       { path: '*', element: <ErrorPage /> },

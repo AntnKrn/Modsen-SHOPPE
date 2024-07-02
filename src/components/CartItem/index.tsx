@@ -1,4 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { Minus } from '../../assets/icons/Minus';
+import { Plus } from '../../assets/icons/Plus';
+import {
+  useDeleteFromBusketMutation,
+  useUpdateBusketMutation,
+} from '../../store/api/busket/busket';
+import { RootState } from '../../store/store';
+
 import {
   CartDescription,
   CartImage,
@@ -6,14 +16,6 @@ import {
   CartItemWrapper,
   QunatityWrapper,
 } from './index.styled';
-import { Plus } from '../../assets/icons/Plus';
-import { Minus } from '../../assets/icons/Minus';
-import {
-  useDeleteFromBusketMutation,
-  useUpdateBusketMutation,
-} from '../../store/api/busket/busket';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
 
 interface ICartItem {
   id: number;

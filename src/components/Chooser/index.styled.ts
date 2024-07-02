@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constants/styles/mainColors';
+
 import { resolution } from '../../constants/resolutions';
 import { MOBILE_HEADING2 } from '../../constants/styles/fonts';
+import { COLORS } from '../../constants/styles/mainColors';
 
 export const ChooserWrapper = styled.div`
   display: inline-block;

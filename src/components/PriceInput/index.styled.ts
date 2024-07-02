@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constants/styles/mainColors';
+
 import { DESKTOP_BODY_MEDIUM } from '../../constants/styles/fonts';
+import { COLORS } from '../../constants/styles/mainColors';
 
 export const PriceInputWrapper = styled.div`
   width: 100%;

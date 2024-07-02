@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { resolution } from '../../constants/resolutions';
 
 export const ImgSectorContainer = styled.div`

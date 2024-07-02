@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+
 import { DESKTOP_HEADING5 } from '../../constants/styles/fonts';
 import { COLORS } from '../../constants/styles/mainColors';
 

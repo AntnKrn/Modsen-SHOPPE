@@ -3,18 +3,7 @@ import React from 'react';
 import Delete from '../../assets/icons/socialMedia/svg/close.svg';
 
 import { ErrorMessage, InputContainer, StyledInput } from './index.styled';
-
-interface IPropsInput {
-  children?: React.ReactNode;
-  placeholder: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  error: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register: any;
-  name: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  reset: any;
-}
+import { inputProps } from './types';
 
 export const Input = ({
   error,
@@ -22,7 +11,7 @@ export const Input = ({
   name,
   placeholder,
   reset,
-}: IPropsInput) => {
+}: inputProps) => {
   return (
     <InputContainer>
       <StyledInput {...register} placeholder={placeholder} autoComplete="off" />

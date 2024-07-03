@@ -18,14 +18,13 @@ import {
   ProductTextInfo,
   ViewMore,
 } from './index.styled';
-import { IProductInfoProps } from './IProductInfoProps';
+import { productInfoProps } from './types';
 
-export const ProductInfo = ({ ...product }: IProductInfoProps) => {
+export const ProductInfo = ({ ...product }: productInfoProps) => {
   const ref = useRef<HTMLSpanElement>();
 
   const onClickViewMore = () => {
     const display = ref.current.style.display;
-    console.log(display);
     ref.current.style.display = display === 'none' ? 'inline' : 'none';
   };
 

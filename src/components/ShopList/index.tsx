@@ -1,18 +1,15 @@
 import React from 'react';
 
-import { IProduct } from '../../interfaces/IProducts';
+import { productType } from '../../types/product';
 import { ShopItem } from '../ShopItem';
 
 import { ShopListWrapper } from './index.styled';
+import { shopListProps } from './types';
 
-interface IShopTheLastList {
-  data: IProduct[];
-}
-
-export const ShopList = ({ data }: IShopTheLastList) => {
+export const ShopList = ({ data }: shopListProps) => {
   return (
     <ShopListWrapper>
-      {data.map((item: IProduct) => (
+      {data.map((item: productType) => (
         <ShopItem key={item.title} {...item} />
       ))}
     </ShopListWrapper>

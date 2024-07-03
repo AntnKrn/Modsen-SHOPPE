@@ -53,14 +53,13 @@ export const Global = createGlobalStyle<{ $theme: boolean }>`
 `;
 
 export const AppWrapper = styled.div`
-  min-height: calc(100vh - 200px);
   display: flex;
   flex-direction: column;
-
+  min-height: calc(100vh - 200px);
   margin: 100px;
 
   @media (${resolution.desktop}) {
-    margin: 15px;
     min-height: calc(100vh - 30px);
+    margin: 15px;
   }
 `;

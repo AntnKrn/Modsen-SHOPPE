@@ -10,9 +10,8 @@ import { COLORS } from '../../constants/styles/mainColors';
 export const BodyWrapper = styled.main``;
 
 export const ImgWrapper = styled.div`
-  height: 646px;
-  //margin: 16px auto;
   position: relative;
+  height: 646px;
 
   @media (${resolution.laptop}) {
     height: 354px;
@@ -20,11 +19,11 @@ export const ImgWrapper = styled.div`
 `;
 
 export const ShopTheLastTextWrapper = styled.div`
-  margin-top: 64px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 64px;
 `;
 
 export const ViewAllText = styled.h4`
@@ -32,6 +31,7 @@ export const ViewAllText = styled.h4`
   font-weight: ${DESKTOP_HEADING4.Weight};
   line-height: ${DESKTOP_HEADING4.LineHeight};
   color: ${COLORS.COLOR_ACCENT};
+
   @media (${resolution.laptop}) {
     font-size: ${MOBILE_HEADING3.Size};
     font-weight: ${MOBILE_HEADING3.Weight};

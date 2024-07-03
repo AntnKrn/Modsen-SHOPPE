@@ -18,14 +18,14 @@ export const InputContainer = styled.div`
 `;
 
 export const StyledInput = styled.input`
-  border: none;
   width: 100%;
-  border-bottom: 1px solid ${COLORS.COLOR_GRAY};
+  padding-bottom: 5px;
   font-size: ${DESKTOP_HEADING5.Size};
   font-weight: ${DESKTOP_HEADING5.Weight};
   line-height: ${DESKTOP_HEADING5.LineHeight};
+  border: none;
+  border-bottom: 1px solid ${COLORS.COLOR_GRAY};
   outline: none;
-  padding-bottom: 5px;
 
   &:focus {
     & ~ svg {
@@ -35,8 +35,8 @@ export const StyledInput = styled.input`
 `;
 
 export const ErrorMessage = styled.span`
-  color: ${COLORS.COLOR_ERROR};
   font-size: ${DESKTOP_BODY_SMALL.Size};
   font-weight: ${DESKTOP_BODY_SMALL.Weight};
   line-height: ${DESKTOP_BODY_SMALL.LineHeight};
+  color: ${COLORS.COLOR_ERROR};
 `;

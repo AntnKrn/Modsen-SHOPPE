@@ -7,17 +7,18 @@ import {
   DesctiptionTextHeader,
   ProductDescriptionWrapper,
 } from './index.styled';
+import { productDescriptionProps } from './types';
 
-interface IProductDescription {
-  description: string;
-}
-export const ProductDescription = ({ description }: IProductDescription) => {
+export const ProductDescription = ({
+  description,
+}: productDescriptionProps) => {
   const ref = useRef<HTMLParagraphElement>();
+
   const onClickDescription = () => {
     const display = ref.current.style.display;
-    console.log(display);
     ref.current.style.display = display === 'none' ? 'inline-block' : 'none';
   };
+
   return (
     <ProductDescriptionWrapper>
       <DesctiptionTextHeader onClick={onClickDescription}>

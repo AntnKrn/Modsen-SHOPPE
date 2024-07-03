@@ -1,13 +1,9 @@
 import React from 'react';
 
 import { Option, Select } from './index.styled';
+import { shopSelectProps } from './types';
 
-interface IShopSelectProps {
-  nameSelect: string;
-  options: string[];
-}
-
-export const ShopSelect = ({ nameSelect, options }: IShopSelectProps) => {
+export const ShopSelect = ({ nameSelect, options }: shopSelectProps) => {
   return (
     <Select name={nameSelect}>
       <Option value="0">Sort By</Option>

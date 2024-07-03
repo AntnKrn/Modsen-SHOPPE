@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { resolution } from '../../constants/resolutions';
 import {
   DESKTOP_HEADING3,
   DESKTOP_HEADING4,
@@ -9,15 +10,15 @@ import {
 import { COLORS } from '../../constants/styles/mainColors';
 
 export const ShopItemWrapper = styled.div`
-  width: 377px;
-  height: 472px;
-  margin: 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  width: 377px;
+  height: 472px;
+  margin: 0px;
 
-  @media (max-width: 768px) {
+  @media (${resolution.laptop}) {
     width: 136px;
     height: 188px;
   }
@@ -25,10 +26,10 @@ export const ShopItemWrapper = styled.div`
 
 export const ShopItemImg = styled.img`
   display: block;
-  border-radius: 8px;
-  width: 100%;
   object-fit: contain;
+  width: 100%;
   height: 380px;
+  border-radius: 8px;
   transition: opacity 0.5s ease-in-out;
   -webkit-transition: opacity 0.5s ease-in-out;
   opacity: 1;
@@ -41,10 +42,12 @@ export const ShopItemImg = styled.img`
 
 export const ShopItemContainer = styled.div`
   position: relative;
+
   &:hover {
     img {
       opacity: 0.6;
     }
+
     div {
       display: flex;
     }
@@ -53,29 +56,32 @@ export const ShopItemContainer = styled.div`
 
 export const ShopItemIconsContainer = styled.div`
   display: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
   justify-content: center;
   align-items: center;
   gap: 16px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 
   a {
     width: 21px;
     height: 21px;
   }
+
   svg {
     width: 21px;
     height: 21px;
   }
 `;
+
 export const ProductName = styled.h3`
   font-size: ${DESKTOP_HEADING3.Size};
   font-weight: ${DESKTOP_HEADING3.Weight};
   line-height: ${DESKTOP_HEADING3.LineHeight};
   text-overflow: ellipsis;
   overflow: hidden;
+
   @media (max-width: 768px) {
     font-size: ${MOBILE_HEADING3.Size};
     font-weight: ${MOBILE_HEADING3.Weight};
@@ -84,10 +90,10 @@ export const ProductName = styled.h3`
 `;
 
 export const ProductCost = styled.span`
-  color: ${COLORS.COLOR_ACCENT};
   font-size: ${DESKTOP_HEADING4.Size};
   font-weight: ${DESKTOP_HEADING4.Weight};
   line-height: ${DESKTOP_HEADING4.LineHeight};
+  color: ${COLORS.COLOR_ACCENT};
 
   @media (max-width: 768px) {
     font-size: ${MOBILE_BODY_SMALL.Size};

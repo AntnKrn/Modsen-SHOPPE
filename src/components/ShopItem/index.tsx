@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import { Busket } from '../../assets/icons/busket';
 import { Eye } from '../../assets/icons/eye';
 import { Heart } from '../../assets/icons/heart';
-import { IProduct } from '../../interfaces/IProducts';
 import { useAddToBusketMutation } from '../../store/api/busket/busket';
 import { RootState } from '../../store/store';
+import { productType } from '../../types/product';
 
 import {
   ProductCost,
@@ -18,7 +18,7 @@ import {
   ShopItemWrapper,
 } from './index.styled';
 
-export const ShopItem = (product: IProduct) => {
+export const ShopItem = (product: productType) => {
   const uuid = useSelector((state: RootState) => state.auth.uuid);
   const [updateBusket] = useAddToBusketMutation();
 

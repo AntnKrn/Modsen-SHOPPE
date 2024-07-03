@@ -6,7 +6,7 @@ import Instagram from '../../assets/icons/socialMedia/svg/instagram.svg';
 import LinkedIn from '../../assets/icons/socialMedia/svg/linkedin.svg';
 import Twitter from '../../assets/icons/socialMedia/svg/twitter.svg';
 import { paths } from '../../constants/paths';
-import { IFormInputs } from '../../interfaces/IForm';
+import { formInputsType } from '../../types/form';
 import { Divider } from '../Divider';
 import { Form } from '../Form';
 
@@ -23,11 +23,11 @@ import {
 } from './index.styled';
 import { validationInitForm, validationSchema } from './validationSchema';
 
-const inputs: IFormInputs[] = [
-  { placeholder: 'Give an email, get the newsletter.', name: 'email' },
-];
-
 export const Footer = () => {
+  const inputs: formInputsType[] = [
+    { placeholder: 'Give an email, get the newsletter.', name: 'email' },
+  ];
+
   return (
     <FooterWrapper>
       <Divider />

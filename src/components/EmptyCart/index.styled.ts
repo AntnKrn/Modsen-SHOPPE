@@ -7,8 +7,8 @@ import {
 } from '../../constants/styles/fonts';
 
 export const EmptyCartWrapper = styled.div`
-  margin: 0 auto;
   text-align: center;
+  margin: 0 auto;
 `;
 
 export const EmptyCartText = styled.h1`
@@ -20,16 +20,17 @@ export const EmptyCartText = styled.h1`
 export const GoShopButton = styled(Link)`
   display: inline-block;
   margin-top: 150px;
+  background-color: var(--bg-color);
   border: 1px solid var(--text-color);
   border-radius: 4px;
   color: var(--text-color);
-  background-color: var(--bg-color);
-  transition: 1s;
   font-size: ${DESKTOP_HEADING3.Size};
   font-weight: ${DESKTOP_HEADING3.Weight};
   line-height: ${DESKTOP_HEADING3.LineHeight};
+  transition: 1s;
+
   &:hover {
-    color: var(--bg-color);
     background-color: var(--text-color);
+    color: var(--bg-color);
   }
 `;

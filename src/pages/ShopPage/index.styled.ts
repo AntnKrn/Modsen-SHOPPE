@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { resolution } from '../../constants/resolutions';
 
 export const CatalogContent = styled.div`
-  margin-top: 39px;
   display: flex;
   flex-direction: row;
   column-gap: 35px;
+  margin-top: 39px;
 
   @media (${resolution.laptop}) {
     flex-direction: column;

@@ -1,4 +1,4 @@
-export interface IProductInfoProps {
+export type productType = {
   id: number;
   title: string;
   image: string;
@@ -9,4 +9,4 @@ export interface IProductInfoProps {
     count: number;
   };
   category: string;
-}
+};

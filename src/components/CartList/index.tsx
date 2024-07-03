@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { IBusketProdut } from '../../interfaces/IBusket';
 import {
   useClearCartMutation,
   useGetBusketQuery,
 } from '../../store/api/busket/busket';
 import { RootState } from '../../store/store';
+import { busketProdutType } from '../../types/busket';
 import { CartItem } from '../CartItem';
 import { EmptyCart } from '../EmptyCart';
 import { Loader } from '../Loader/index.styled';
@@ -28,7 +28,7 @@ export const CartList = () => {
     return (
       <>
         <>
-          {data.map((item: IBusketProdut) => (
+          {data.map((item: busketProdutType) => (
             <CartItem {...item} key={item.image} />
           ))}
         </>

@@ -16,20 +16,22 @@ export const CloseMenuWrapper = styled.div`
     display: block;
   }
 `;
+
 export const StyledCloseMenu = styled(CloseMenu)``;
 
 export const CatalogFilterWrapper = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   @media (${resolution.laptop}) {
     display: ${(props) => (props.$isOpen ? 'flex' : `none`)};
-    top: 0;
+    justify-content: center;
     position: fixed;
     z-index: 3;
+    top: 0;
     background-color: var(--bg-color);
     height: 100vh;
-    justify-content: center;
 
     & > div:nth-child(1) {
       display: none;
@@ -43,16 +45,17 @@ export const FilterSVG = styled(Filter)`
 
 export const MobileFilterWrapper = styled.div`
   display: none;
-  color: ${COLORS.COLOR_ACCENT};
   align-items: center;
   gap: 8px;
   margin: 16px 0px;
+  color: ${COLORS.COLOR_ACCENT};
 
   span {
     font-size: ${MOBILE_BODY_SMALL.Size};
     font-weight: ${MOBILE_BODY_SMALL.Weight};
     line-height: ${MOBILE_BODY_SMALL.LineHeight};
   }
+
   @media (${resolution.laptop}) {
     display: flex;
     align-items: center;
@@ -60,31 +63,32 @@ export const MobileFilterWrapper = styled.div`
 `;
 
 export const PriceInputWrapper = styled.div`
-  width: 100%;
   position: relative;
+  width: 100%;
 `;
 
 export const PriceProgress = styled.div`
   height: 0px;
   border: 0.5px solid black;
 `;
+
 export const PriceInput = styled.input`
+  position: absolute;
   width: 100%;
   height: 1px;
-  position: absolute;
   pointer-events: none;
+
   &:nth-of-type(1) {
     transform: rotate(180deg);
     appearance: none;
   }
+
   &::-webkit-slider-thumb {
     pointer-events: auto;
-    background-color: blue;
   }
 
   &::-moz-range-thumb {
     pointer-events: auto;
-    background-color: blue;
   }
 `;
 

@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { Form } from '../../components/Form';
-import { IFormInputs } from '../../interfaces/IForm';
+import { formInputsType } from '../../types/form';
 
 import { FormWrapper } from './index.styled';
 import { schema } from './schema';
 import { initForm } from './schema';
 
 export const ContactPage = () => {
-  const inputs: IFormInputs[] = [
+  const inputs: formInputsType[] = [
     {
       placeholder: 'Firstname',
       name: 'firstname',

@@ -8,11 +8,9 @@ import { RootState } from '../../store/store';
 import { SearchInputWrapper, StyledInput, StyledSearch } from './index.styled';
 
 export const SearchInput = () => {
-  const searchedText = useSelector((state: RootState) => state.search.text);
-
-  const [searchText, setSearchText] = useState(searchedText);
-
   const dispatch = useDispatch();
+  const searchedText = useSelector((state: RootState) => state.search.text);
+  const [searchText, setSearchText] = useState(searchedText);
   const debouncedSearch = useDebounce(searchText);
 
   const onChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {

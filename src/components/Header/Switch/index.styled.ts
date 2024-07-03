@@ -14,22 +14,22 @@ export const Switch = styled.div`
   width: 45px;
   height: 21px;
   background: #78788029;
+  border: 0.5px solid #0000000a;
   border-radius: 99px;
   transition: 0.4s;
-  border: 0.5px solid #0000000a;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
 
   &:before {
-    transition: 0.4s;
-    content: '';
     position: absolute;
+    top: 0.5px;
+    left: 1px;
     width: 20px;
     height: 18px;
     border-radius: 99px;
     background: ${COLORS.COLOR_WHITE};
-    top: 0.5px;
-    left: 1px;
     transform: translate(0, 0.5px);
+    transition: 0.4s;
+    content: '';
   }
 `;
 

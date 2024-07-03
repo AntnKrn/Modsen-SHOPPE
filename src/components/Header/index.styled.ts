@@ -13,19 +13,19 @@ import {
 import { COLORS } from '../../constants/styles/mainColors';
 
 export const StyledHeader = styled.header<{ $Open?: boolean }>`
-  margin: 0 -15px;
-  padding: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  align-content: flex-start;
   position: ${(props) => (props.$Open ? 'fixed' : 'relative')};
   z-index: 2;
   background-color: var(--bg-color);
   height: ${(props) => (props.$Open ? '100vh' : 'auto')};
   width: ${(props) => (props.$Open ? '100vw' : 'auto')};
-  align-content: flex-start;
+  margin: 0 -15px;
+  padding: 15px;
 `;
 
 export const LogoText = styled.span`
@@ -34,8 +34,9 @@ export const LogoText = styled.span`
   font-size: 35px;
   font-weight: 400;
   line-height: 40.5px;
-  cursor: pointer;
   color: var(--text-color);
+  cursor: pointer;
+
   & > span {
     color: ${COLORS.COLOR_ACCENT};
   }
@@ -48,6 +49,7 @@ export const ListItem = styled.li<{ $MarginLeft?: number }>`
   font-weight: ${DESKTOP_HEADING5.Weight};
   line-height: ${DESKTOP_HEADING5.LineHeight};
   cursor: pointer;
+
   &:nth-of-type(2n) {
     display: none;
   }
@@ -56,9 +58,11 @@ export const ListItem = styled.li<{ $MarginLeft?: number }>`
     font-size: ${MOBILE_HEADING1.Size};
     font-weight: ${MOBILE_HEADING1.Weight};
     line-height: ${MOBILE_HEADING1.LineHeight};
+
     &:nth-of-type(2n) {
       display: inline-block;
     }
+
     &:nth-of-type(2n + 1) {
       display: none;
     }
@@ -117,6 +121,7 @@ export const List = styled.ul`
 
 export const StyledNav = styled.nav`
   align-content: center;
+
   @media (${resolution.laptop}) {
     order: 3;
     margin-top: 39px;
@@ -124,8 +129,9 @@ export const StyledNav = styled.nav`
 `;
 
 export const SearchInputWrapper = styled.div`
-  width: 100%;
   display: none;
+  width: 100%;
+
   @media (${resolution.laptop}) {
     display: block;
   }

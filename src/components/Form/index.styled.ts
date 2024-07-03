@@ -10,12 +10,13 @@ import {
 } from '../../constants/styles/fonts';
 
 export const ContainerContactUs = styled.div`
-  max-width: 561px;
-  height: 134px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   justify-content: space-between;
+  max-width: 561px;
+  height: 134px;
+  margin: 0 auto;
+
   @media (${resolution.desktop}) {
     height: initial;
     margin: 0 0 69px;
@@ -28,10 +29,10 @@ export const Title = styled.h1`
   line-height: ${DESKTOP_HEADING1.LineHeight};
 
   @media (${resolution.desktop}) {
+    text-align: left;
     font-size: ${MOBILE_HEADING1.Size};
     font-weight: ${MOBILE_HEADING1.Weight};
     line-height: ${MOBILE_HEADING1.LineHeight};
-    text-align: left;
   }
 `;
 
@@ -46,15 +47,15 @@ export const Description = styled.h3`
 `;
 
 export const SendButton = styled.input`
+  background-color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
   width: 500px;
   height: 51px;
-  background-color: var(--text-color);
   color: var(--bg-color);
   font-size: ${DESKTOP_BODY_LARGE.Size};
   font-weight: ${DESKTOP_BODY_LARGE.Weight};
   line-height: ${DESKTOP_BODY_LARGE.LineHeight};
-  border: 1px solid var(--text-color);
-  border-radius: 4px;
   cursor: pointer;
   transition: 1s;
 
@@ -65,11 +66,11 @@ export const SendButton = styled.input`
   }
 
   @media (${resolution.desktop}) {
+    width: 288px;
+    height: 32px;
+    margin-top: 28px;
     font-size: ${MOBILE_BODY_SMALL.Size};
     font-weight: ${MOBILE_BODY_SMALL.Weight};
     line-height: ${MOBILE_BODY_SMALL.LineHeight};
-    margin-top: 28px;
-    width: 288px;
-    height: 32px;
   }
 `;

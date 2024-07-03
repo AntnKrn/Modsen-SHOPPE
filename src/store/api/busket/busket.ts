@@ -8,15 +8,15 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 
-import { IBusketProdut } from '../../../interfaces/IBusket';
 import { db } from '../../../services/firebaseConfig';
+import { busketProdutType } from '../../../types/busket';
 
 export const busketApi = createApi({
   reducerPath: 'busketApi',
   baseQuery: fakeBaseQuery(),
   tagTypes: ['Products'],
   endpoints: (build) => ({
-    getBusket: build.query<IBusketProdut[], string>({
+    getBusket: build.query<busketProdutType[], string>({
       queryFn: async (uuid) => {
         console.log(uuid);
         try {

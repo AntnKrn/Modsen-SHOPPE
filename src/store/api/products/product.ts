@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { IProduct } from '../../../interfaces/IProducts';
+import { productType } from '../../../types/product';
 
 export const productApi = createApi({
   reducerPath: 'productApi',
@@ -8,19 +8,19 @@ export const productApi = createApi({
     baseUrl: 'https://fakestoreapi.com/',
   }),
   endpoints: (builder) => ({
-    getProducts: builder.query<IProduct[], string>({
+    getProducts: builder.query<productType[], string>({
       query: () => `/products`,
     }),
-    getProduct: builder.query<IProduct, number>({
+    getProduct: builder.query<productType, number>({
       query: (id: number) => `/products/${id}`,
     }),
-    getProductsByCategory: builder.query<IProduct[], string>({
+    getProductsByCategory: builder.query<productType[], string>({
       query: (category: string) => `/products/category/${category}`,
     }),
     getCategories: builder.query<string[], null>({
       query: () => `/products/categories`,
     }),
-    getProductsByLimit: builder.query<IProduct[], number>({
+    getProductsByLimit: builder.query<productType[], number>({
       query: (limit: number) => `/products?limit=${limit}`,
     }),
   }),

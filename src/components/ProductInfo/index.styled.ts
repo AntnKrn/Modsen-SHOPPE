@@ -11,28 +11,28 @@ import {
 import { COLORS } from '../../constants/styles/mainColors';
 
 export const ProductInfoText = styled.div`
-  margin-left: 62px;
+  position: relative;
   width: 100%;
   height: inherit;
-  position: relative;
+  margin-left: 62px;
 `;
 
 export const ProductRating = styled.div`
-  width: inherit;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  width: inherit;
 `;
 
 export const ViewMore = styled.p`
   display: none;
   text-align: left;
   margin-top: 6px;
-  color: ${COLORS.COLOR_ACCENT};
   font-weight: ${MOBILE_HEADING2.Weight};
   font-size: ${MOBILE_HEADING2.Size};
   line-height: ${MOBILE_HEADING2.LineHeight};
+  color: ${COLORS.COLOR_ACCENT};
   cursor: pointer;
 
   @media (${resolution.laptop}) {
@@ -41,11 +41,12 @@ export const ViewMore = styled.p`
 `;
 
 export const ProductTextInfo = styled.h6`
+  display: inline-block;
   font-size: ${DESKTOP_HEADING5.Size};
   font-weight: ${DESKTOP_HEADING5.Weight};
   line-height: ${DESKTOP_HEADING5.LineHeight};
-  display: inline-block;
   color: rgba(112, 112, 112, 1);
+
   span {
     display: none;
   }
@@ -79,23 +80,24 @@ export const ProductName = styled.h1`
 `;
 
 export const ProductPrice = styled.h4`
+  margin-top: 25px;
   font-size: ${DESKTOP_HEADING4.Size};
   font-weight: ${DESKTOP_HEADING4.Weight};
   line-height: ${DESKTOP_HEADING4.LineHeight};
   color: ${COLORS.COLOR_ACCENT};
-  margin-top: 25px;
 
   @media (${resolution.laptop}) {
+    margin-top: 5px;
     font-size: ${MOBILE_HEADING2.Size};
     font-weight: ${MOBILE_HEADING2.Weight};
     line-height: ${MOBILE_HEADING2.LineHeight};
-    margin-top: 5px;
   }
 `;
 
 export const DesktopProductInfo = styled.div`
   display: flex;
   flex-direction: row;
+
   @media (${resolution.laptop}) {
     display: none;
   }

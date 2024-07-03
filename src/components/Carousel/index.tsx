@@ -1,7 +1,7 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { IProduct } from '../../interfaces/IProducts';
+import { productType } from '../../types/product';
 
 import {
   ButtonWrapper,
@@ -14,11 +14,11 @@ import {
 } from './index.styled';
 
 interface ICarouselProps {
-  products: IProduct[];
+  products: productType[];
 }
 export const Carousel = ({ products }: ICarouselProps) => {
   const imagesUrls: string[] = [];
-  products.map((item: IProduct) => imagesUrls.push(item.image));
+  products.map((item: productType) => imagesUrls.push(item.image));
   const [imageIndex, setImageIndex] = useState(0);
   const ref: MutableRefObject<Element> = useRef<Element | null>(null);
   const onClickButton = (
@@ -64,7 +64,7 @@ export const Carousel = ({ products }: ICarouselProps) => {
   });
 
   return (
-    <div>
+    <>
       <OnCarouselProductInfo>
         <ProductNameOnCarousel>
           {products[imageIndex].title}
@@ -87,6 +87,6 @@ export const Carousel = ({ products }: ICarouselProps) => {
           />
         ))}
       </ButtonWrapper>
-    </div>
+    </>
   );
 };

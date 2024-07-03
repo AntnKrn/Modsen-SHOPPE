@@ -8,26 +8,21 @@ import {
   OptionWrapper,
   TextAndSVGWrapper,
 } from './index.styled';
-
-interface IChooserProps {
-  chooserText: string;
-  options: string[];
-  onClick(option: string): void;
-  state: string;
-}
+import { chooserProps } from './types';
 
 export const Chooser = ({
   chooserText,
   options,
   onClick,
   state,
-}: IChooserProps) => {
+}: chooserProps) => {
   const [chosenText, setChosenText] = useState<string>(state);
 
   const handleOptionClick = (option: string) => {
     onClick(option);
     setChosenText(option);
   };
+
   return (
     <ChooserWrapper>
       <TextAndSVGWrapper>

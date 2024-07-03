@@ -13,6 +13,7 @@ export const Switcher = () => {
     setIsDark(e.target.checked);
     dispatch(change());
   };
+
   return (
     <Label>
       <Input checked={isDark} type="checkbox" onChange={handleSwitchChange} />

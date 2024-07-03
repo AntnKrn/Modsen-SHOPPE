@@ -10,23 +10,25 @@ import {
 } from '../../constants/styles/fonts';
 
 export const ErrorWrapper = styled.section`
-  width: 436px;
-  height: 247px;
-  margin: auto auto;
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
+  width: 436px;
+  height: 247px;
+  margin: auto auto;
 
   @media (${resolution.laptop}) {
     width: 163px;
     height: 136px;
+
     span,
     button {
       font-size: ${MOBILE_BODY_SMALL.Size};
       font-weight: ${MOBILE_BODY_SMALL.Weight};
       line-height: ${MOBILE_BODY_SMALL.LineHeight};
     }
+
     h2 {
       font-size: ${MOBILE_HEADING1.Size};
       font-weight: ${MOBILE_HEADING1.Weight};
@@ -49,14 +51,14 @@ export const ErrorDescription = styled.span`
 `;
 
 export const HomeButton = styled.button`
-  border: 1px solid rgba(0, 0, 0, 1);
-  border-radius: 4px;
   width: 187px;
   height: 53px;
   font-size: ${DESKTOP_BODY_LARGE.Size};
   font-weight: ${DESKTOP_BODY_LARGE.Weight};
   line-height: ${DESKTOP_BODY_LARGE.LineHeight};
   color: var(--tx-color);
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 4px;
   cursor: pointer;
 
   @media (${resolution.laptop}) {

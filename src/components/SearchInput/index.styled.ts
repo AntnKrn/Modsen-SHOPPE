@@ -10,39 +10,40 @@ import { COLORS } from '../../constants/styles/mainColors';
 
 export const StyledSearch = styled(Search)`
   position: absolute;
-  width: 19px;
-  height: 19px;
   right: 0;
   top: 0;
+  width: 19px;
+  height: 19px;
   fill: var(--text-color);
 
   @media (${resolution.laptop}) {
     position: absolute;
-    width: 12px;
-    height: 12px;
     left: 10px;
     top: 10px;
+    width: 12px;
+    height: 12px;
   }
 `;
 
 export const StyledInput = styled.input`
   width: 100%;
-  border: none;
-  border-bottom: 1px solid var(--text-color);
   font-size: ${DESKTOP_HEADING5.Size};
   font-weight: ${DESKTOP_HEADING5.Weight};
   line-height: ${DESKTOP_HEADING5.LineHeight};
+  border: none;
+  border-bottom: 1px solid var(--text-color);
   outline: none;
 
   @media (${resolution.laptop}) {
     height: 32px;
-    border: none;
-    color: ${COLORS.COLOR_DARK_GRAY};
-    background-color: ${COLORS.COLOR_LIGHT_GRAY};
+    padding: 10px 30px 10px;
     font-weight: ${MOBILE_HEADING3.Weight};
     font-size: ${MOBILE_HEADING3.Size};
+    line-height: ${MOBILE_HEADING3.LineHeight};
+    color: ${COLORS.COLOR_DARK_GRAY};
+    border: none;
     border-radius: 4px;
-    padding: 10px 30px 10px;
+    background-color: ${COLORS.COLOR_LIGHT_GRAY};
   }
 `;
 

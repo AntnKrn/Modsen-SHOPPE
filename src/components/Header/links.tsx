@@ -5,14 +5,14 @@ import { paths } from '../../constants/paths';
 import { CartSvg, ProfileSvg, SearchSvg } from './index.styled';
 import { Switcher } from './Switch';
 
-export interface ILink {
+export type linkType = {
   id: number;
   element: string | ReactElement;
   link?: string;
   marginLeft?: number;
-}
+};
 
-export const links: ILink[] = [
+export const links: linkType[] = [
   { id: 1, element: '' },
   { id: 2, element: 'Home', link: paths.main, marginLeft: 0 },
   { id: 3, element: 'Shop', link: paths.shop, marginLeft: 0 },

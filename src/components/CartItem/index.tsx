@@ -16,17 +16,16 @@ import {
   CartItemWrapper,
   QunatityWrapper,
 } from './index.styled';
+import { cartItemProps } from './types';
 
-interface ICartItem {
-  id: number;
-  image: string;
-  title: string;
-  price: number;
-  quantity: number;
-}
-export const CartItem = ({ image, title, price, quantity, id }: ICartItem) => {
+export const CartItem = ({
+  image,
+  title,
+  price,
+  quantity,
+  id,
+}: cartItemProps) => {
   const uuid = useSelector((state: RootState) => state.auth.uuid);
-
   const [deleteProduct] = useDeleteFromBusketMutation();
   const [updateProduct] = useUpdateBusketMutation();
 
@@ -44,6 +43,7 @@ export const CartItem = ({ image, title, price, quantity, id }: ICartItem) => {
   const onClickDelete = () => {
     deleteProduct({ uuid: uuid, id: id });
   };
+
   return (
     <CartItemWrapper>
       <CartItemContainer>

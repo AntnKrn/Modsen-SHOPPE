@@ -16,7 +16,7 @@ import {
   StyledHeader,
   StyledNav,
 } from './index.styled';
-import { ILink, links } from './links';
+import { links, linkType } from './links';
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -34,6 +34,7 @@ export const Header = () => {
   const handleClickMenu = (path: string) => {
     navigate(path);
   };
+
   return (
     <StyledHeader $Open={isMobileMenuOpen}>
       <LogoText onClick={() => navigate(paths.main)}>
@@ -50,7 +51,7 @@ export const Header = () => {
 
       <StyledNav>
         <List ref={listRef}>
-          {links.map((item: ILink) => (
+          {links.map((item: linkType) => (
             <ListItem
               key={item.id}
               $MarginLeft={item?.marginLeft}

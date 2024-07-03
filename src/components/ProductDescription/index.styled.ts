@@ -13,35 +13,38 @@ export const ProductDescriptionWrapper = styled.div`
 
   @media (${resolution.laptop}) {
     margin-top: 15px;
+    padding: 18px 0 18px;
     border-top: 1px solid ${COLORS.COLOR_LIGHT_GRAY};
     border-bottom: 1px solid ${COLORS.COLOR_LIGHT_GRAY};
-
-    padding: 18px 0 18px;
   }
 `;
+
 export const DesctiptionTextHeader = styled.h1`
+  margin-bottom: 34px;
   font-size: ${DESKTOP_HEADING3.Size};
   font-weight: ${DESKTOP_HEADING3.Weight};
   line-height: ${DESKTOP_HEADING3.LineHeight};
-  margin-bottom: 34px;
+
   span {
     display: none;
-    rotate: -90deg;
     position: absolute;
     right: 18px;
+    rotate: -90deg;
     cursor: pointer;
   }
+
   p {
     display: none;
     color: ${COLORS.COLOR_GRAY};
   }
 
   @media (${resolution.laptop}) {
-    margin-bottom: 0;
     text-align: left;
+    margin-bottom: 0;
     font-size: ${MOBILE_HEADING2.Size};
     font-weight: ${MOBILE_HEADING2.Weight};
     line-height: ${MOBILE_HEADING2.LineHeight};
+
     &::text-align-last {
       text-align: right;
     }
@@ -53,12 +56,12 @@ export const DesctiptionTextHeader = styled.h1`
 `;
 
 export const DesctiptionText = styled.span`
-  margin-top: 39px;
   display: block;
-  color: rgba(112, 112, 112, 1);
+  margin-top: 39px;
   font-size: ${DESKTOP_HEADING5.Size};
   font-weight: ${DESKTOP_HEADING5.Weight};
   line-height: ${DESKTOP_HEADING5.LineHeight};
+  color: rgba(112, 112, 112, 1);
 
   @media (${resolution.laptop}) {
     display: none;

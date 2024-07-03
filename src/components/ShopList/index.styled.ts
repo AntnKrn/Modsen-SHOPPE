@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { resolution } from '../../constants/resolutions';
 
 export const ShopListWrapper = styled.div`
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 380px);
-  margin: 0 auto;
   justify-content: space-between;
   column-gap: 4%;
   row-gap: 86px;
+  width: 100%;
+  margin: 0 auto;
   margin-bottom: 252px;
 
   @media (${resolution.laptop}) {

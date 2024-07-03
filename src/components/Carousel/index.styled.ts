@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 
+import { resolution } from '../../constants/resolutions';
 import {
   DESKTOP_BODY_MEDIUM,
   DESKTOP_HEADING4,
 } from '../../constants/styles/fonts';
 
 export const ImgSlider = styled.img`
+  display: block;
   object-fit: contain;
   width: 100%;
-  display: block;
-  border-radius: 16px;
   height: 646px;
-  @media (max-width: 768px) {
+  border-radius: 16px;
+
+  @media (${resolution.laptop}) {
     height: 354px;
   }
 `;
@@ -27,20 +29,20 @@ export const ButtonWrapper = styled.div`
   right: 0;
   margin: 0 auto 26.29px;
 
-  @media (max-width: 768px) {
+  @media (${resolution.laptop}) {
     margin-bottom: 8px;
   }
 `;
 
 export const ImgSliderButton = styled.button<{ $number?: number }>`
-  cursor: pointer;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  border: none;
   height: 9.14px;
   width: 9.14px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 1);
-  border: none;
   transform: scale(1);
   transition: all 0.7s ease;
+  cursor: pointer;
 
   &:hover {
     border: 1px solid rgba(255, 255, 255, 1);
@@ -48,6 +50,7 @@ export const ImgSliderButton = styled.button<{ $number?: number }>`
     transition: all 0.5s ease;
     background-color: rgba(28, 28, 28, 0);
   }
+
   &.active {
     border: 1px solid rgba(255, 255, 255, 1);
     transform: scale(1.75);
@@ -58,13 +61,13 @@ export const ImgSliderButton = styled.button<{ $number?: number }>`
 
 export const OnCarouselProductInfo = styled.div`
   display: flex;
-  position: absolute;
   flex-direction: column;
+  position: absolute;
   gap: 10px;
   left: 20px;
   bottom: 50px;
 
-  @media (max-width: 768px) {
+  @media (${resolution.laptop}) {
     bottom: 26px;
     left: 8px;
   }
@@ -85,12 +88,12 @@ export const ProductCostOnCarousel = styled.p`
 `;
 
 export const ProductLinkOnCarousel = styled.p`
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
+  width: 103px;
+  padding: 7px;
   font-size: ${DESKTOP_BODY_MEDIUM.Size};
   font-weight: ${DESKTOP_BODY_MEDIUM.Weight};
   line-height: ${DESKTOP_BODY_MEDIUM.LineHeight};
-  border: 1px solid var(--text-color);
   color: var(--text-color);
-  border-radius: 4px;
-  padding: 7px;
-  width: 103px;
 `;

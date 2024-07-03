@@ -17,25 +17,19 @@ import {
   CloseMenuWrapper,
   StyledCloseMenu,
 } from './index.styled';
-
-interface ICatalogFilter {
-  isFilterOpen: boolean;
-  handleClose(): void;
-}
+import { catalogFilterProps } from './types';
 
 export const CatalogFilter = ({
   isFilterOpen,
   handleClose,
-}: ICatalogFilter) => {
+}: catalogFilterProps) => {
   const sortByOptions = ['Ascending', 'Descending'];
   const filter = useSelector((state: RootState) => state.filter.filter);
   const sortBy = useSelector((state: RootState) => state.search.sort);
   const filteredByPrice = useSelector(
     (state: RootState) => state.search.priceRange,
   );
-
   const { data, isLoading } = useGetCategoriesQuery(null);
-
   const dispatch = useDispatch();
 
   const onClickShopBy = (option: string) => {

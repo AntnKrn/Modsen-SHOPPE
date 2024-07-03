@@ -15,10 +15,11 @@ export const ImgSectorContainer = styled.div`
 
 export const ImgSectorItem = styled.img`
   display: block;
-  width: 100%;
   object-fit: contain;
+  width: 100%;
   height: 100%;
   border-radius: 8px;
+
   &:first-child {
     grid-row: 1/5;
     grid-column: 2/6;
